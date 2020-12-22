@@ -1,0 +1,957 @@
+#instaCalendar {
+    position: relative;
+}
+
+#instaCalendar div,
+#instaCalendar span,
+#instaCalendar applet,
+#instaCalendar object,
+#instaCalendar iframe,
+#instaCalendar h1,
+#instaCalendar h2,
+#instaCalendar h3,
+#instaCalendar h4,
+#instaCalendar h5,
+#instaCalendar h6,
+#instaCalendar p,
+#instaCalendar blockquote,
+#instaCalendar pre,
+#instaCalendar a,
+#instaCalendar abbr,
+#instaCalendar acronym,
+#instaCalendar address,
+#instaCalendar big,
+#instaCalendar cite,
+#instaCalendar code,
+#instaCalendar del,
+#instaCalendar dfn,
+#instaCalendar em,
+#instaCalendar img,
+#instaCalendar ins,
+#instaCalendar kbd,
+#instaCalendar q,
+#instaCalendar s,
+#instaCalendar samp,
+#instaCalendar small,
+#instaCalendar strike,
+#instaCalendar strong,
+#instaCalendar sub,
+#instaCalendar sup,
+#instaCalendar tt,
+#instaCalendar var,
+#instaCalendar b,
+#instaCalendar u,
+#instaCalendar i,
+#instaCalendar center,
+#instaCalendar dl,
+#instaCalendar dt,
+#instaCalendar dd,
+#instaCalendar ol,
+#instaCalendar ul,
+#instaCalendar li,
+#instaCalendar fieldset,
+#instaCalendar form,
+#instaCalendar label,
+#instaCalendar legend,
+#instaCalendar .ic-table,
+#instaCalendar caption,
+#instaCalendar .ic-tbody,
+#instaCalendar .ic-tfoot,
+#instaCalendar .ic-thead,
+#instaCalendar .ic-tr,
+#instaCalendar .ic-th,
+#instaCalendar .ic-td,
+#instaCalendar article,
+#instaCalendar aside,
+#instaCalendar canvas,
+#instaCalendar details,
+#instaCalendar embed,
+#instaCalendar figure,
+#instaCalendar figcaption,
+#instaCalendar footer,
+#instaCalendar header,
+#instaCalendar hgroup,
+#instaCalendar menu,
+#instaCalendar nav,
+#instaCalendar output,
+#instaCalendar ruby,
+#instaCalendar section,
+#instaCalendar summary,
+#instaCalendar time,
+#instaCalendar mark,
+#instaCalendar audio,
+#instaCalendar video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    /*font-size: 100%;
+    font: inherit;*/
+    vertical-align: baseline;
+    transition: none;
+}
+
+/* HTML5 display-role reset for older browsers */
+#instaCalendar article,
+#instaCalendar aside,
+#instaCalendar details,
+#instaCalendar figcaption,
+#instaCalendar figure,
+#instaCalendar footer,
+#instaCalendar header,
+#instaCalendar hgroup,
+#instaCalendar menu,
+#instaCalendar nav,
+#instaCalendar section {
+    display: block;
+}
+
+#instaCalendar ol,
+#instaCalendar ul {
+    list-style: none;
+}
+
+#instaCalendar blockquote,
+#instaCalendar q {
+    quotes: none;
+}
+
+#instaCalendar blockquote:before,
+#instaCalendar blockquote:after,
+#instaCalendar q:before,
+#instaCalendar q:after {
+    content: '';
+    content: none;
+}
+
+#instaCalendar .ic-table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+#instaCalendar {
+    background-color: #fff;
+    background-color: var(--primaryColor);
+    color: #f8f8f8;
+    color: var(--primaryTextColor);
+    overflow: hidden;
+    min-height: 400px;
+}
+
+#instaCalendar .ic-ell,
+#instaCalendar a {
+    color: var(--primaryTextColor);
+    border-color: transparent;
+}
+
+#instaCalendar .ic-ell:hover,
+#instaCalendar .ic-ell:hover .ic-ell,
+#instaCalendar .active .ic-ell,
+#instaCalendar .choosed .ic-ell,
+#instaCalendar a:hover {
+    color: var(--secondaryTextColor);
+    border-color: var(--secondaryTextColor);
+}
+
+#instaCalendar .insta_table {
+    display: table;
+}
+
+#instaCalendar .insta_table-tr {
+    display: table-row;
+}
+
+#instaCalendar .insta_table-td {
+    display: table-cell;
+}
+
+#instaCalendar .ic-calendar {
+    max-width: 900px;
+    margin: auto;
+}
+
+#instaCalendar .ic-calendar .ic-filters {
+    position: relative;
+}
+
+#instaCalendar .ic-calendar .ic-halls {
+    padding-right: 150px;
+}
+
+#instaCalendar .ic-calendar .ic-view {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+}
+
+#instaCalendar .ic-calendar .ic-filters ul {
+    display: block;
+    width: 100%;
+}
+
+#instaCalendar .ic-calendar .ic-filters ul li {
+    list-style: none;
+    display: block;
+    float: left;
+}
+
+#instaCalendar .ic-calendar .ic-filters ul li a.ic-filter-item {
+    padding: 2px 12px;
+    display: block;
+    border-bottom: 2px solid transparent;
+    font-size: var(--desktop_nav_filter_font);
+    text-transform: uppercase;
+    text-align: center;
+}
+
+#instaCalendar .ic-calendar .ic-filters ul li a.ic-filter-item span {
+    display: block;
+    min-height: 18px;
+    text-align: center;
+    font-size: 11px;
+    line-height: 16px;
+    margin-top: 0px;
+    border-top: 2px solid transparent;
+}
+
+#instaCalendar .ic-calendar .ic-filters ul li.active a.ic-filter-item,
+#instaCalendar .ic-calendar .ic-filters ul li.choosed a.ic-filter-item {
+    font-weight: bold;
+}
+
+#instaCalendar .ic-calendar .ic-filters .ic-row_2 ul li a.ic-filter-item {
+    border: none;
+}
+
+#instaCalendar .ic-calendar .ic-filters .ic-row_2 ul li a.ic-filter-item:hover {
+    border: none;
+}
+
+#instaCalendar .ic-calendar .ic-filters ul li a.ic-filter-item.active {
+
+}
+
+#instaCalendar .ic-calendar .ic-filters ul li.active a.ic-filter-item div {
+    border-color: #6c757d;
+}
+
+#instaCalendar .ic-row_2 {
+    clear: both;
+    padding-top: 10px;
+}
+
+#instaCalendar .ic-controls {
+    margin-top: 40px;
+    position: relative;
+    clear: both;
+    width: 100%;
+}
+
+#instaCalendar .ic-controls .ic-control {
+    position: absolute;
+    text-align: center;
+    font-size: 26px;
+    width: 36px;
+    height: 36px;
+    left: 15px;
+    top: calc(50% - 18px);
+    line-height: 36px;
+    cursor: pointer;
+    z-index: 10;
+}
+
+#instaCalendar .ic-control.ic-control_right {
+    right: 15px;
+    left: initial;
+}
+
+#instaCalendar .ic-control span {
+    color: #000;
+    font-size: 32px;
+    font-weight: bold;
+    line-height: 20px;
+}
+
+#instaCalendar .ic-controls .ic-control a {
+    display: block;
+    text-decoration: none;
+    width: 100%;
+    height: 100%;
+}
+
+#instaCalendar .ic-controls .ic-title_month {
+    width: 100%;
+    padding: 15px;
+    position: relative;
+    z-index: 9;
+    font-size: var(--desktop_date_font);
+    text-align: center;
+}
+
+#instaCalendar .ic-controls .ic-title_month a {
+    display: block;
+    height: 30px;
+    width: 150px;
+    margin: auto;
+    text-align: center;
+}
+
+
+#instaCalendar .ic-calendar .ic-for_events {
+    width: 100%;
+}
+
+#instaCalendar .ic-calendar .ic-for_events .ic-th {
+    text-align: center;
+    line-height: 48px;
+    font-size: var(--desktop_days_of_week_font);
+}
+
+#instaCalendar .ic-calendar .ic-for_events .ic-table {
+    table-layout: fixed;
+    width: 100%;
+}
+
+#instaCalendar .ic-calendar .ic-for_events .ic-table .ic-thead .ic-td {
+    padding: 10px;
+    text-align: center;
+}
+
+#instaCalendar .ic-calendar .ic-for_day {
+    background-color: var(--secondaryColor);
+    border: 2px solid var(--primaryColor);
+}
+
+#instaCalendar .ic-calendar .ic-for_day:hover,
+#instaCalendar .ic-calendar .ic-for_day.ic-day_today {
+    background-color: var(--primaryColor);
+}
+
+#instaCalendar .ic-calendar .ic-day {
+    padding: 2px;
+    cursor: pointer;
+    color: var(--primaryTextColor);
+    border: 2px solid transparent;
+}
+
+#instaCalendar .ic-calendar .ic-for_day:hover .ic-day,
+#instaCalendar .ic-calendar .ic-for_day.ic-day_today .ic-day {
+    border-color: var(--primaryTextColor);
+}
+
+#instaCalendar .ic-calendar .ic-day .ic-day_number {
+    font-size: var(--desktop_month_days_numbers_font);
+    margin: 0px 0 8px 0px;
+}
+
+#instaCalendar .ic-calendar .ic-day .ic-more {
+    display: none;
+}
+
+#instaCalendar .ic-calendar .ic-event {
+    font-size: 12px;
+    line-height: 12px;
+    margin-bottom: 3px;
+    padding: 2px;
+    color: black;
+}
+
+#instaCalendar .ic-calendar .ic-event:last-child {
+    margin-bottom: 0px;
+}
+
+#instaCalendar .ic-event .ic-duration {
+    font-size: var(--desktop_event_dur_seats_font);
+    padding-top: 5px;
+}
+
+#instaCalendar .ic-event .ic-seats,
+#instaCalendar .ic-event .ic-activity {
+    font-size: var(--desktop_event_dur_seats_font);
+    padding: 3px 0 2px;
+}
+
+#instaCalendar .ic-event .ic-title {
+    cursor: pointer;
+    position: relative;
+    font-weight: bold;
+    font-size: var(--desktop_event_title_time_font);
+}
+
+#instaCalendar .ic-event .ic-begin_time {
+    font-size: var(--desktop_event_title_time_font);
+}
+
+/*	dropdown
+********************/
+#instaCalendar .insta_dropdown {
+    position: relative;
+}
+
+#instaCalendar .insta_dropdown-title {
+
+}
+
+#instaCalendar .insta_dropdown-window {
+    position: absolute;
+    background: var(--primaryColor);
+    border: 1px solid var(--primaryTextColor);
+    top: 30px;
+    z-index: 9999;
+    padding: 3px 6px;
+    width: 200px;
+    -webkit-box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.3);
+    display: none;
+}
+
+#instaCalendar .insta_dropdown-window:after,
+#instaCalendar .insta_dropdown-window:before {
+    bottom: 100%;
+    left: 20px;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+}
+
+#instaCalendar .insta_dropdown-window:after {
+    border-color: rgba(241, 241, 241, 0);
+    border-bottom-color: #f1f1f1;
+    border-width: 8px;
+    margin-left: -8px;
+}
+
+#instaCalendar .insta_dropdown-window:before {
+    border-color: rgba(204, 204, 204, 0);
+    border-bottom-color: #ccc;
+    border-width: 9px;
+    margin-left: -9px;
+}
+
+#instaCalendar .insta_dropdown-content {
+    max-height: 150px;
+    overflow-y: auto;
+}
+
+
+/*	filter_1
+********************/
+#instaCalendar .insta_filter_1 {
+
+}
+
+#instaCalendar .insta_filter_1-item {
+    border-bottom: 1px solid #ccc;
+    padding: 3px 3px;
+    font-size: var(--desktop_filter_list_font);
+}
+
+#instaCalendar .insta_filter_1-item:last-child {
+    border: none !important;
+}
+
+#instaCalendar .insta_filter_1 .insta_table {
+    width: 100%;
+}
+
+#instaCalendar .insta_filter_1 .insta_table-td {
+    vertical-align: bottom;
+    padding: 0px;
+    margin: 0px;
+    line-height: 18px;
+}
+
+#instaCalendar .insta_filter_1 .insta_table-td:first-child {
+    width: 3px;
+    background-color: red;
+}
+
+#instaCalendar .insta_filter_1 .insta_table-td:last-child {
+    padding-left: 10px;
+}
+
+#instaCalendar .insta_filter_1 a:hover {
+    text-decoration: underline;
+}
+
+#instaCalendar .insta_filter_1 span {
+    color: #999;
+    font-size: 11px;
+    margin-left: 5px;
+}
+
+#instaCalendar.ic-loading{
+    pointer-events: none;
+}
+#instaCalendar.ic-loading .ic-loader{
+    width: 100%;
+    height: 100%;
+    background: #0003;
+    z-index: 99999;
+    display: block;
+    position: absolute;
+}
+#instaCalendar.ic-loading .ic-loader:after{
+    content: ' ';
+    border: 2px solid transparent;
+    border-top: 2px solid var(--primaryTextColor);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+    top: calc(50% - 25px);
+    left: calc(50% - 25px);
+    position: absolute;
+}
+
+
+#instaModal form {
+    margin: 0;
+    padding: 0;
+}
+
+#instaModal .ic-wrapper {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: #00000099;
+    z-index: 9999;
+}
+
+#instaModal .ic-modal {
+    position: absolute;
+    width: 360px;
+    background-color: var(--secondaryColor);
+    color: var(--primaryTextColor);
+    left: calc(50% - 180px);
+    top: 15%;
+    padding: 10px 15px 10px 15px;
+    overflow: hidden;
+    border-radius: 5px;
+}
+
+#instaModal .ic-modal-title {
+    font-size: 18px;
+    margin: 2px 0px 15px 0px;
+}
+
+#instaModal .ic-modal-title span {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    padding: 10px;
+    display: block;
+    width: auto;
+    height: auto;
+    font-size: 30px;
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+#instaModal .ic-modal-title span:hover {
+    opacity: 1;
+}
+
+#instaModal .ic-modal-content {
+    overflow-y: auto;
+    max-height: 230px;
+    margin-bottom: 10px;
+    font-size: 13px;
+    line-height: 16px;
+}
+
+#instaModal .ic-modal-content label {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+#instaModal .ic-modal-content input[type=text] {
+    width: 100%;
+    padding: 5px 10px;
+    border: 1px solid var(--primaryTextColor);
+    background: var(--secondaryColor);
+    color: var(--primaryTextColor);
+    font-size: 16px;
+    border-radius: 3px;
+    box-shadow: none;
+    opacity: 0.7;
+}
+#instaModal .ic-modal-content input[type=text]::placeholder{
+    color: var(--primaryTextColor);
+}
+#instaModal .ic-modal-content input[type=text]:focus {
+    opacity: 1;
+}
+
+#instaModal .ic-modal-content table {
+    background-color: inherit;
+    color: inherit;
+    margin: 0 0 20px 0;;
+}
+#instaModal .ic-modal-content table th,
+#instaModal .ic-modal-content table td {
+    background: inherit;
+    border: 1px solid var(--primaryTextColor);
+    color: inherit;
+    padding: 10px;
+}
+#instaModal .ic-visit {
+    padding: 10px 0;
+    position: relative;
+}
+
+#instaModal .ic-visit > div {
+    font-size: 12px;
+}
+
+#instaModal .ic-visit > div > span {
+    font-weight: bold;
+}
+
+#instaModal .ic-visit .ic-visit-title {
+    font-size: 14px;
+    font-weight: bold;
+    padding: 0px 80px 0px 0px;
+}
+
+#instaModal .ic-visit .ic-visit-cancel {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    opacity: 0.5;
+}
+
+#instaModal .ic-visit .ic-visit-cancel:hover {
+    opacity: 1;
+}
+
+label.ic-modal-button {
+    position: relative;
+}
+
+#instaModal .ic-modal-button input {
+    border: none;
+    background-color: var(--secondaryTextColor) !important;
+    color: var(--secondaryColor);
+    border-radius: 3px;
+    padding: 7px 12px;
+    width: 100%;
+    min-height: 42px;
+    box-shadow: none;
+    text-shadow: none;
+     opacity: 0.8;
+}
+
+#instaModal .ic-modal-button input:hover {
+    opacity: 1;
+}
+
+#instaModal .ic-modal-buttons .ic-modal-mess {
+    padding: 8px;
+    border: 2px solid var(--primaryTextColor);
+    font-weight: 600;
+    border-radius: 3px;
+}
+
+#instaModal.ic-loading{
+    pointer-events: none;
+}
+#instaModal.ic-loading .ic-loader input {
+    color: transparent;
+}
+#instaModal.ic-loading .ic-loader:after{
+    content: ' ';
+    border: 2px solid transparent;
+    border-top: 2px solid var(--primaryTextColor);
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    animation: spin 1s linear infinite;
+    top: calc(50% - 15px);
+    left: calc(50% - 15px);
+    position: absolute;
+}
+
+#instaModal label {
+    display: block;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+
+#instaModal .ic-modal-field-error {
+    color: red;
+    font-size: 12px;
+    position: absolute;
+    bottom: -18px;
+    left: 0;
+}
+
+#instaModal .ic-message-error {
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 18px;
+    color: red;
+}
+
+
+#instaModal label.ic-form-field-radio {
+    display: inline-block;
+    width: 48%;
+}
+
+#instaModal .ic-modal-buttons {
+    text-align: center;
+}
+
+#instaModal .ic-modal-buttons a {
+    color: var(--primaryTextColor);
+    padding: 15px 0 0 0;
+    display: block;
+    opacity: 0.8;
+}
+#instaModal .ic-modal-buttons a:hover{
+    opacity: 1;
+}
+
+#instaModal .ic-modal-user-panel {
+    margin-top: 10px;
+    padding: 10px 0 0 0;
+    text-align: center;
+}
+
+#instaModal .ic-modal-user-panel .ic-modal-user-button {
+    display: inline-block;
+    text-align: center;
+    padding: 5px;
+    width: 45%;
+    cursor: pointer;
+    opacity: 0.7;
+}
+
+#instaModal .ic-modal-user-panel .ic-modal-user-button.current {
+    font-weight: bold;
+    opacity: 0.9;
+}
+
+#instaModal .ic-modal-user-panel .ic-modal-user-button:hover {
+    opacity: 1;
+}
+
+#instaModal .ic-modal-user-panel .ic-modal-user-button:first-child,
+#instaModal .ic-modal-user-panel .ic-modal-user-button:last-child {
+    width: 25%;
+}
+
+#instaModal .ic-modal-user-panel .dashicons {
+    font-size: 26px;
+    width: 26px;
+}
+
+#instaModal .ic-modal-user-panel span:last-child {
+    display: block;
+    text-align: center;
+    font-size: 12px;
+}
+
+#instaModal .ic-table .ic-td,
+#instaModal .ic-table .ic-th {
+    margin: 0;
+    padding: 5px 10px 6px 10px;
+}
+
+
+#instaCalendar .ic-mobile {
+    display: none;
+}
+
+#instaCalendar .ic-desktop {
+    display: revert;
+}
+
+#instaCalendar .ic-table-week .ic-thead .ic-desktop {
+    text-align: center;
+    font-size: var(--desktop_days_of_week_font);
+}
+
+
+#instaCalendar .ic-table {
+    display: table;
+}
+
+#instaCalendar .ic-tr {
+    display: table-row;
+}
+
+#instaCalendar .ic-thead {
+    display: table-header-group;
+}
+
+#instaCalendar .ic-tbody {
+    display: table-row-group;
+}
+
+#instaCalendar .ic-tfoot {
+    display: table-footer-group;
+}
+
+#instaCalendar .ic-col {
+    display: table-column;
+}
+
+#instaCalendar .ic-colgroup {
+    display: table-column-group;
+}
+
+#instaCalendar .ic-td,
+#instaCalendar .ic-th {
+    display: table-cell
+}
+
+#instaCalendar .ic-caption {
+    display: table-caption
+}
+
+#instaCalendar .ic-table-week>.ic-thead>.ic-td {
+    text-align: center;
+}
+
+#instaCalendar .ic-table-week>.ic-events>.ic-tr:nth-child(2n)>.ic-td {
+    vertical-align: top;
+    background: var(--secondaryColor);
+    padding: 2px;
+    border-color: var(--primaryColor);
+    border-style: solid;
+    border-width: 0 2px 0px 0px;
+    height: 60px;
+}
+#instaCalendar .ic-table-week>.ic-events>.ic-tr:nth-child(2n)>.ic-td:first-child {
+    border-width: 0 2px 0px 2px;
+}
+
+#instaCalendar .ic-table-week>.ic-events>.ic-tr:nth-child(2n-1)>.ic-td {
+    text-align: left;
+    padding: 10px 0px 5px 15px;
+    font-size: var(--desktop_week_hours_font);
+}
+
+#instaCalendar .ic-table-week>.ic-events>.ic-tr.no-events>.ic-td {
+    display: table-cell;
+    padding: 10px;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    #instaCalendar .ic-mobile {
+        display: revert;
+    }
+
+    #instaCalendar .ic-desktop {
+        display: none;
+    }
+
+    #instaCalendar .ic-calendar .ic-halls {
+        padding-right: 0px;
+    }
+
+    #instaCalendar .ic-controls {
+        background: #000;
+        color: #fff;
+    }
+
+    #instaCalendar .ic-controls .ic-control {
+        opacity: 1;
+    }
+
+    #instaCalendar .ic-control span {
+        color: #fff;
+    }
+
+    #instaCalendar .ic-controls .ic-title_month {
+        color: #fff;
+    }
+
+    #instaCalendar .ic-table-week .ic-thead {
+        background: #000;
+    }
+
+    #instaCalendar .ic-table-week .ic-thead .ic-mobile {
+        background: #1B1A1F;
+        margin: 10px 0px 10px 10px;
+        padding: 10px;
+        text-align: center;
+        border: none;
+        color: #fff;
+    }
+
+    #instaCalendar .ic-table-week .ic-thead .ic-today .ic-mobile {
+        font-weight: bold;
+    }
+
+    #instaCalendar .ic-table-week .ic-thead .ic-td:last-child .ic-mobile {
+        margin: 10px;
+    }
+
+    #instaCalendar .ic-table-week .ic-thead .ic-td:first-child {
+        /*display: none;*/
+    }
+
+    #instaCalendar .ic-table-week .ic-events .ic-td {
+        display: none;
+        border: none;
+    }
+
+    #instaCalendar .ic-table-week .ic-events .ic-td.active {
+        display: table-cell;
+    }
+
+    #instaCalendar .ic-table-week .ic-events .ic-td.active.empty {
+        display: none;
+    }
+
+    #instaCalendar .ic-table-week .ic-thead .ic-td.active .ic-mobile {
+        color: #eae517;
+    }
+
+    #instaCalendar .ic-table-week .ic-events .ic-event {
+        padding: 10px;
+        border-bottom: 3px solid #1b1b1d;
+        background-color: #f1f1f1;
+    }
+
+    #instaCalendar .insta_dropdown-content {
+        max-height: 250px;
+    }
+
+    #instaCalendar .insta_filter_1-item {
+        padding: 10px 3px;
+    }
+
+    #instaCalendar .ic-table-week .ic-thead .ic-mobile {
+        margin: 1px 0px 1px 1px;
+    }
+
+    #instaCalendar .ic-table-week .ic-thead .ic-td:last-child .ic-mobile {
+        margin: 1px;
+    }
+
+    #instaCalendar .ic-table-week>.ic-events>.ic-tr:nth-child(2n-1)>.ic-td:first-child {
+        display: block;
+    }
+}
