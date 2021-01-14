@@ -8,6 +8,7 @@
  * License: GPL2
  */
 
+define('INSTASPORT_URL', plugins_url( '', __FILE__ ));
 include_once __DIR__ . '/api.php';
 include_once __DIR__ . '/admin.php';
 include_once __DIR__ . '/ajax.php';

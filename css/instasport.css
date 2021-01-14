@@ -406,7 +406,7 @@
     background: var(--primaryColor);
     border: 1px solid var(--primaryTextColor);
     top: 30px;
-    z-index: 9999;
+    z-index: 10;
     padding: 3px 6px;
     width: 200px;
     -webkit-box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.3);
@@ -500,7 +500,7 @@
     width: 100%;
     height: 100%;
     background: #0003;
-    z-index: 99999;
+    z-index: 99;
     display: block;
     position: absolute;
 }
@@ -530,7 +530,7 @@
     width: 100%;
     height: 100%;
     background: #00000099;
-    z-index: 9999;
+    z-index: 99;
 }
 
 #instaModal .ic-modal {
@@ -559,7 +559,7 @@
     width: auto;
     height: auto;
     font-size: 30px;
-    opacity: 0.8;
+    opacity: 0.9;
     cursor: pointer;
 }
 
@@ -573,6 +573,16 @@
     margin-bottom: 10px;
     font-size: 13px;
     line-height: 16px;
+}
+
+#instaModal .ic-modal-event {
+    margin-bottom: 10px;
+}
+
+#instaModal .ic-modal-content p{
+    font-size: 13px;
+    color: var(--primaryTextColor);
+    text-indent: 1.5em;
 }
 
 #instaModal .ic-modal-content label {
@@ -602,14 +612,39 @@
     background-color: inherit;
     color: inherit;
     margin: 0 0 20px 0;;
+    border: none;
 }
 #instaModal .ic-modal-content table th,
 #instaModal .ic-modal-content table td {
     background: inherit;
-    border: 1px solid var(--primaryTextColor);
+    border: none;
     color: inherit;
-    padding: 10px;
+    padding: 8px 10px;
 }
+
+#instaModal .ic-modal-row {
+    font-size: 14px;
+    padding: 4px 0;
+}
+
+#instaModal .ic-modal-row .ic-modal-row-title {
+    display: inline-block;
+    width: 50%;
+    text-align: left;
+}
+
+#instaModal .ic-card-group {
+    margin-bottom: 20px;
+}
+
+#instaModal .ic-card-group-title {
+    font-size: 16px;
+    padding: 15px;
+    text-align: center;
+    font-weight: bold;
+}
+
+
 #instaModal .ic-visit {
     padding: 10px 0;
     position: relative;
@@ -641,11 +676,27 @@
     opacity: 1;
 }
 
-label.ic-modal-button {
+#instaModal .ic-modal-button{
     position: relative;
+    opacity: 0.9;
+    cursor: pointer;
+}
+#instaModal .ic-modal-button:hover{
+    opacity: 1;
 }
 
-#instaModal .ic-modal-button input {
+#instaModal .ic-modal-button a{
+    color: var(--primaryTextColor);
+    border-radius: 3px;
+    padding: 8px 12px;
+    width: 100%;
+    min-height: 42px;
+    box-shadow: none;
+    text-shadow: none;
+    border: 1px solid var(--primaryTextColor);
+}
+
+#instaModal .ic-modal-button input[type=submit]{
     border: none;
     background-color: var(--secondaryTextColor) !important;
     color: var(--secondaryColor);
@@ -655,30 +706,126 @@ label.ic-modal-button {
     min-height: 42px;
     box-shadow: none;
     text-shadow: none;
-     opacity: 0.8;
 }
 
-#instaModal .ic-modal-button input:hover {
+#instaModal .ic-modal-mess {
+    padding: 8px;
+    font-weight: 600;
+    color: var(--secondaryTextColor);
+    text-align: center;
+    border: 1px solid var(--secondaryTextColor);
+    margin: 10px 0px;
+}
+
+#instaModal .ic-payments, #instaModal .ic-cards {
+    margin: 25px 0;
+}
+
+#instaModal .ic-payment, #instaModal .ic-card {
+    padding: 12px 10px;
+    border: 1px solid var(--secondaryTextColor);
+    border-radius: 5px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    opacity: 0.9;
+    position: relative;
+    font-size: 14px;
+    background-color: var(--secondaryTextColor);
+    color: var(--secondaryColor);
+}
+
+#instaModal .ic-payment:hover, #instaModal .ic-card:hover{
     opacity: 1;
 }
 
-#instaModal .ic-modal-buttons .ic-modal-mess {
-    padding: 8px;
-    border: 2px solid var(--primaryTextColor);
-    font-weight: 600;
-    border-radius: 3px;
+#instaModal .ic-card-title {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+#instaModal .ic-card-price {
+    position: absolute;
+    font-weight: bold;
+    right: 10px;
+    top: 12px;
+}
+
+#instaModal .ic-modal-user-profile, #instaModal .ic-modal-user-cards{
+    margin-bottom: 15px;
+}
+
+#instaModal .ic-modal-user-card {
+    padding: 12px 10px;
+    border: 1px solid var(--secondaryTextColor);
+    border-radius: 5px;
+    margin-bottom: 10px;
+    opacity: 0.9;
+    position: relative;
+    font-size: 14px;
+    background-color: var(--secondaryTextColor);
+    color: var(--secondaryColor);
+}
+#instaModal .ic-modal-user-card:hover {
+    opacity: 1;
+}
+#instaModal .ic-modal-user-card .ic-modal-button {
+    background: var(--primaryColor);
+    color: var(--primaryTextColor);
+    padding: 8px 15px;
+    text-align: center;
+    border-radius: 4px;
+    margin-top: 15px;
+}
+#instaModal .ic-modal-user-card .ic-modal-row{
+    font-size: 13px;
+    padding: 2px 0;
+}
+#instaModal .ic-modal-user-card .ic-modal-row .ic-modal-row-title {
+    width: 70%;
+}
+#instaModal .ic-modal-user-card .ic-modal-row span {
+    float: right;
+}
+
+#instaModal .ic-payment img {
+    position: absolute;
+    right: 10px;
+    top: 6px;
+}
+
+#instaModal .ic-payment-offer {
+    font-size: 9px;
+    color: var(--primaryTextColor);
+    text-decoration: underline;
+    opacity: 0.9;
+    margin: 0px 0px 10px 0px;
+    display: inline-block;
+}
+#instaModal .ic-payment-offer:hover{
+    opacity: 1;
+    color: var(--primaryTextColor);
+}
+
+#instaModal .ic-card.inactive {
+    opacity: 0.4;
+}
+#instaModal .ic-card.inactive:hover {
+    opacity: 0.9;
 }
 
 #instaModal.ic-loading{
     pointer-events: none;
 }
-#instaModal.ic-loading .ic-loader input {
-    color: transparent;
+#instaModal .ic-loader{
+    position: relative;
 }
-#instaModal.ic-loading .ic-loader:after{
+#instaModal .ic-loader>* {
+    opacity: 0.2 !important;
+}
+#instaModal .ic-loader:after{
     content: ' ';
     border: 2px solid transparent;
-    border-top: 2px solid var(--primaryTextColor);
+    border-top: 2px solid var(--secondaryColor);
     border-radius: 50%;
     width: 30px;
     height: 30px;
@@ -722,9 +869,9 @@ label.ic-modal-button {
 
 #instaModal .ic-modal-buttons a {
     color: var(--primaryTextColor);
-    padding: 15px 0 0 0;
+    margin: 15px 0 0 0;
     display: block;
-    opacity: 0.8;
+    opacity: 0.9;
 }
 #instaModal .ic-modal-buttons a:hover{
     opacity: 1;

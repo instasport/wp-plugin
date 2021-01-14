@@ -19,6 +19,8 @@ class InstaCalendarShortcode {
 				'api'      => [
 					'club'   => $club->data ? $club->data->club : [],
 					'events' => [],
+					'cards'  => [],
+					'cardGroups'  => [],
 				],
 				'values'   => [
 					'hall'      => 0,
@@ -76,8 +78,11 @@ class InstaCalendarShortcode {
 				'merge',
 				'profile',
 				'visits',
-				'book',
-				'payment'
+				'booking',
+				'event',
+				'cards',
+				'card',
+				'card_pay',
 			];
 			foreach ( $modals as $modal ) {
 				echo '<script type="text/html" id="tmpl-instaModal-' . $modal . '">';
@@ -102,7 +107,7 @@ class InstaCalendarShortcode {
 		$options = insta_get_options();
 		?>
         <style type="text/css">
-            #instaCalendar, #instaModal{
+            #instaCalendar, #instaModal {
                 --primaryColor: <?=$options['primaryColor']?>;
                 --secondaryColor: <?=$options['secondaryColor']?>;
                 --primaryTextColor: <?=$options['primaryTextColor']?>;
@@ -125,31 +130,47 @@ class InstaCalendarShortcode {
             /*#instaCalendar .ic-bg{
                 background:
 
+
+
             <?=$options['primaryColor']?>
 
-						 ;
-									}
-									#instaCalendar .ic-bg2{
-										background:
+
+
+												 ;
+															}
+															#instaCalendar .ic-bg2{
+																background:
+
+
 
             <?=$options['secondaryColor']?>
 
-						 ;
-									}
-									#instaCalendar .ic-tx{
-										background:
+
+
+												 ;
+															}
+															#instaCalendar .ic-tx{
+																background:
+
+
 
             <?=$options['primaryTextColor']?>
 
-						 ;
-									}
-									#instaCalendar .ic-tx2{
-										background:
+
+
+												 ;
+															}
+															#instaCalendar .ic-tx2{
+																background:
+
+
 
             <?=$options['secondaryTextColor']?>
 
-						 ;
-									}*/
+
+
+												 ;
+															}*/
 
 
             <?php if(!$options['desktop_filter_train_show']):?>
@@ -339,12 +360,12 @@ class InstaCalendarShortcode {
 				]
 			],
 			'payment' => [
-				'2'  => __( 'Liqpay', 'instasport' ),
+				'2'  => __( 'Оплатить через Liqpay', 'instasport' ),
 				'3'  => __( 'Абонемент', 'instasport' ),
-				'4'  => __( 'Счет', 'instasport' ),
-				'5'  => __( 'Бронирование', 'instasport' ),
-				'10' => __( 'Portmone', 'instasport' ),
-				'11' => __( 'WayForPay', 'instasport' ),
+				'4'  => __( 'Оплатить со счета', 'instasport' ),
+				'5'  => __( 'Забронировать', 'instasport' ),
+				'10' => __( 'Оплатить через Portmone', 'instasport' ),
+				'11' => __( 'Оплатить через WayForPay', 'instasport' ),
 			]
 		];
 	}

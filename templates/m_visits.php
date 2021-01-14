@@ -38,7 +38,7 @@
     </div>
     <# } #>
     <#}else{#>
-	<?php _e( 'Вы не записаны ни на одну тренировку!', 'instasport' ) ?>
+	<?php _e( 'У вас нет запланированных посещений', 'instasport' ) ?>
     <#}#>
 </div>
 <div class="ic-modal-buttons">
