@@ -5,6 +5,7 @@
 3. В настройках плагина добавьте ключ
 
 slug: clubslug
+    
 key: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
 Если клубов несколько, то добавьте еще slug и key
