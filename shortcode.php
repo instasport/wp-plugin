@@ -4,7 +4,7 @@ class InstaCalendarShortcode {
 
 	public function __construct() {
 
-		add_shortcode( 'instasport-calendar-2', function ( $atts, $tag ) {
+		add_shortcode( 'instasport-calendar', function ( $atts, $tag ) {
 			//var_dump(InstaCalendarAPI::query('{"query": "{ club {title} }"}'));
             $id = $atts['id'] ?? '';
 			ob_start();

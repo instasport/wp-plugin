@@ -4,7 +4,7 @@ class InstaCalendarAdmin {
 	public function __construct() {
 		// Создаем страницу настроек плагина
 		add_action( 'admin_menu', function () {
-			add_options_page( 'Instasport Calendar', 'InstaCalendar', 'manage_options', 'insta_calendar', [
+			add_options_page( 'Instasport Calendar', 'Instasport Calendar', 'manage_options', 'insta_calendar', [
 				$this,
 				'options_page'
 			] );
@@ -46,13 +46,13 @@ class InstaCalendarAdmin {
 		// Настройки API
 		$options = insta_get_options();
 
-		add_settings_section( 'insta_calendar_api', 'API [instasport-calendar-2]', '', 'insta_calendar' );
+		add_settings_section( 'insta_calendar_api', 'API [instasport-calendar]', '', 'insta_calendar' );
 		$this->add_settings_field( 'club', 'Slug ', 'input', 'insta_calendar_api','', 'calendar_api');
 		$this->add_settings_field( 'key', 'Key ', 'input', 'insta_calendar_api','', 'calendar_api' );
 
         $i = 2;
 		do{
-			add_settings_section( 'insta_calendar_api_' . $i, 'API-' . $i . ' [instasport-calendar-2 id=' . $i . ']', '', 'insta_calendar' );
+			add_settings_section( 'insta_calendar_api_' . $i, 'API-' . $i . ' [instasport-calendar id=' . $i . ']', '', 'insta_calendar' );
 			$this->add_settings_field( 'club_' . $i, 'Slug ', 'input', 'insta_calendar_api_' . $i,'', 'calendar_api');
 			$this->add_settings_field( 'key_' . $i, 'Key ', 'input', 'insta_calendar_api_' . $i,'', 'calendar_api' );
 		    $i++;
