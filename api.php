@@ -1,11 +1,18 @@
 <?php
 class InstaCalendarAPI{
-	public static function query($query, $accessToken = false, $refreshToken = false){
+	public static function query($query, $accessToken = false, $refreshToken = false, $id = false){
 		//sleep(30);
 		$options = insta_get_options();
+		$key = $options['key'];
+		$club = $options['club'];
+		if($id){
+			$key = $options['key_'.$id] ?? '';
+			$club = $options['club_'.$id] ?? '';
+		}
+
 		$headers = [
 		'Content-Type: application/json',
-		"Authorization: ". ( $accessToken ? "Token $accessToken" : "Key {$options['key']}") . " {$options['club']}",
+		"Authorization: ". ( $accessToken ? "Token $accessToken" : "Key $key") . " $club",
 		];
 
 		$ch = curl_init();

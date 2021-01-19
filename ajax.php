@@ -12,9 +12,9 @@ class InstaCalendarAjax {
 		$query = $_POST['query'] ?? '';
 		$accessToken = $_POST['accessToken'] ?? false;
 		$refreshToken = $_POST['refreshToken'] ?? false;
+		$id = $_GET['id'] ?? false;
 		if($query){
-			if($data = InstaCalendarAPI::query('{ "query": "'.$query.'"}', $accessToken, $refreshToken)){
-
+			if($data = InstaCalendarAPI::query('{ "query": "'.$query.'"}', $accessToken, $refreshToken, $id)){
 				echo wp_json_encode($data);
 			}
 		}

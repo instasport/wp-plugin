@@ -6,14 +6,20 @@ class InstaCalendarShortcode {
 
 		add_shortcode( 'instasport-calendar-2', function ( $atts, $tag ) {
 			//var_dump(InstaCalendarAPI::query('{"query": "{ club {title} }"}'));
-
+            $id = $atts['id'] ?? '';
+			ob_start();
 			$options = insta_get_options();
 
-			$club = InstaCalendarAPI::query( '{ "query": "{ club {title, halls{id,title,timeOpen,timeClose}, activities{id,title}} }"}' );
-//var_dump($club);
+			$club = InstaCalendarAPI::query( '{ "query": "{ club {title, halls{id,title,timeOpen,timeClose}, activities{id,title}} }"}',false,false, $id );
+
+			if(isset($club->errors)){
+				echo '<p style="background: lightgray;border: 1px solid red;padding: 10px;">INSTASPORT <b>'.$club->errors[0]->result.': '.$club->errors[0]->message.'<b></p>';
+				return ob_get_clean();
+            }
+
 			$script_data = [
-				'ajax_url' => admin_url( 'admin-ajax.php' ),
-				'club'     => $options['club'],
+				'ajax_url' => admin_url( 'admin-ajax.php?id='.$id ),
+				'club'     => $id ? $options['club_'.$id] : $options['club'],
 				'settings' => $this->get_settings(),
 				'lang'     => $this->get_translations(),
 				'api'      => [
@@ -54,8 +60,6 @@ class InstaCalendarShortcode {
 			], time(), true ); //todo time
 			wp_localize_script( 'instasport-calendar', 'instasport', $script_data );
 
-			ob_start();
-
 			echo ' <div id="instaCalendar" class="ic-loading"><div class="ic-loader"></div></div>';
 			echo ' <div id="instaModal" style="display: none"></div>';
 
@@ -83,6 +87,7 @@ class InstaCalendarShortcode {
 				'cards',
 				'card',
 				'card_pay',
+				'instructor',
 			];
 			foreach ( $modals as $modal ) {
 				echo '<script type="text/html" id="tmpl-instaModal-' . $modal . '">';
@@ -91,10 +96,6 @@ class InstaCalendarShortcode {
 			}
 
 			$this->get_styles();
-
-			echo '<pre>';
-			//var_dump( $options );
-			echo '</pre>';
 
 			return ob_get_clean();
 		} );

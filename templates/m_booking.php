@@ -56,12 +56,20 @@
 
         <# } #>
 
-        <# if(instasport.user.cards.length){ // Абонементы #>
-        <# for(let card of instasport.user.cards){ #>
-            <# if(!card.authorized)continue; #>
-            <div class="ic-payment {{ card.activated ? 'ic-card activated' : 'ic-card inactive' }}" data-type="card" data-card="{{card.id}}">
-                <? _e( 'Абонемент ' ) ?> <span>{{card.template.title}}</span>
+        <# if(data.event.cards.length){ // Абонементы #>
+        <# for(let card of data.event.cards){ #>
+        <div class="ic-payment ic-user-card" data-type="card" data-card="{{card.id}}">
+            <div class="ic-card-title">{{card.template.group.title}} / {{card.template.title}} {{card.template.subtitle}}</div>
+            <div class="ic-card-subtitle">{{card.template.subtitle}}</div>
+            <div class="ic-modal-row">
+                <div class="ic-modal-row-title"><?php _e('Количество посещений', 'instasport') ?></div>
+                <span>{{card.amount}}</span>
             </div>
+            <div class="ic-modal-row">
+                <div class="ic-modal-row-title"><?php _e('Дата окончания', 'instasport') ?></div>
+                <span>{{card.dueDate}}</span>
+            </div>
+        </div>
         <# } #>
         <# } #>
     </div>

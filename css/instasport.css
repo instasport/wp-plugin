@@ -579,6 +579,27 @@
     margin-bottom: 10px;
 }
 
+#instaModal .ic-modal-img {
+    margin: 10px 0 10px 0px;
+}
+
+#instaModal .ic-instructor {
+    border: none;
+    background-color: var(--secondaryTextColor) !important;
+    color: var(--secondaryColor);
+    border-radius: 3px;
+    padding: 7px 12px;
+    width: 100%;
+    box-shadow: none;
+    text-shadow: none;
+    cursor: pointer;
+    opacity: 0.9;
+    margin: 10px 0;
+}
+#instaModal .ic-instructor:hover{
+    opacity: 1;
+}
+
 #instaModal .ic-modal-content p{
     font-size: 13px;
     color: var(--primaryTextColor);
@@ -750,11 +771,11 @@
     top: 12px;
 }
 
-#instaModal .ic-modal-user-profile, #instaModal .ic-modal-user-cards{
+#instaModal .ic-modal-user-profile, #instaModal .ic-user-cards{
     margin-bottom: 15px;
 }
 
-#instaModal .ic-modal-user-card {
+#instaModal .ic-user-card {
     padding: 12px 10px;
     border: 1px solid var(--secondaryTextColor);
     border-radius: 5px;
@@ -765,10 +786,10 @@
     background-color: var(--secondaryTextColor);
     color: var(--secondaryColor);
 }
-#instaModal .ic-modal-user-card:hover {
+#instaModal .ic-user-card:hover {
     opacity: 1;
 }
-#instaModal .ic-modal-user-card .ic-modal-button {
+#instaModal .ic-user-card .ic-modal-button {
     background: var(--primaryColor);
     color: var(--primaryTextColor);
     padding: 8px 15px;
@@ -776,14 +797,17 @@
     border-radius: 4px;
     margin-top: 15px;
 }
-#instaModal .ic-modal-user-card .ic-modal-row{
+#instaModal .ic-user-card .ic-modal-button.ic-loader::after {
+    border-top-color: var(--secondaryTextColor);
+}
+#instaModal .ic-user-card .ic-modal-row{
     font-size: 13px;
     padding: 2px 0;
 }
-#instaModal .ic-modal-user-card .ic-modal-row .ic-modal-row-title {
+#instaModal .ic-user-card .ic-modal-row .ic-modal-row-title {
     width: 70%;
 }
-#instaModal .ic-modal-user-card .ic-modal-row span {
+#instaModal .ic-user-card .ic-modal-row span {
     float: right;
 }
 

@@ -12,6 +12,23 @@
             <# if(data.event.status){ #>
             <div class="ic-modal-mess">{{data.event.status}}</div>
             <# } #>
+
+            <# if(data.event.image){ #>
+            <div class="ic-modal-img">
+                <img src="{{data.event.image}}">
+            </div>
+            <# } #>
+
+            <# if(data.event.instructors.length){ #>
+                <# for(let [key, instructor] of  Object.entries(data.event.instructors)){ #>
+                <# if(!instructor.isInstructorVisible)continue; #>
+                <div class="ic-instructor" data-instructor="{{key}}">
+                     <?php _e( 'Инструктор', 'instasport' ) ?>
+                     {{instructor.firstName}} {{instructor.lastName}}
+                </div>
+                <# } #>
+            <# } #>
+
             <div class="ic-modal-row">
                 <div class="ic-modal-row-title"><?php _e( 'Зал', 'instasport' ) ?></div>
                 {{data.event.hall.title}}

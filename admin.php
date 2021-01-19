@@ -20,7 +20,6 @@ class InstaCalendarAdmin {
 		?>
         <div class="wrap">
             <h2><?php echo get_admin_page_title() ?></h2>
-
             <form action="options.php" method="POST">
 				<?php
 				settings_fields( 'insta_calendar_options' );
@@ -45,11 +44,19 @@ class InstaCalendarAdmin {
 		register_setting( 'insta_calendar_options', 'insta_calendar' );
 
 		// Настройки API
-		add_settings_section( 'insta_calendar_api', 'API', '', 'insta_calendar' );
+		$options = insta_get_options();
 
-		$this->add_settings_field( 'club', 'Название клуба в системе', 'input', 'insta_calendar_api' );
-		$this->add_settings_field( 'key', 'Key', 'input', 'insta_calendar_api' );
-		$this->add_settings_field( 'next', 'URL перенаправления после регистрации', 'input', 'insta_calendar_api' );
+		add_settings_section( 'insta_calendar_api', 'API [instasport-calendar-2]', '', 'insta_calendar' );
+		$this->add_settings_field( 'club', 'Slug ', 'input', 'insta_calendar_api','', 'calendar_api');
+		$this->add_settings_field( 'key', 'Key ', 'input', 'insta_calendar_api','', 'calendar_api' );
+
+        $i = 2;
+		do{
+			add_settings_section( 'insta_calendar_api_' . $i, 'API-' . $i . ' [instasport-calendar-2 id=' . $i . ']', '', 'insta_calendar' );
+			$this->add_settings_field( 'club_' . $i, 'Slug ', 'input', 'insta_calendar_api_' . $i,'', 'calendar_api');
+			$this->add_settings_field( 'key_' . $i, 'Key ', 'input', 'insta_calendar_api_' . $i,'', 'calendar_api' );
+		    $i++;
+		}while(isset($options['club_'.($i-1)]));
 
 		// Цвета
 		add_settings_section( 'insta_calendar_colors', 'Цвета', '', 'insta_calendar' );
@@ -135,13 +142,14 @@ class InstaCalendarAdmin {
 	 * @param $type
 	 * @param $section
 	 * @param bool $values
+	 * @param string $class
 	 */
-	function add_settings_field( $slug, $title, $type, $section, $values = false ) {
+	function add_settings_field( $slug, $title, $type, $section, $values = false, $class = '' ) {
 		add_settings_field( 'insta_' . $slug, $title,
 			[ $this, 'option_field_html' ],
 			'insta_calendar',
 			$section,
-			[ 'slug' => $slug, 'type' => $type, 'values' => $values ] );
+			[ 'slug' => $slug, 'type' => $type, 'values' => $values, 'class' => $class ] );
 	}
 
 	/**
@@ -153,7 +161,7 @@ class InstaCalendarAdmin {
 		$options = insta_get_options();
 
 		if ( $args['type'] == 'input' ) {
-			echo '<input type="text" name="insta_calendar[' . $args['slug'] . ']" value="' . esc_attr( $options[ $args['slug'] ] ?? '' ) . '">';
+			echo '<input type="text" name="insta_calendar[' . $args['slug'] . ']" value="' . esc_attr( $options[ $args['slug'] ] ?? '' ) . '" class="' . $args['class'] . '">';
 		}
 
 		if ( $args['type'] == 'select' ) {

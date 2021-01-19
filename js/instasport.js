@@ -89,50 +89,22 @@ jQuery(document).ready(function ($) {
         instasport.values.filters.complexity = 0;
         instasport.values.filters.activity = 0;
 
-        let method = 'events';
-        let fields = {
-            id: '',
-            date: '',
-            title: '',
-            activity: {
-                slug: '',
-                title: ''
-            },
-            instructors: {
-                id: '',
-                firstName: '',
-                lastName: '',
-            },
-            description: '',
-            color: '',
-            textColor: '',
-            duration: '',
-            price: '',
-            seats: '',
-            hall: {
-                title: ''
-            },
-            complexity: {
-                id: '',
-                title: '',
-            }
-        };
+        let query = '{' + (instasport.user.id ? 'clientEvents' : 'events');
+
+        query += '(hall:' + parseInt(instasport.values.hall) + ' startDate:"' + instasport.values.startDate + '" endDate:"' + instasport.values.endDate + '")';
+        query += '{ id date title ';
+        query += 'activity{slug title} ';
+        query += 'instructors {id firstName lastName instructorImage instructorDescription isInstructorVisible} ';
+        query += 'description color textColor duration price seats ';
+        query += 'hall{title} ';
+        query += 'complexity{id title} ';
+
         if (instasport.user.id) {
-            method = 'clientEvents';
-            //fields.payment = '';
-            fields.status = '';
+            query += 'status';
         }
-
-        let args = {
-            hall: parseInt(instasport.values.hall),
-            startDate: instasport.values.startDate,
-            endDate: instasport.values.endDate,
-        };
-
-        let query = graph(method, args, fields);
+        query += '}}';
         api(query,
             function (data) {
-                console.log('API events', data);
                 if (data.data) {
                     instasport.api.events = data.data.events ? data.data.events : data.data.clientEvents;
                     updateCalendar();
@@ -146,47 +118,14 @@ jQuery(document).ready(function ($) {
      */
     function apiGetEvent(id, func = () => {
     }) {
-        let query = graph(
-            'clientEvent',
-            {
-                id
-            },
-            {
-                id: '',
-                status: '',
-                payment: '',
-                account: '',
-                cards: {
-                    id: '',
-                },
-                liqpay: {
-                    data: '',
-                    signature: '',
-                    action: '',
-                    price: '',
-                },
-                wayforpay: {
-                    merchantAccount: '',
-                    merchantDomainName: '',
-                    merchantSignature: '',
-                    orderReference: '',
-                    orderDate: '',
-                    amount: '',
-                    currency: '',
-                    productName: '',
-                    productCount: '',
-                    productPrice: '',
-                    returnUrl: '',
-                    serviceUrl: '',
-                    action: '',
-                    price: '',
-                }
-            },
-            false
-        );
+        let query = '{clientEvent(id:' + id + '){';
+        query += 'id status payment account image ';
+        query += 'cards{id amount dueDate template{title subtitle group{title}}} ';
+        query += 'liqpay{data signature action price} ';
+        query += 'wayforpay{merchantAccount merchantDomainName merchantSignature orderReference orderDate amount currency productName productCount productPrice returnUrl serviceUrl action price} ';
+        query += '}}';
 
         api(query, function (data) {
-            console.log('clientEvent', data);
             if (data.data.clientEvent) {
                 instasport.modal.event = {...instasport.modal.event, ...data.data.clientEvent};
                 for (var i = 0; i < instasport.api.events.length; i++) {
@@ -219,7 +158,6 @@ jQuery(document).ready(function ($) {
                 gender: '',
             });
             api(query, function (data) {
-                console.log('API user', data);
                 if (data.data && data.data.user) {
                     $.extend(instasport.user, data.data.user);
                     if (instasport.user.email && instasport.user.email.indexOf('phone.xyz')) {
@@ -245,7 +183,6 @@ jQuery(document).ready(function ($) {
                         });
 
                     api(query, function (data) {
-                        console.log('API visits', data);
                         if (data.data.visits) {
                             instasport.user.visits = data.data.visits;
                             instasport.user.events = [];
@@ -266,12 +203,11 @@ jQuery(document).ready(function ($) {
                                 dueDate: '',
                                 pauses: '',
                                 paused: '',
-                                template: {id: '', title: '', description: '', subtitle: '', group: {title:''}},
+                                template: {id: '', title: '', description: '', subtitle: '', group: {title: ''}},
                             });
 
                         instasport.user.cards = [];
                         api(query, function (data) {
-                            console.log('API cards', data);
                             if (data.data.cards) {
                                 instasport.user.cards = data.data.cards;
                             }
@@ -318,7 +254,6 @@ jQuery(document).ready(function ($) {
             false
         )
         api(query, function (data) {
-            console.log('cardTemplates', data);
             if (data.data.cardTemplates) {
                 instasport.api.cards = data.data.cardTemplates;
                 for (let card of instasport.api.cards) {
@@ -365,7 +300,6 @@ jQuery(document).ready(function ($) {
             success: function (data) {
                 if (data.errors) {
                     //alert('API ERROR');
-                    console.log('API ERROR', data)
                 }
 
                 if (data.token) {
@@ -525,9 +459,6 @@ jQuery(document).ready(function ($) {
             instasport.values.month,
             instasport.values.day);
 
-        console.log('templateData', templateData);
-
-
         $instaCalendar.html(templateInstaCalendar(templateData));
     }
 
@@ -562,7 +493,6 @@ jQuery(document).ready(function ($) {
             card: instasport.modal.card,
             ...data
         };
-        console.log('MODAL', template, mdata);
         let templateModal = wp.template('instaModal-' + template);
         let html = templateModal(mdata);
         $instaModal.html(templateInstaModal(mdata));
@@ -637,7 +567,6 @@ jQuery(document).ready(function ($) {
             instasport.user.visits
             let query = graph('deleteVisit', {visit}, {ok: ''}, true);
             api(query, function (data) {
-                console.log('deleteVisit', data);
                 apiGetUser();
             }, true);
         }
@@ -736,7 +665,6 @@ jQuery(document).ready(function ($) {
                         instasport.user.phone = phone;
                         modal('register');
                     }
-                    console.log('API phoneLogin', data.data);
                 }
             )
         }
@@ -744,8 +672,6 @@ jQuery(document).ready(function ($) {
         else if (instasport.modal.step == 'register') {
             let parts = instasport.user.birthday.split('.');
             let date = new Date(parts[2], parts[1] - 1, parts[0]);
-            console.log(date);
-
 
             let args = {
                 phone: instasport.user.phone,
@@ -770,7 +696,6 @@ jQuery(document).ready(function ($) {
             }
             let query = graph('phoneSignup', args, fields, true);
             api(query, function (data) {
-                    console.log('API phoneSignup', data);
                     if (data.data && data.data.phoneSignup) {
                         instasport.user.id = data.data.phoneSignup.user.id;
                         instasport.user.firstName = data.data.phoneSignup.user.firstName;
@@ -787,7 +712,6 @@ jQuery(document).ready(function ($) {
                 code: instasport.user.sms
             }, {token: {accessToken: '', refreshToken: ''}}, true);
             api(query, function (data) {
-                console.log('API phoneVerify', data);
                 if (data.data && data.data.phoneVerify) {
                     instasport.user.accessToken = data.data.phoneVerify.token.accessToken;
                     setCookie('insta_accessToken', data.data.phoneVerify.token.accessToken);
@@ -814,7 +738,6 @@ jQuery(document).ready(function ($) {
                 next
             }, {ok: ''}, true);
             api(query, function (data) {
-                console.log('API emailUpdate', data);
                 if (data.errors && data.errors[0].result === 3) {
                     modal('merge');
                 } else {
@@ -854,7 +777,6 @@ jQuery(document).ready(function ($) {
         else if (instasport.modal.step == 'card') {
             modal('card_pay');
         }
-        console.log('submit', instasport.user);
     });
 
     /**
@@ -882,6 +804,7 @@ jQuery(document).ready(function ($) {
             case 'profile':
             case 'visits':
             case 'cards':
+            case 'instructor':
             case 'booking':
                 modal('event');
                 break;
@@ -1040,57 +963,56 @@ jQuery(document).ready(function ($) {
     $instaModal.on('click', '.ic-card-group .ic-card', function () {
         let cardId = parseInt($(this).data('card'));
         $(this).addClass('ic-loader');
-
-        let query = graph(
-            'cardTemplate',
-            {
-                id: cardId,
-            },
-            {
-                id: '',
-                title: '',
-                description: '',
-                descriptionHtml: '',
-                subtitle: '',
-                group: {
-                    id: '',
-                    title: '',
-                    order: '',
-                },
-                amount: '',
-                duration: '',
-                price: '',
-                payment: '',
-                liqpay: {
-                    data: '',
-                    signature: '',
-                    action: '',
-                    price: '',
-                },
-                wayforpay: {
-                    merchantAccount: '',
-                    merchantDomainName: '',
-                    merchantSignature: '',
-                    orderReference: '',
-                    orderDate: '',
-                    amount: '',
-                    currency: '',
-                    productName: '',
-                    productCount: '',
-                    productPrice: '',
-                    returnUrl: '',
-                    serviceUrl: '',
-                    action: '',
-                    price: '',
-                }
-            },
-            false
-        )
+        let query = '{cardTemplate(id:' + cardId + '){ ';
+        query += 'id title description descriptionHtml subtitle ';
+        query += 'group{id title order} ';
+        query += 'amount duration price payment ';
+        query += 'liqpay{data signature action price} ';
+        query += 'wayforpay{merchantAccount merchantDomainName merchantSignature orderReference orderDate amount currency productName productCount productPrice returnUrl serviceUrl action price} ';
+        query += '}}';
         api(query, function (data) {
-            console.log('apiGetEvent', data);
             instasport.modal.card = data.data.cardTemplate;
             modal('card');
         }, true);
+    })
+
+    /**
+     * Действия с абонементом
+     */
+    $instaModal.on('click', '.ic-user-card .ic-modal-button', function () {
+        let cardId = parseInt($(this).data('card'));
+        let type = $(this).data('type');
+        $(this).addClass('ic-loader');
+
+        switch (type) {
+            case 'activate':
+                query = 'mutation {activateCard(cardId:' + cardId + '){card{id}}} ';
+                api(query, function (data) {
+                    apiGetUser();
+                }, true);
+                break;
+            case 'freeze':
+                query = 'mutation {freezeCard(cardId:' + cardId + '){card{id}}} ';
+                api(query, function (data) {
+                    apiGetUser();
+                }, true);
+                break;
+            case 'unfreeze':
+                query = 'mutation {unfreezeCard(cardId:' + cardId + '){card{id}}} ';
+                api(query, function (data) {
+                    apiGetUser();
+                }, true);
+                break;
+        }
+    })
+
+    /**
+     * Просмотр инструктора
+     */
+    $instaModal.on('click', '.ic-instructor', function () {
+        let n = parseInt($(this).data('instructor'));
+        $(this).addClass('ic-loader');
+        modal('instructor', {instructor: instasport.modal.event.instructors[n]});
     })
 
     /**

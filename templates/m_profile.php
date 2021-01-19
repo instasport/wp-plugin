@@ -21,15 +21,16 @@
 			{{data.event.account}}
 		</div>
 	</div>
-    <div class="ic-modal-user-cards">
+    <div class="ic-user-cards">
         <div class="ic-modal-title">
             Мои абонементы
         </div>
 
         <# if(instasport.user.cards.length){ // Абонементы #>
         <# for(let card of instasport.user.cards){ #>
-        <div class="ic-modal-user-card {{ card.activated ? 'activated' : 'inactive' }}" data-card="{{card.id}}">
-            <div class="ic-card-title">{{card.template.group.title}} / {{card.template.title}} {{card.template.subtitle}}</div>
+        <div class="ic-user-card {{ card.activated ? 'activated' : 'inactive' }}" data-card="{{card.id}}">
+            <div class="ic-card-title">{{card.template.group.title}} / {{card.template.title}}</div>
+            <div class="ic-card-subtitle">{{card.template.subtitle}}</div>
             <div class="ic-card-status">{{ !card.activated ? '<?php _e('Не активирован', 'instasport') ?>'  : (card.paused ? '<?php _e('Заморожен', 'instasport') ?>' : '')}}</div>
             <br>
             <div class="ic-modal-row">
@@ -44,17 +45,35 @@
                 <div class="ic-modal-row-title"><?php _e('Количество заморозок', 'instasport') ?></div>
                 <span>{{card.pauses}}</span>
             </div>
+            <# if(card.activated){ #>
+            <div class="ic-modal-row">
+                <div class="ic-modal-row-title"><?php _e('Дата окончания', 'instasport') ?></div>
+                <span>{{card.pausedDueDate}}</span>
+            </div>
+             <# } #>
 
-            <# if(!card.activated){ #>
-            <div class="ic-modal-button">
-                <?php _e('Активировать', 'instasport') ?>
+            <# if(card.paused){ #>
+            <div class="ic-modal-row">
+                <div class="ic-modal-row-title"><?php _e('Дата разморозки', 'instasport') ?></div>
+                <span>{{card.dueDate}}</span>
             </div>
             <# } #>
 
+            <# if(!card.activated){ #>
+            <div class="ic-modal-button" data-type="activate" data-card="{{card.id}}">
+                <span><?php _e('Активировать', 'instasport') ?></span>
+            </div>
+            <# } #>
+
+            <# if(card.activated && !card.paused && card.pauses){ #>
+            <div class="ic-modal-button" data-type="freeze" data-card="{{card.id}}">
+                <span><?php _e('Заморозить', 'instasport') ?></span>
+            </div>
+            <# } #>
 
             <# if(card.paused){ #>
-            <div class="ic-modal-button">
-		        <?php _e('Разморозить', 'instasport') ?>
+            <div class="ic-modal-button" data-type="unfreeze" data-card="{{card.id}}">
+		         <span><?php _e('Разморозить', 'instasport') ?></span>
             </div>
             <# } #>
 
