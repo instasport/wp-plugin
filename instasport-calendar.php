@@ -74,6 +74,10 @@ function insta_get_options() {
 }
 
 
+add_action( 'plugins_loaded', function(){
+	load_plugin_textdomain( 'instasport', false, dirname(plugin_basename(__FILE__)) . '/languages' );
+});
+
 /*
 events:
 duration - продолжительность

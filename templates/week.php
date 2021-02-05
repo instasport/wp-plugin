@@ -93,7 +93,7 @@
                             (is_mobile() && instasport.settings.mobile.showDuration)){
                             #>
                             <div class="ic-duration">
-                                {{event.duration}} <? _e( 'мин.', 'instasport' ) ?>
+                                {{event.duration}} <?php _e( 'мин.', 'instasport' ) ?>
                             </div>
                             <# } #>
                         </div>
@@ -111,13 +111,13 @@
                 ){ #>
                 <div class="ic-seats">
                     <# if(event.hasUser){ #>
-					<? _e( 'Вы уже записаны', 'instasport' ) ?>
+					<?php _e( 'Вы уже записаны', 'instasport' ) ?>
                     <# }else if(event.seats === 0){ #>
-					<? _e( 'Мест нет', 'instasport' ) ?>
+					<?php _e( 'Мест нет', 'instasport' ) ?>
                     <# }else if(event.seats === 1){ #>
-					<? _e( 'Осталось 1 место', 'instasport' ) ?>
+					<?php _e( 'Осталось 1 место', 'instasport' ) ?>
                     <# }else if(event.seats === 2){ #>
-					<? _e( 'Осталось 2 места', 'instasport' ) ?>
+					<?php _e( 'Осталось 2 места', 'instasport' ) ?>
                     <# } #>
                 </div>
                 <# } #>

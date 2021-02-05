@@ -411,7 +411,7 @@ jQuery(document).ready(function ($) {
                     continue;
                 }
             }
-            // Тренер
+            // Инструктор
             if (instasport.values.filters.instructor) {
                 //   if(!event.instructor)continue;
                 let r = false;

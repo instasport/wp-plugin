@@ -1,13 +1,13 @@
 <div class="ic-table">
     <div class="ic-thead">
         <div class="ic-tr">
-            <div class="ic-th"><? _e( 'Пн', 'instasport' ) ?></div>
-            <div class="ic-th"><? _e( 'Вт', 'instasport' ) ?></div>
-            <div class="ic-th"><? _e( 'Ср', 'instasport' ) ?></div>
-            <div class="ic-th"><? _e( 'Чт', 'instasport' ) ?></div>
-            <div class="ic-th"><? _e( 'Пт', 'instasport' ) ?></div>
-            <div class="ic-th"><? _e( 'Сб', 'instasport' ) ?></div>
-            <div class="ic-th"><? _e( 'Вс', 'instasport' ) ?></div>
+            <div class="ic-th"><?php _e( 'Пн', 'instasport' ) ?></div>
+            <div class="ic-th"><?php _e( 'Вт', 'instasport' ) ?></div>
+            <div class="ic-th"><?php _e( 'Ср', 'instasport' ) ?></div>
+            <div class="ic-th"><?php _e( 'Чт', 'instasport' ) ?></div>
+            <div class="ic-th"><?php _e( 'Пт', 'instasport' ) ?></div>
+            <div class="ic-th"><?php _e( 'Сб', 'instasport' ) ?></div>
+            <div class="ic-th"><?php _e( 'Вс', 'instasport' ) ?></div>
         </div>
     </div>
     <div class="ic-tbody ic-events">
@@ -59,7 +59,7 @@
                                         if(instasport.settings.desktop.monthView.showDuration){
                                         #>
                                         <div class="ic-duration">
-                                            {{event.duration}} <? _e( 'мин.', 'instasport' ) ?>
+                                            {{event.duration}} <?php _e( 'мин.', 'instasport' ) ?>
                                         </div>
                                         <# } #>
                                     </div>
@@ -77,13 +77,13 @@
                             if(instasport.settings.desktop.monthView.showSeats){ #>
                             <div class="ic-seats">
                                 <# if(event.hasUser){ #>
-								<? _e( 'Вы уже записаны', 'instasport' ) ?>
+								<?php _e( 'Вы уже записаны', 'instasport' ) ?>
                                 <# }else if(event.seats === 0){ #>
-								<? _e( 'Мест нет', 'instasport' ) ?>
+								<?php _e( 'Мест нет', 'instasport' ) ?>
                                 <# }else if(event.seats === 1){ #>
-								<? _e( 'Осталось 1 место', 'instasport' ) ?>
+								<?php _e( 'Осталось 1 место', 'instasport' ) ?>
                                 <# }else if(event.seats === 2){ #>
-								<? _e( 'Осталось 2 места', 'instasport' ) ?>
+								<?php _e( 'Осталось 2 места', 'instasport' ) ?>
                                 <# } #>
                             </div>
                             <# } #>

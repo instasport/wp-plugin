@@ -89,7 +89,7 @@ class InstaCalendarAdmin {
 			[ '1' => 'Показывать', '0' => 'Не показывать' ] );
 		$this->add_settings_field( 'desktop_filter_train_show', 'Фильтр по тренировкам', 'select', 'insta_calendar_desktop',
 			[ '1' => 'Показывать', '0' => 'Не показывать' ] );
-		$this->add_settings_field( 'desktop_filter_couch_show', 'Фильтр по тренерам', 'select', 'insta_calendar_desktop',
+		$this->add_settings_field( 'desktop_filter_couch_show', 'Фильтр по инструкторам', 'select', 'insta_calendar_desktop',
 			[ '1' => 'Показывать', '0' => 'Не показывать' ] );
 		$this->add_settings_field( 'desktop_filter_activity_show', 'Фильтр по направлениям', 'select', 'insta_calendar_desktop',
 			[ '1' => 'Показывать', '0' => 'Не показывать' ] );
@@ -116,7 +116,7 @@ class InstaCalendarAdmin {
 			[ '1' => 'Показывать', '0' => 'Не показывать' ] );
 		$this->add_settings_field( 'mobile_filter_train_show', 'Фильтр по тренировкам', 'select', 'insta_calendar_mobile',
 			[ '1' => 'Показывать', '0' => 'Не показывать' ] );
-		$this->add_settings_field( 'mobile_filter_couch_show', 'Фильтр по тренерам', 'select', 'insta_calendar_mobile',
+		$this->add_settings_field( 'mobile_filter_couch_show', 'Фильтр по инструкторам', 'select', 'insta_calendar_mobile',
 			[ '1' => 'Показывать', '0' => 'Не показывать' ] );
 		$this->add_settings_field( 'mobile_filter_activity_show', 'Фильтр по направлениям', 'select', 'insta_calendar_mobile',
 			[ '1' => 'Показывать', '0' => 'Не показывать' ] );

@@ -1,0 +1,522 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: instasport\n"
+"POT-Creation-Date: 2021-02-02 12:22+0200\n"
+"PO-Revision-Date: 2021-02-02 12:27+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.4.2\n"
+"X-Poedit-Basepath: Общедоступные/instasport-calendar\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: shortcode.php:311
+msgid "Январь"
+msgstr "January"
+
+#: shortcode.php:312
+msgid "Февраль"
+msgstr "February"
+
+#: shortcode.php:313
+msgid "Март"
+msgstr "March"
+
+#: shortcode.php:314
+msgid "Апрель"
+msgstr "April"
+
+#: shortcode.php:315
+msgid "Май"
+msgstr "May"
+
+#: shortcode.php:316
+msgid "Июнь"
+msgstr "June"
+
+#: shortcode.php:317
+msgid "Июль"
+msgstr "July"
+
+#: shortcode.php:318
+msgid "Август"
+msgstr "August"
+
+#: shortcode.php:319
+msgid "Сентябрь"
+msgstr "September"
+
+#: shortcode.php:320
+msgid "Октябрь"
+msgstr "October"
+
+#: shortcode.php:321
+msgid "Ноябрь"
+msgstr "November"
+
+#: shortcode.php:322
+msgid "Декабрь"
+msgstr "December"
+
+#: shortcode.php:325
+msgid "Января"
+msgstr "January"
+
+#: shortcode.php:326
+msgid "Февраля"
+msgstr "February"
+
+#: shortcode.php:327
+msgid "Марта"
+msgstr "March"
+
+#: shortcode.php:328
+msgid "Апреля"
+msgstr "April"
+
+#: shortcode.php:329
+msgid "Мая"
+msgstr "May"
+
+#: shortcode.php:330
+msgid "Июня"
+msgstr "June"
+
+#: shortcode.php:331
+msgid "Июля"
+msgstr "July"
+
+#: shortcode.php:332
+msgid "Августа"
+msgstr "August"
+
+#: shortcode.php:333
+msgid "Сентября"
+msgstr "September"
+
+#: shortcode.php:334
+msgid "Октября"
+msgstr "October"
+
+#: shortcode.php:335
+msgid "Ноября"
+msgstr "November"
+
+#: shortcode.php:336
+msgid "Декабря"
+msgstr "December"
+
+#: shortcode.php:339
+msgid "Понедельник"
+msgstr "Monday"
+
+#: shortcode.php:340
+msgid "Вторник"
+msgstr "Tuesday"
+
+#: shortcode.php:341
+msgid "Среда"
+msgstr "Wednesday"
+
+#: shortcode.php:342
+msgid "Четверг"
+msgstr "Thursday"
+
+#: shortcode.php:343
+msgid "Пятница"
+msgstr "Friday"
+
+#: shortcode.php:344
+msgid "Суббота"
+msgstr "Saturday"
+
+#: shortcode.php:345
+msgid "Воскресенье"
+msgstr "Sunday"
+
+#: shortcode.php:348 templates/month.php:4
+msgid "Пн"
+msgstr "Mon"
+
+#: shortcode.php:349 templates/month.php:5
+msgid "Вт"
+msgstr "Tue"
+
+#: shortcode.php:350 templates/month.php:6
+msgid "Ср"
+msgstr "Wed"
+
+#: shortcode.php:351 templates/month.php:7
+msgid "Чт"
+msgstr "Thu"
+
+#: shortcode.php:352 templates/month.php:8
+msgid "Пт"
+msgstr "Fri"
+
+#: shortcode.php:353 templates/month.php:9
+msgid "Сб"
+msgstr "Sat"
+
+#: shortcode.php:354 templates/month.php:10
+msgid "Вс"
+msgstr "Sun"
+
+#: shortcode.php:358
+msgid "Поле должно быть заполнено"
+msgstr "The field must be filled"
+
+#: shortcode.php:359
+msgid "Код не совпадает с отправленным"
+msgstr "The code does not match the one sent"
+
+#: shortcode.php:364
+msgid "Оплатить через Liqpay"
+msgstr "Pay via Liqpay"
+
+#: shortcode.php:365
+msgid "Абонемент"
+msgstr "Card"
+
+#: shortcode.php:366
+msgid "Оплатить со счета"
+msgstr "Pay from account"
+
+#: shortcode.php:367
+msgid "Забронировать"
+msgstr "Book"
+
+#: shortcode.php:368
+msgid "Оплатить через Portmone"
+msgstr "Pay via Portmone"
+
+#: shortcode.php:369
+msgid "Оплатить через WayForPay"
+msgstr "Pay via WayForPay"
+
+#: templates/filters.php:16
+msgid "Месяц"
+msgstr "Month"
+
+#: templates/filters.php:19
+msgid "Неделя"
+msgstr "Week"
+
+#: templates/filters.php:29
+msgid "Тренировка"
+msgstr "Training"
+
+#: templates/filters.php:30
+msgid "Инструктор"
+msgstr "Instructor"
+
+#: templates/filters.php:31
+msgid "Сложность"
+msgstr "Complexity"
+
+#: templates/filters.php:32
+msgid "Направление"
+msgstr "Activity"
+
+#: templates/filters.php:56
+msgid "Все"
+msgstr "All"
+
+#: templates/filters.php:75 templates/month.php:62 templates/week.php:96
+msgid "мин."
+msgstr "min."
+
+#: templates/m_booking.php:3 templates/m_event.php:4
+msgid "Запись на тренировку"
+msgstr "Enroll for training"
+
+#: templates/m_booking.php:21 templates/m_booking.php:54
+#: templates/m_card_pay.php:21 templates/m_card_pay.php:49
+#, php-format
+msgid "Нажимая \"%s\" вы соглашаетесь с договором"
+msgstr "By pressing \"%s\" you agree to the contract"
+
+#: templates/m_booking.php:65 templates/m_profile.php:41
+msgid "Количество посещений"
+msgstr "Number of visits"
+
+#: templates/m_booking.php:69 templates/m_profile.php:50
+msgid "Дата окончания"
+msgstr "Due date"
+
+#: templates/m_booking.php:78 templates/m_card.php:35
+#: templates/m_card_pay.php:55 templates/m_cards.php:30
+#: templates/m_email_wait.php:16 templates/m_instructor.php:15
+#: templates/m_merge.php:12 templates/m_payment.php:16
+#: templates/m_profile.php:96 templates/m_register.php:35
+#: templates/m_sms.php:14 templates/m_visits.php:45
+msgid "Вернуться назад"
+msgstr "Back"
+
+#: templates/m_card.php:15
+msgid "Количество тренировок"
+msgstr "Number of visits"
+
+#: templates/m_card.php:19
+msgid "Срок действия"
+msgstr "Validity period"
+
+#: templates/m_card.php:20
+msgid "дней"
+msgstr "days"
+
+#: templates/m_card.php:23 templates/m_event.php:37 templates/m_profile.php:37
+msgid "Цена"
+msgstr "Price"
+
+#: templates/m_card.php:32
+msgid "Купить"
+msgstr "Buy"
+
+#: templates/m_card_pay.php:3
+msgid "Покупка абонемента"
+msgstr "Buying a card"
+
+#: templates/m_cards.php:3 templates/modal.php:8
+msgid "Абонементы"
+msgstr "Cards"
+
+#: templates/m_cards.php:25
+msgid "Нет доступных абонементов!"
+msgstr "No cards available!"
+
+#: templates/m_email.php:3
+msgid "Введите ваш E-mail"
+msgstr "Enter E-mail"
+
+#: templates/m_email.php:12 templates/m_email_confirmed.php:13
+#: templates/m_login.php:13 templates/m_register.php:33 templates/m_sms.php:12
+msgid "Дальше"
+msgstr "Next"
+
+#: templates/m_email.php:13
+msgid "Пропустить"
+msgstr "Skip"
+
+#: templates/m_email_confirmed.php:4
+msgid "E-mail подтвержден!"
+msgstr "E-mail confirmed"
+
+#: templates/m_email_wait.php:4
+msgid "Подтвердите e-mail в письме на вашей почте"
+msgstr "Confirm the e-mail in the letter on your mail"
+
+#: templates/m_email_wait.php:9
+msgid "E-mail не подтвержден"
+msgstr "E-mail not confirmed"
+
+#: templates/m_email_wait.php:14
+msgid "Подтвержден!"
+msgstr "Confirmed!"
+
+
+#: templates/m_event.php:33 templates/m_visits.php:16
+msgid "Зал"
+msgstr "Hall"
+
+#: templates/m_event.php:41 templates/m_visits.php:13
+msgid "Дата"
+msgstr "Date"
+
+#: templates/m_event.php:45
+msgid "Время"
+msgstr "Time"
+
+#: templates/m_event.php:49 templates/m_visits.php:15
+msgid "Продолжительность"
+msgstr "Duration"
+
+#: templates/m_event.php:58
+msgid "Записаться"
+msgstr "Enroll"
+
+#: templates/m_login.php:4
+msgid "Введите номер телефона"
+msgstr "Enter phone number"
+
+#: templates/m_merge.php:4
+msgid "С этим e-mail связанная другая учетная запись"
+msgstr "This e-mail connected to another account"
+
+#: templates/m_merge.php:10
+msgid "Объединить"
+msgstr "Merge"
+
+#: templates/m_profile.php:3 templates/modal.php:16
+msgid "Профиль"
+msgstr "Profile"
+
+#: templates/m_profile.php:12
+msgid "Электронная почта"
+msgstr "E-mail"
+
+#: templates/m_profile.php:16
+msgid "Телефон"
+msgstr "Phone"
+
+#: templates/m_profile.php:20
+msgid "Текущий баланс"
+msgstr "Account"
+
+#: templates/m_profile.php:34
+msgid "Не активирован"
+msgstr "Not activated"
+
+#: templates/m_profile.php:34
+msgid "Заморожен"
+msgstr "Frozen"
+
+#: templates/m_profile.php:45
+msgid "Количество заморозок"
+msgstr "Number of pauses"
+
+#: templates/m_profile.php:57
+msgid "Дата разморозки"
+msgstr "Unfroze date"
+
+#: templates/m_profile.php:64
+msgid "Активировать"
+msgstr "Activate"
+
+#: templates/m_profile.php:70
+msgid "Заморозить"
+msgstr "Freeze"
+
+#: templates/m_profile.php:76
+msgid "Разморозить"
+msgstr "Unfreeze"
+
+#: templates/m_profile.php:84
+msgid "У вас нет активных абонементов"
+msgstr "You have no active cards"
+
+#: templates/m_profile.php:92
+msgid "Вы действительно хотите выйти ?"
+msgstr "Are you sure you want to quit ?"
+
+#: templates/m_profile.php:94
+msgid "Выйти"
+msgstr "Quit"
+
+#: templates/m_register.php:4
+msgid "Регистрация в системе"
+msgstr "Registration"
+
+#: templates/m_register.php:9
+msgid "Имя"
+msgstr "Name"
+
+#: templates/m_register.php:13
+msgid "Фамилия"
+msgstr "Last Name"
+
+#: templates/m_register.php:18
+msgid "Мужчина"
+msgstr "Male"
+
+#: templates/m_register.php:22
+msgid "Женщина"
+msgstr "Female"
+
+#: templates/m_register.php:26
+msgid "Введите дату рождения"
+msgstr "Date of Birth"
+
+#: templates/m_register.php:28
+msgid "__.__.____"
+msgstr "__.__.____"
+
+#: templates/m_sms.php:3
+msgid "Введите код из SMS"
+msgstr "Entero code from SMS"
+
+#: templates/m_visits.php:3 templates/modal.php:12
+msgid "Мои тренировки"
+msgstr "My trainings"
+
+#: templates/m_visits.php:14
+msgid "Начало"
+msgstr "Beginning"
+
+#: templates/m_visits.php:19
+msgid "не оплачено"
+msgstr "not paid"
+
+#: templates/m_visits.php:20
+msgid "подарок"
+msgstr "gift"
+
+#: templates/m_visits.php:21
+msgid "оплачено за наличные"
+msgstr "paid by cash"
+
+#: templates/m_visits.php:22
+msgid "оплачено онлайн через Liqpay"
+msgstr "pai via Liqpay"
+
+#: templates/m_visits.php:23
+msgid "оплачено с абонемента"
+msgstr "paid from card"
+
+#: templates/m_visits.php:24
+msgid "оплачено со внутреннего счета"
+msgstr "paid from account"
+
+#: templates/m_visits.php:25
+msgid "посещение забронировано"
+msgstr "training booked"
+
+#: templates/m_visits.php:26
+msgid "оплачено по безналу (терминал в клубе)"
+msgstr "paid through terminal"
+
+#: templates/m_visits.php:27
+msgid "оплачено онлайн через Portmone"
+msgstr "paid via Portmone"
+
+#: templates/m_visits.php:28
+msgid "оплачено онлайн через WayForPay"
+msgstr "paid via WayForPay"
+
+#: templates/m_visits.php:34
+msgid "Вы уверены что хотите отменить"
+msgstr "Are you sure you want to cancel"
+
+#: templates/m_visits.php:35
+msgid "Отменить"
+msgstr "Cancel"
+
+#: templates/m_visits.php:41
+msgid "У вас нет запланированных посещений"
+msgstr "You have upcoming trainings"
+
+#: templates/month.php:80 templates/week.php:114
+msgid "Вы уже записаны"
+msgstr "You are already enrolled"
+
+#: templates/month.php:82 templates/week.php:116
+msgid "Мест нет"
+msgstr "No seats"
+
+#: templates/month.php:84 templates/week.php:118
+msgid "Осталось 1 место"
+msgstr "1 seat left"
+
+#: templates/month.php:86 templates/week.php:120
+msgid "Осталось 2 места"
+msgstr "2 seats left"
+
+#: templates/week.php:132
+msgid "Нет тренировок"
+msgstr "No trainings"

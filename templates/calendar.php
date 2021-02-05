@@ -1,6 +1,6 @@
 <div class="ic-loader"></div>
 <div class="ic-calendar">
-	<? include 'filters.php'?>
+	<?php include 'filters.php'?>
 
 	<div class="ic-controls">
 		<div class="ic-ell ic-control ic-control_left dashicons dashicons-arrow-left-alt2"></div>
@@ -23,12 +23,12 @@
 	<div class="ic-for_events">
 		<# // Таблица - месяц
 		if(data.v.view == 'month'){ #>
-		<? include 'month.php' ?>
+		<?php include 'month.php' ?>
 		<# } #>
 
 		<#  // Таблица - неделя
 		if(data.v.view == 'week'){ #>
-		<? include 'week.php' ?>
+		<?php include 'week.php' ?>
 		<# } #>
 	</div><!--	/calendar_events	-->
 </div>

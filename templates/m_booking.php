@@ -18,7 +18,7 @@
             </form>
         </div>
         <a class="ic-payment-offer" target="_blank"
-           href="https://instasport.co/club/{{instasport.club}}/offer/"><? echo sprintf( __( 'Нажимая "%s" вы соглашаетесь с договором', 'instasport' ), '{{instasport.lang.payment[pcode]}}' ) ?></a>
+           href="https://instasport.co/club/{{instasport.club}}/offer/"><?php echo sprintf( __( 'Нажимая "%s" вы соглашаетесь с договором', 'instasport' ), '{{instasport.lang.payment[pcode]}}' ) ?></a>
 
         <# }else if(pcode == 4){ // Счет #>
         <div class="ic-payment" data-type="account">
@@ -51,7 +51,7 @@
             </form>
         </div>
         <a class="ic-payment-offer" target="_blank"
-           href="https://instasport.co/club/{{instasport.club}}/offer/"><? echo sprintf( __( 'Нажимая "%s" вы соглашаетесь с договором', 'instasport' ), '{{instasport.lang.payment[pcode]}}' ) ?></a>
+           href="https://instasport.co/club/{{instasport.club}}/offer/"><?php echo sprintf( __( 'Нажимая "%s" вы соглашаетесь с договором', 'instasport' ), '{{instasport.lang.payment[pcode]}}' ) ?></a>
         <# } #>
 
         <# } #>

@@ -13,10 +13,10 @@
 		<div class="ic-view ic-desktop">
 			<ul>
 				<li class="{{ 'month' == data.v.view ? 'active' : '' }}">
-					<a class="ic-ell ic-filter-item" href="#" data-val="month"><? _e( 'Месяц', 'instasport' ) ?></a>
+					<a class="ic-ell ic-filter-item" href="#" data-val="month"><?php _e( 'Месяц', 'instasport' ) ?></a>
 				</li>
 				<li class="{{ 'week' == data.v.view ? 'active' : '' }}">
-					<a class="ic-ell ic-filter-item" href="#" data-val="week"><? _e( 'Неделя', 'instasport' ) ?></a>
+					<a class="ic-ell ic-filter-item" href="#" data-val="week"><?php _e( 'Неделя', 'instasport' ) ?></a>
 				</li>
 			</ul>
 		</div>
@@ -27,7 +27,7 @@
 			<# // Фильтры 2
 			let filters = {
 			training : '<?php _e( 'Тренировка', 'instasport' ) ?>',
-			instructor: '<?php _e( 'Тренер', 'instasport' ) ?>',
+			instructor: '<?php _e( 'Инструктор', 'instasport' ) ?>',
 			complexity: '<?php _e( 'Сложность', 'instasport' ) ?>',
 			activity : '<?php _e( 'Направление', 'instasport' ) ?>',
 			};

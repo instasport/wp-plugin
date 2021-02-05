@@ -109,23 +109,23 @@ class InstaCalendarShortcode {
 		?>
         <style type="text/css">
             #instaCalendar, #instaModal {
-                --primaryColor: <?=$options['primaryColor']?>;
-                --secondaryColor: <?=$options['secondaryColor']?>;
-                --primaryTextColor: <?=$options['primaryTextColor']?>;
-                --secondaryTextColor: <?=$options['secondaryTextColor']?>;
-                --desktop_nav_filter_font: <?=$options['desktop_nav_filter_font']?>;
-                --desktop_event_title_time_font: <?=$options['desktop_event_title_time_font']?>;
-                --desktop_event_dur_seats_font: <?=$options['desktop_event_dur_seats_font']?>;
-                --desktop_date_font: <?=$options['desktop_date_font']?>;
-                --desktop_days_of_week_font: <?=$options['desktop_days_of_week_font']?>;
-                --desktop_month_days_numbers_font: <?=$options['desktop_month_days_numbers_font']?>;
-                --desktop_week_hours_font: <?=$options['desktop_week_hours_font']?>;
-                --desktop_filter_list_font: <?=$options['desktop_filter_list_font']?>;
-                --mobile_nav_filter_font: <?=$options['mobile_nav_filter_font']?>;
-                --mobile_event_title_time_font: <?=$options['mobile_event_title_time_font']?>;
-                --mobile_event_dur_seats_font: <?=$options['mobile_event_dur_seats_font']?>;
-                --mobile_title_font: <?=$options['mobile_title_font']?>;
-                --mobile_days_of_week_font: <?=$options['mobile_days_of_week_font']?>;
+                --primaryColor: <?php echo $options['primaryColor']?>;
+                --secondaryColor: <?php echo $options['secondaryColor']?>;
+                --primaryTextColor: <?php echo $options['primaryTextColor']?>;
+                --secondaryTextColor: <?php echo $options['secondaryTextColor']?>;
+                --desktop_nav_filter_font: <?php echo $options['desktop_nav_filter_font']?>;
+                --desktop_event_title_time_font: <?php echo $options['desktop_event_title_time_font']?>;
+                --desktop_event_dur_seats_font: <?php echo $options['desktop_event_dur_seats_font']?>;
+                --desktop_date_font: <?php echo $options['desktop_date_font']?>;
+                --desktop_days_of_week_font: <?php echo $options['desktop_days_of_week_font']?>;
+                --desktop_month_days_numbers_font: <?php echo $options['desktop_month_days_numbers_font']?>;
+                --desktop_week_hours_font: <?php echo $options['desktop_week_hours_font']?>;
+                --desktop_filter_list_font: <?php echo $options['desktop_filter_list_font']?>;
+                --mobile_nav_filter_font: <?php echo $options['mobile_nav_filter_font']?>;
+                --mobile_event_title_time_font: <?php echo $options['mobile_event_title_time_font']?>;
+                --mobile_event_dur_seats_font: <?php echo $options['mobile_event_dur_seats_font']?>;
+                --mobile_title_font: <?php echo $options['mobile_title_font']?>;
+                --mobile_days_of_week_font: <?php echo $options['mobile_days_of_week_font']?>;
             }
 
             /*#instaCalendar .ic-bg{
@@ -133,7 +133,7 @@ class InstaCalendarShortcode {
 
 
 
-            <?=$options['primaryColor']?>
+            <?php echo $options['primaryColor']?>
 
 
 
@@ -144,7 +144,7 @@ class InstaCalendarShortcode {
 
 
 
-            <?=$options['secondaryColor']?>
+            <?php echo $options['secondaryColor']?>
 
 
 
@@ -155,7 +155,7 @@ class InstaCalendarShortcode {
 
 
 
-            <?=$options['primaryTextColor']?>
+            <?php echo $options['primaryTextColor']?>
 
 
 
@@ -166,7 +166,7 @@ class InstaCalendarShortcode {
 
 
 
-            <?=$options['secondaryTextColor']?>
+            <?php echo $options['secondaryTextColor']?>
 
 
 
@@ -179,50 +179,50 @@ class InstaCalendarShortcode {
                 display: none !important;
             }
 
-            <? endif;?>
+            <?php endif;?>
             <?php if(!$options['desktop_filter_couch_show']):?>
             #instaCalendar .ic-calendar .ic-filters .ic-filter-item-couch {
                 display: none !important;
             }
 
-            <? endif;?>
+            <?php endif;?>
             <?php if(!$options['desktop_filter_activity_show']):?>
             #instaCalendar .ic-calendar .ic-filters .ic-filter-item-activity {
                 display: none !important;
             }
 
-            <? endif;?>
+            <?php endif;?>
             <?php if(!$options['desktop_filter_complexity_show']):?>
             #instaCalendar .ic-calendar .ic-filters .ic-filter-item-complexity {
                 display: none !important;
             }
 
-            <? endif;?>
+            <?php endif;?>
 
             @media (max-width: 768px) {
                 #instaCalendar .ic-calendar .ic-halls ul li a,
                 #instaCalendar .ic-calendar .ic-filters ul li a {
-                    font-size: <?=$options['mobile_nav_filter_font'];?> !important;
+                    font-size: <?php echo $options['mobile_nav_filter_font'];?> !important;
                 }
 
                 #instaCalendar .ic-table-week .ic-thead .ic-mobile {
-                    font-size: <?=$options['mobile_days_of_week_font'];?> !important;
+                    font-size: <?php echo $options['mobile_days_of_week_font'];?> !important;
                 }
 
                 #instaCalendar .ic-controls .ic-mobile {
-                    font-size: <?=$options['mobile_title_font'];?> !important;
+                    font-size: <?php echo $options['mobile_title_font'];?> !important;
                 }
 
                 #instaCalendar .ic-event .ic-begin-time,
                 #instaCalendar .ic-event .ic-title {
-                    font-size: <?=$options['mobile_event_title_time_font'];?> !important;
-                    line-height: <?=$options['mobile_event_title_time_font'];?> !important;
+                    font-size: <?php echo $options['mobile_event_title_time_font'];?> !important;
+                    line-height: <?php echo $options['mobile_event_title_time_font'];?> !important;
                 }
 
                 #instaCalendar .ic-event .ic-duration,
                 #instaCalendar .ic-event .ic-seats {
-                    font-size: <?=$options['mobile_event_dur_seats_font'];?> !important;
-                    line-height: <?=$options['mobile_event_dur_seats_font'];?> !important;
+                    font-size: <?php echo $options['mobile_event_dur_seats_font'];?> !important;
+                    line-height: <?php echo $options['mobile_event_dur_seats_font'];?> !important;
                 }
 
 
@@ -231,25 +231,25 @@ class InstaCalendarShortcode {
                     display: none !important;
                 }
 
-            <? endif;?>
+            <?php endif;?>
             <?php if(!$options['mobile_filter_couch_show']):?>
                 #instaCalendar .ic-calendar .ic-filters .ic-filter-item-couch {
                     display: none !important;
                 }
 
-            <? endif;?>
+            <?php endif;?>
             <?php if(!$options['mobile_filter_activity_show']):?>
                 #instaCalendar .ic-calendar .ic-filters .ic-filter-item-activity {
                     display: none !important;
                 }
 
-            <? endif;?>
+            <?php endif;?>
             <?php if(!$options['mobile_filter_complexity_show']):?>
                 #instaCalendar .ic-calendar .ic-filters .ic-filter-item-complexity {
                     display: none !important;
                 }
 
-            <? endif;?>
+            <?php endif;?>
             }
         </style>
 		<?php
