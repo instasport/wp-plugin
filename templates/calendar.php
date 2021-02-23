@@ -5,29 +5,30 @@
 	<div class="ic-controls">
 		<div class="ic-ell ic-control ic-control_left dashicons dashicons-arrow-left-alt2"></div>
 		<div class="ic-title_month">
-            <# if(data.v.view == 'month'){ #>
+            <# if(data.club.args.view == 'month'){ #>
             <span class="ic-desktop ic-month">
-                {{{ instaDateStr(data.v.cdate, "{F} {Y}") }}}
+                {{ data.club.args.date.format('MMMM YYYY') }}
             </span>
             <# } else{ #>
             <span class="ic-desktop ic-week">
-                {{{ instaDateStr(new Date(data.v.startDate), "{d} - ") }}}{{{ instaDateStr(new Date(data.v.endDate), "{d} {K}") }}}
+                {{data.club.args.startDate.format('D')}} - {{data.club.args.endDate.format('D MMMM')}}
             </span>
             <# } #>
             <span class="ic-mobile">
-                {{{instaDateStr(data.v.cdate, '{l}<br><span>{d} {K}</span>')}}}
+                {{ data.club.args.date.format('dddd') }}  <br>
+                <span>{{data.club.args.date.format('D MMMM')}}</span>
             </span>
 		</div>
         <div class="ic-ell ic-control ic-control_right dashicons dashicons-arrow-right-alt2"></div>
 	</div>
 	<div class="ic-for_events">
 		<# // Таблица - месяц
-		if(data.v.view == 'month'){ #>
+		if(data.club.args.view == 'month'){ #>
 		<?php include 'month.php' ?>
 		<# } #>
 
 		<#  // Таблица - неделя
-		if(data.v.view == 'week'){ #>
+		if(data.club.args.view == 'week'){ #>
 		<?php include 'week.php' ?>
 		<# } #>
 	</div><!--	/calendar_events	-->

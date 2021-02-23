@@ -18,16 +18,15 @@
 		</div>
         <div class="ic-modal-row">
 			<div class="ic-modal-row-title"><?php _e('Текущий баланс', 'instasport') ?></div>
-			{{data.event.account}}
+			{{data.user.profile.account}}
 		</div>
 	</div>
     <div class="ic-user-cards">
         <div class="ic-modal-title">
             Мои абонементы
         </div>
-
-        <# if(instasport.user.cards.length){ // Абонементы #>
-        <# for(let card of instasport.user.cards){ #>
+        <# if(data.user.cards.length){ // Абонементы #>
+        <# for(let card of data.user.cards){ #>
         <div class="ic-user-card {{ card.activated ? 'activated' : 'inactive' }}" data-card="{{card.id}}">
             <div class="ic-card-title">{{card.template.group.title}} / {{card.template.title}}</div>
             <div class="ic-card-subtitle">{{card.template.subtitle}}</div>
@@ -48,33 +47,27 @@
             <# if(card.activated){ #>
             <div class="ic-modal-row">
                 <div class="ic-modal-row-title"><?php _e('Дата окончания', 'instasport') ?></div>
-                <span>{{card.pausedDueDate}}</span>
+                <span>{{moment(card.pausedDueDate).utc(0).format('dd, D MMMM YYYY')}}</span>
             </div>
              <# } #>
 
             <# if(card.paused){ #>
             <div class="ic-modal-row">
                 <div class="ic-modal-row-title"><?php _e('Дата разморозки', 'instasport') ?></div>
-                <span>{{card.dueDate}}</span>
+                <span>{{moment(card.dueDate).utc(0).format('dd, D MMMM YYYY')}}</span>
             </div>
             <# } #>
 
             <# if(!card.activated){ #>
-            <div class="ic-modal-button" data-type="activate" data-card="{{card.id}}">
-                <span><?php _e('Активировать', 'instasport') ?></span>
-            </div>
+                    <input type="button"  class="ic-modal-button" data-type="activate" data-card="{{card.id}}" name="card-{{card.id}}" value="<?php _e('Активировать', 'instasport') ?>">
             <# } #>
 
-            <# if(card.activated && !card.paused && card.pauses){ #>
-            <div class="ic-modal-button" data-type="freeze" data-card="{{card.id}}">
-                <span><?php _e('Заморозить', 'instasport') ?></span>
-            </div>
+            <# if(card.activated && !card.paused && card.pauses && card.freezeEnabled){ #>
+                    <input type="button"  class="ic-modal-button" data-type="freeze" data-card="{{card.id}}" name="card-{{card.id}}" value="<?php _e('Заморозить', 'instasport') ?>">
             <# } #>
 
             <# if(card.paused){ #>
-            <div class="ic-modal-button" data-type="unfreeze" data-card="{{card.id}}">
-		         <span><?php _e('Разморозить', 'instasport') ?></span>
-            </div>
+                    <input type="button"  class="ic-modal-button" data-type="unfreeze" data-card="{{card.id}}" name="card-{{card.id}}" value="<?php _e('Разморозить', 'instasport') ?>">
             <# } #>
 
 
@@ -89,9 +82,14 @@
 
 </div>
 <div class="ic-modal-buttons">
-    <div class="ic-modal-button" data-alert="<?php _e('Вы действительно хотите выйти ?', 'instasport')?>" data-step="exit">
+    <div class="ic-modal-button" data-alert="<?php _e('Вы действительно хотите выйти ?', 'instasport')?>" data-func="exit">
         <span class="dashicons dashicons-migrate"></span>
         <span><?php _e( 'Выйти', 'instasport' ) ?></span>
     </div>
-    <a href="#" class="ic-back"><?php _e( "Вернуться назад", 'instasport' ) ?></a>
+
+    <# if(data.modal.data.event){ #>
+    <a href="#" class="" data-modal="event">
+        <?php _e( "Вернуться назад", 'instasport' ) ?>
+    </a>
+    <# } #>
 </div>

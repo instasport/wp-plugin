@@ -12,23 +12,23 @@
     </div>
     <div class="ic-tbody ic-events">
         <#
-        let date = new Date(data.v.startDate);
-        let endDate = new Date(data.v.endDate + 'T23:00:00');
-        let now = new Date();
-        now.setHours(18);
-        let nowStr = instaDateStr(now)
-        let month = data.v.month;
+        let date = data.club.args.startDate.clone().isoWeekday(1);
+        let endDate = data.club.args.endDate.clone().isoWeekday(7);
+
+
+
+        let now = moment();
         #>
         <div class="ic-tr">
             <# // Вывод дней
             while (date < endDate) {
             #>
-            <div class="ic-td ic-for_day {{ instaDateStr(date) ==  nowStr ? 'ic-day_today' : ''}} {{ date < now ? 'off' : ''}}">
+            <div class="ic-td ic-for_day {{ date.isSame(now, 'day') ? 'ic-day_today' : ''}} {{ date.isBefore(now) ? 'off' : ''}}">
                 <div class="ic-day">
-                    <div class="ic-day_number">{{date.getDate()}}</div>
+                    <div class="ic-day_number">{{date.format('D')}}</div>
 
                     <# // События если есть
-                    let dateStr = instaDateStr(date, '{Y}-{m}-{d}');
+                    let dateStr = date.format('YYYY-MM-DD');
                     if(data.events[dateStr]){
                     #>
                     <div class="ic-per_day">
@@ -52,7 +52,7 @@
                             <div class="ic-table">
                                 <div class="ic-tr">
                                     <div class="ic-td">
-                                        <div class="ic-begin_time">{{instaGetTime(event.date)}}</div>
+                                        <div class="ic-begin_time">{{moment(event.date).utc(0).format('HH:mm')}}</div>
                                     </div>
                                     <div class="ic-td">
                                         <# // продолжительность тренировки
@@ -77,13 +77,13 @@
                             if(instasport.settings.desktop.monthView.showSeats){ #>
                             <div class="ic-seats">
                                 <# if(event.hasUser){ #>
-								<?php _e( 'Вы уже записаны', 'instasport' ) ?>
+						        <?php _e( 'Вы уже записаны', 'instasport' ) ?>
                                 <# }else if(event.seats === 0){ #>
-								<?php _e( 'Мест нет', 'instasport' ) ?>
+						        <?php _e( 'Мест нет', 'instasport' ) ?>
                                 <# }else if(event.seats === 1){ #>
-								<?php _e( 'Осталось 1 место', 'instasport' ) ?>
+						        <?php _e( 'Осталось 1 место', 'instasport' ) ?>
                                 <# }else if(event.seats === 2){ #>
-								<?php _e( 'Осталось 2 места', 'instasport' ) ?>
+						        <?php _e( 'Осталось 2 места', 'instasport' ) ?>
                                 <# } #>
                             </div>
                             <# } #>
@@ -101,11 +101,12 @@
                     <# } #>
                 </div>
             </div>
-            <# if (instaGetDay(date) === 6) { #>
+
+            <# if (date.format('E') == 7) { #>
         </div>
         <div class="ic-tr">
             <# }
-            date.setDate(date.getDate() + 1);
+            date.add(1, 'days');
             } #>
         </div>
     </div>

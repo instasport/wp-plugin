@@ -4,7 +4,7 @@
 		<div class="ic-halls">
 			<ul>
 				<# for( let hall of data.club.halls){ #>
-				<li class="{{ hall.id == data.v.hall ? 'active' : '' }}">
+				<li class="{{ hall.id == data.club.args.hall ? 'active' : '' }}">
 					<a class="ic-ell ic-filter-item" data-val="{{hall.id}}" href="#">{{ hall.title }}</a>
 				</li>
 				<# } #>
@@ -12,10 +12,10 @@
 		</div>
 		<div class="ic-view ic-desktop">
 			<ul>
-				<li class="{{ 'month' == data.v.view ? 'active' : '' }}">
+				<li class="{{ 'month' == data.club.args.view ? 'active' : '' }}">
 					<a class="ic-ell ic-filter-item" href="#" data-val="month"><?php _e( 'Месяц', 'instasport' ) ?></a>
 				</li>
-				<li class="{{ 'week' == data.v.view ? 'active' : '' }}">
+				<li class="{{ 'week' == data.club.args.view ? 'active' : '' }}">
 					<a class="ic-ell ic-filter-item" href="#" data-val="week"><?php _e( 'Неделя', 'instasport' ) ?></a>
 				</li>
 			</ul>
@@ -35,12 +35,12 @@
 			for(let [key, title] of Object.entries(filters)){
 			#>
 			<!-- Тренировка -->
-			<li class="{{data.v.filters[key] ? 'choosed' : ''}}">
+			<li class="{{data.club.args.filters[key] ? 'choosed' : ''}}">
 				<div class="insta_dropdown insta_dropdown-training">
 					<a class="ic-ell insta_dropdown-title ic-filter-item ic-filter-item-{{key}}" href="">
 						{{title}}
 						<span class="ic-ell">
-							{{data.v.filters[key] ? data.filters[key][data.v.filters[key]].title : ''}}
+							{{data.club.args.filters[key] ? data.filters[key][data.club.args.filters[key]].title : ''}}
 						</span>
 					</a>
 					<div class="ic-bg2 insta_dropdown-window" style="display: none;">

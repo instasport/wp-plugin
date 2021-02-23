@@ -56,7 +56,7 @@ class InstaCalendarAdmin {
 			$this->add_settings_field( 'club_' . $i, 'Slug ', 'input', 'insta_calendar_api_' . $i,'', 'calendar_api');
 			$this->add_settings_field( 'key_' . $i, 'Key ', 'input', 'insta_calendar_api_' . $i,'', 'calendar_api' );
 		    $i++;
-		}while(isset($options['club_'.($i-1)]));
+		}while(isset($options['club_'.($i-1)]) && $options['club_'.($i-1)]);
 
 		// Цвета
 		add_settings_section( 'insta_calendar_colors', 'Цвета', '', 'insta_calendar' );
@@ -161,7 +161,7 @@ class InstaCalendarAdmin {
 		$options = insta_get_options();
 
 		if ( $args['type'] == 'input' ) {
-			echo '<input type="text" name="insta_calendar[' . $args['slug'] . ']" value="' . esc_attr( $options[ $args['slug'] ] ?? '' ) . '" class="' . $args['class'] . '">';
+			echo '<input type="text" name="insta_calendar[' . $args['slug'] . ']" value="' . esc_attr( isset($options[ $args['slug'] ]) ? $options[ $args['slug'] ] : '' ) . '" class="' . $args['class'] . '">';
 		}
 
 		if ( $args['type'] == 'select' ) {

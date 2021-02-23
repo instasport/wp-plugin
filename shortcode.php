@@ -5,97 +5,77 @@ class InstaCalendarShortcode {
 	public function __construct() {
 
 		add_shortcode( 'instasport-calendar', function ( $atts, $tag ) {
-			//var_dump(InstaCalendarAPI::query('{"query": "{ club {title} }"}'));
-            $id = $atts['id'] ?? '';
+			$id = isset($atts['id']) ? $atts['id'] : 0;
 			ob_start();
-			$options = insta_get_options();
+			echo ' <div id="instaCalendar'.$id.'" class="instaCalendar ic-loading" data-id="'.$id.'"><div class="ic-loader"></div></div>';
 
-			$club = InstaCalendarAPI::query( '{ "query": "{ club {title, halls{id,title,timeOpen,timeClose}, activities{id,title}} }"}',false,false, $id );
+			
+			// Подключаем скрипты и шаблоны
+			if(!wp_style_is('instasport-calendar')){
+				$script_data = [
+					'ajax_url' => admin_url( 'admin-ajax.php'),
+					//'club'     => $id ? $options['club_'.$id] : $options['club'],
+					'settings' => $this->get_settings(),
+                    'locale'    => get_locale(),
+					'lang'     => $this->get_translations(),
+				];
 
-			if(isset($club->errors)){
-				echo '<p style="background: lightgray;border: 1px solid red;padding: 10px;">INSTASPORT <b>'.$club->errors[0]->result.': '.$club->errors[0]->message.'<b></p>';
-				return ob_get_clean();
-            }
-
-			$script_data = [
-				'ajax_url' => admin_url( 'admin-ajax.php?id='.$id ),
-				'club'     => $id ? $options['club_'.$id] : $options['club'],
-				'settings' => $this->get_settings(),
-				'lang'     => $this->get_translations(),
-				'api'      => [
-					'club'   => $club->data ? $club->data->club : [],
-					'events' => [],
-					'cards'  => [],
-					'cardGroups'  => [],
-				],
-				'values'   => [
-					'hall'      => 0,
-					'view'      => $options['default_view_to_show'],
-					'year'      => wp_date( 'Y' ),
-					'month'     => wp_date( 'm' ) - 1,
-					'day'       => wp_date( 'j' ),
-					'startDate' => '',
-					'endDate'   => '',
-					'minH'      => 24,
-					'maxH'      => 0,
-					'filters'   => [
-						'training'   => 0,
-						'instructor' => 0,
-						'complexity' => 0,
-						'activity'   => 0,
-					]
-				],
-			];
-
-			$gmt_offset                     = get_option( 'gmt_offset' );
-			$sign                           = ( $gmt_offset < 0 ) ? '-' : '+';
-			$script_data['settings']['gmt'] = $sign . $gmt_offset;
+				$gmt_offset                     = get_option( 'gmt_offset' );
+				$sign                           = ( $gmt_offset < 0 ) ? '-' : '+';
+				$script_data['settings']['gmt'] = $sign . $gmt_offset;
 
 
-			wp_enqueue_style( 'dashicons' );
-			wp_enqueue_style( "instasport-calendar", plugins_url( "css/instasport.css", __FILE__ ), [], time() ); //todo time
-			wp_enqueue_script( "instasport-calendar", plugins_url( "js/instasport.js", __FILE__ ), [
-				'jquery',
-				'wp-util'
-			], time(), true ); //todo time
-			wp_localize_script( 'instasport-calendar', 'instasport', $script_data );
+				wp_enqueue_style( 'dashicons' );
+				wp_enqueue_style( "instasport-calendar", plugins_url( "css/instasport.css", __FILE__ ), [], time() ); //todo time
+				wp_enqueue_script( "axios", plugins_url( "js/axios.min.js", __FILE__ ), [], '0.21.1', true );
+				wp_enqueue_script( "moment", plugins_url( "js/moment.js", __FILE__ ), [], '2.29.12', true );
+				wp_enqueue_script( "moment-locales", plugins_url( "js/locales.js", __FILE__ ), ['moment'], '2.29.12', true );
+				wp_enqueue_script( "instasport-calendar", plugins_url( "js/instasport.js", __FILE__ ), [
+					'jquery',
+					'wp-util',
+					'axios',
+					'moment',
+				], time(), true ); //todo time
+				wp_localize_script( 'instasport-calendar', 'instasport', $script_data );
 
-			echo ' <div id="instaCalendar" class="ic-loading"><div class="ic-loader"></div></div>';
-			echo ' <div id="instaModal" style="display: none"></div>';
-
-			echo '<script type="text/html" id="tmpl-instaCalendar">';
-			$this->get_template( 'calendar' );
-			echo '</script>';
-
-			echo '<script type="text/html" id="tmpl-instaModal">';
-			$this->get_template( 'modal' );
-			echo '</script>';
-
-			//
-			$modals = [
-				'login',
-				'register',
-				'sms',
-				'email',
-				'email_confirmed',
-				'email_wait',
-				'merge',
-				'profile',
-				'visits',
-				'booking',
-				'event',
-				'cards',
-				'card',
-				'card_pay',
-				'instructor',
-			];
-			foreach ( $modals as $modal ) {
-				echo '<script type="text/html" id="tmpl-instaModal-' . $modal . '">';
-				$this->get_template( 'm_' . $modal );
+				echo ' <div id="instaModal" style="display: none"></div>';
+				echo '<script type="text/html" id="tmpl-instaCalendar">';
+				$this->get_template( 'calendar' );
 				echo '</script>';
-			}
 
-			$this->get_styles();
+				echo '<script type="text/html" id="tmpl-instaModal">';
+				$this->get_template( 'modal' );
+				echo '</script>';
+
+				//
+				$modals = [
+					'login',
+					'register',
+					'sms',
+					'email',
+					'email_confirmed',
+					'email_wait',
+					'merge',
+					'profile',
+					'visits',
+					'event',
+					'event_pay_list',
+					'cards',
+					'card',
+					'card_pay',
+					'instructor',
+					'rules',
+					'offer',
+					'service_agreement',
+				];
+				foreach ( $modals as $modal ) {
+					echo '<script type="text/html" id="tmpl-instaModal-' . $modal . '">';
+					$this->get_template( 'm_' . $modal );
+					echo '</script>';
+				}
+
+				$this->get_styles();
+            }
 
 			return ob_get_clean();
 		} );
@@ -108,7 +88,7 @@ class InstaCalendarShortcode {
 		$options = insta_get_options();
 		?>
         <style type="text/css">
-            #instaCalendar, #instaModal {
+            .instaCalendar , #instaModal {
                 --primaryColor: <?php echo $options['primaryColor']?>;
                 --secondaryColor: <?php echo $options['secondaryColor']?>;
                 --primaryTextColor: <?php echo $options['primaryTextColor']?>;
@@ -128,124 +108,79 @@ class InstaCalendarShortcode {
                 --mobile_days_of_week_font: <?php echo $options['mobile_days_of_week_font']?>;
             }
 
-            /*#instaCalendar .ic-bg{
-                background:
-
-
-
-            <?php echo $options['primaryColor']?>
-
-
-
-												 ;
-															}
-															#instaCalendar .ic-bg2{
-																background:
-
-
-
-            <?php echo $options['secondaryColor']?>
-
-
-
-												 ;
-															}
-															#instaCalendar .ic-tx{
-																background:
-
-
-
-            <?php echo $options['primaryTextColor']?>
-
-
-
-												 ;
-															}
-															#instaCalendar .ic-tx2{
-																background:
-
-
-
-            <?php echo $options['secondaryTextColor']?>
-
-
-
-												 ;
-															}*/
-
-
+    
             <?php if(!$options['desktop_filter_train_show']):?>
-            #instaCalendar .ic-calendar .ic-filters .ic-filter-item-training {
+            .instaCalendar  .ic-calendar .ic-filters .ic-filter-item-training {
                 display: none !important;
             }
 
             <?php endif;?>
             <?php if(!$options['desktop_filter_couch_show']):?>
-            #instaCalendar .ic-calendar .ic-filters .ic-filter-item-couch {
+            .instaCalendar  .ic-calendar .ic-filters .ic-filter-item-couch {
                 display: none !important;
             }
 
             <?php endif;?>
             <?php if(!$options['desktop_filter_activity_show']):?>
-            #instaCalendar .ic-calendar .ic-filters .ic-filter-item-activity {
+            .instaCalendar  .ic-calendar .ic-filters .ic-filter-item-activity {
                 display: none !important;
             }
 
             <?php endif;?>
             <?php if(!$options['desktop_filter_complexity_show']):?>
-            #instaCalendar .ic-calendar .ic-filters .ic-filter-item-complexity {
+            .instaCalendar  .ic-calendar .ic-filters .ic-filter-item-complexity {
                 display: none !important;
             }
 
             <?php endif;?>
 
             @media (max-width: 768px) {
-                #instaCalendar .ic-calendar .ic-halls ul li a,
-                #instaCalendar .ic-calendar .ic-filters ul li a {
+                .instaCalendar  .ic-calendar .ic-halls ul li a,
+                .instaCalendar  .ic-calendar .ic-filters ul li a {
                     font-size: <?php echo $options['mobile_nav_filter_font'];?> !important;
                 }
 
-                #instaCalendar .ic-table-week .ic-thead .ic-mobile {
+                .instaCalendar  .ic-table-week .ic-thead .ic-mobile {
                     font-size: <?php echo $options['mobile_days_of_week_font'];?> !important;
                 }
 
-                #instaCalendar .ic-controls .ic-mobile {
+                .instaCalendar  .ic-controls .ic-mobile {
                     font-size: <?php echo $options['mobile_title_font'];?> !important;
                 }
 
-                #instaCalendar .ic-event .ic-begin-time,
-                #instaCalendar .ic-event .ic-title {
+                .instaCalendar  .ic-event .ic-begin-time,
+                .instaCalendar  .ic-event .ic-title {
                     font-size: <?php echo $options['mobile_event_title_time_font'];?> !important;
                     line-height: <?php echo $options['mobile_event_title_time_font'];?> !important;
                 }
 
-                #instaCalendar .ic-event .ic-duration,
-                #instaCalendar .ic-event .ic-seats {
+                .instaCalendar  .ic-event .ic-duration,
+                .instaCalendar  .ic-event .ic-seats {
                     font-size: <?php echo $options['mobile_event_dur_seats_font'];?> !important;
                     line-height: <?php echo $options['mobile_event_dur_seats_font'];?> !important;
                 }
 
 
             <?php if(!$options['mobile_filter_train_show']):?>
-                #instaCalendar .ic-calendar .ic-filters .ic-filter-item-training {
+                .instaCalendar  .ic-calendar .ic-filters .ic-filter-item-training {
                     display: none !important;
                 }
 
             <?php endif;?>
             <?php if(!$options['mobile_filter_couch_show']):?>
-                #instaCalendar .ic-calendar .ic-filters .ic-filter-item-couch {
+                .instaCalendar  .ic-calendar .ic-filters .ic-filter-item-couch {
                     display: none !important;
                 }
 
             <?php endif;?>
             <?php if(!$options['mobile_filter_activity_show']):?>
-                #instaCalendar .ic-calendar .ic-filters .ic-filter-item-activity {
+                .instaCalendar  .ic-calendar .ic-filters .ic-filter-item-activity {
                     display: none !important;
                 }
 
             <?php endif;?>
             <?php if(!$options['mobile_filter_complexity_show']):?>
-                #instaCalendar .ic-calendar .ic-filters .ic-filter-item-complexity {
+                .instaCalendar  .ic-calendar .ic-filters .ic-filter-item-complexity {
                     display: none !important;
                 }
 
@@ -307,52 +242,6 @@ class InstaCalendarShortcode {
 	 */
 	function get_translations() {
 		return [
-			'month1'  => [
-				__( 'Январь', 'instasport' ),
-				__( 'Февраль', 'instasport' ),
-				__( 'Март', 'instasport' ),
-				__( 'Апрель', 'instasport' ),
-				__( 'Май', 'instasport' ),
-				__( 'Июнь', 'instasport' ),
-				__( 'Июль', 'instasport' ),
-				__( 'Август', 'instasport' ),
-				__( 'Сентябрь', 'instasport' ),
-				__( 'Октябрь', 'instasport' ),
-				__( 'Ноябрь', 'instasport' ),
-				__( 'Декабрь', 'instasport' ),
-			],
-			'month2'  => [ // Склонение
-				__( 'Января', 'instasport' ),
-				__( 'Февраля', 'instasport' ),
-				__( 'Марта', 'instasport' ),
-				__( 'Апреля', 'instasport' ),
-				__( 'Мая', 'instasport' ),
-				__( 'Июня', 'instasport' ),
-				__( 'Июля', 'instasport' ),
-				__( 'Августа', 'instasport' ),
-				__( 'Сентября', 'instasport' ),
-				__( 'Октября', 'instasport' ),
-				__( 'Ноября', 'instasport' ),
-				__( 'Декабря', 'instasport' ),
-			],
-			'week_f'  => [
-				__( "Понедельник", 'instasport' ),
-				__( "Вторник", 'instasport' ),
-				__( "Среда", 'instasport' ),
-				__( "Четверг", 'instasport' ),
-				__( "Пятница", 'instasport' ),
-				__( "Суббота", 'instasport' ),
-				__( "Воскресенье", 'instasport' ),
-			],
-			'week_s'  => [
-				__( "Пн", 'instasport' ),
-				__( "Вт", 'instasport' ),
-				__( "Ср", 'instasport' ),
-				__( "Чт", 'instasport' ),
-				__( "Пт", 'instasport' ),
-				__( "Сб", 'instasport' ),
-				__( "Вс", 'instasport' ),
-			],
 			'form'    => [
 				'errors' => [
 					'empty'    => __( "Поле должно быть заполнено", 'instasport' ),
@@ -361,6 +250,7 @@ class InstaCalendarShortcode {
 				]
 			],
 			'payment' => [
+				'-1'  => __( 'Оставить заявку', 'instasport' ),
 				'2'  => __( 'Оплатить через Liqpay', 'instasport' ),
 				'3'  => __( 'Абонемент', 'instasport' ),
 				'4'  => __( 'Оплатить со счета', 'instasport' ),
@@ -382,11 +272,4 @@ class InstaCalendarShortcode {
 }
 
 new InstaCalendarShortcode();
-
-
-add_action( 'wp_enqueue_scripts', function () {
-	$options = insta_get_options();
-	//wp_register_script( "instasport-calendar", plugins_url( "js/instasport.js", __FILE__ ), [ 'jquery' ] );
-
-} );
 

@@ -10,8 +10,11 @@
     #>
     <div class="ic-visit">
         <div class="ic-visit-title">{{visit.event.title}}</div>
-        <div><span><?php _e( "Дата", 'instasport' ) ?>:</span> {{visit.event.date.substring(0, 10)}}</div>
-        <div><span><?php _e( "Начало", 'instasport' ) ?>:</span> {{instaGetTime(visit.event.date)}}</div>
+        <div>
+            <span><?php _e( "Дата", 'instasport' ) ?>:</span>
+            {{ moment(visit.event.date).utc(0).format('dd, D MMMM YYYY')}}
+        </div>
+        <div><span><?php _e( "Начало", 'instasport' ) ?>:</span> {{moment(visit.event.date).utc(0).format('HH:mm')}}</div>
         <div><span><?php _e( "Продолжительность", 'instasport' ) ?>:</span> {{visit.event.duration}}</div>
         <div><span><?php _e( "Зал", 'instasport' ) ?>:</span> {{visit.event.hall.title}}</div>
         <div>
@@ -31,7 +34,8 @@
         </div>
 
         <# if(visit.refundable){ #>
-        <div class="ic-visit-cancel" data-visit="{{visit.id}}" data-alert="<?php  _e( "Вы уверены что хотите отменить", 'instasport' ) ?> {{visit.event.title}} {{visit.event.date.substring(0, 10)}} {{instaGetTime(visit.event.date)}}?">
+        <div class="ic-visit-cancel" data-func="delete_visit" data-visit="{{visit.id}}"
+             data-alert="<?php  _e( "Вы уверены что хотите отменить", 'instasport' ) ?> {{visit.event.title}} {{moment(visit.event.date).utc(0).format('dd, D MMMM YYYY HH:mm')}} ?">
             <?php _e( "Отменить", 'instasport' ) ?>
         </div>
         <# } #>
@@ -42,6 +46,10 @@
     <#}#>
 </div>
 <div class="ic-modal-buttons">
-    <a href="#" class="ic-back"><?php _e( "Вернуться назад", 'instasport' ) ?></a>
+    <# if(data.modal.data.event){ #>
+    <a href="#" class="" data-modal="event">
+		<?php _e( "Вернуться назад", 'instasport' ) ?>
+    </a>
+    <# } #>
 </div>
 

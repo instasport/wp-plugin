@@ -1,14 +1,14 @@
 <?php
 class InstaCalendarAPI{
 	public static function query($query, $accessToken = false, $refreshToken = false, $id = false){
-		//sleep(30);
 		$options = insta_get_options();
 		$key = $options['key'];
 		$club = $options['club'];
 		if($id){
-			$key = $options['key_'.$id] ?? '';
-			$club = $options['club_'.$id] ?? '';
+			$key = isset($options['key_'.$id]) && $options['key_'.$id] ? $options['key_'.$id] : false;
+			$club = isset($options['club_'.$id]) && $options['club_'.$id] ? $options['club_'.$id] : false;
 		}
+
 
 		$headers = [
 		'Content-Type: application/json',
@@ -24,21 +24,18 @@ class InstaCalendarAPI{
 		$result = curl_exec($ch);
 		$code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 
-	//	var_dump(curl_getinfo($ch));
-
 		curl_close($ch);
 		$data = json_decode($result);
 
 		if($code == 401){
 			$result = $data->errors[0]->result;
+
 			// Если нужно обновить токен
 			if($result == 5){
 				$token = self::refreshToken($refreshToken);
 				if($token){
-					return self::query($query, $token->accessToken, $token->refreshToken);
+					return self::query($query, $token->accessToken, $token->refreshToken, $id);
 				}
-			}else{
-			//	var_dump($data);
 			}
 		}else if($accessToken && $refreshToken){
 			$data->token = [
@@ -48,7 +45,16 @@ class InstaCalendarAPI{
 		}
 		$data->query = $query;
 		$data->headers = $headers;
-		//var_dump($query);
+
+		if(isset($data->errors)){
+			wp_send_json_error([
+				'errors' =>$data->errors,
+				'query' => $query,
+				//'headers' => $headers,
+				'code' => $code,
+			]);
+		}
+
 		return $data;
 	}
 
@@ -66,11 +72,10 @@ class InstaCalendarAPI{
 		curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 		$result = curl_exec($ch);
 
-		if (curl_errno($ch)) {
-			echo 'Error:' . curl_error($ch);
-		}
 		curl_close($ch);
+
 		$data = json_decode($result);
+
 		if(isset($data->data->tokenRefresh)){
 			return $data->data->tokenRefresh->token;
 		}else{

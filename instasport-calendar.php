@@ -1,14 +1,16 @@
 <?php
 /**
  * Plugin Name: Instasport Calendar
- * Description: Instasport Calendar as Wordpress plugin
- * Version: 2.0.0
+ * Description: Instasport Calendar plugin
+ * Version: 2.1.0
  * Author: Instasport
  * Author URI: https://info.instasport.co
- * License: GPL2
+ * License: GPLv2 or later versions
+ * License URI: http://www.gnu.org/licenses/gpl-2.0.txt
+ * Text Domain: Instasport
  */
 
-define('INSTASPORT_URL', plugins_url( '', __FILE__ ));
+define( 'INSTASPORT_URL', plugins_url( '', __FILE__ ) );
 include_once __DIR__ . '/api.php';
 include_once __DIR__ . '/admin.php';
 include_once __DIR__ . '/ajax.php';
@@ -51,7 +53,7 @@ function insta_get_options() {
 		'desktop_nav_filter_font'              => '14px',
 		'desktop_event_title_time_font'        => '12px',
 		'desktop_event_dur_seats_font'         => '10px',
-		'desktop_date_font'                   => '16px',
+		'desktop_date_font'                    => '16px',
 		'desktop_days_of_week_font'            => '14px',
 		'desktop_month_days_numbers_font'      => '12px',
 		'desktop_week_hours_font'              => '14px',
@@ -74,13 +76,6 @@ function insta_get_options() {
 }
 
 
-add_action( 'plugins_loaded', function(){
-	load_plugin_textdomain( 'instasport', false, dirname(plugin_basename(__FILE__)) . '/languages' );
-});
-
-/*
-events:
-duration - продолжительность
-seats - количество свободных мест
-complexity - сложность
- */
+add_action( 'plugins_loaded', function () {
+	load_plugin_textdomain( 'instasport', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
+} );

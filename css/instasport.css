@@ -1,86 +1,86 @@
-#instaCalendar {
+.instaCalendar {
     position: relative;
 }
 
-#instaCalendar div,
-#instaCalendar span,
-#instaCalendar applet,
-#instaCalendar object,
-#instaCalendar iframe,
-#instaCalendar h1,
-#instaCalendar h2,
-#instaCalendar h3,
-#instaCalendar h4,
-#instaCalendar h5,
-#instaCalendar h6,
-#instaCalendar p,
-#instaCalendar blockquote,
-#instaCalendar pre,
-#instaCalendar a,
-#instaCalendar abbr,
-#instaCalendar acronym,
-#instaCalendar address,
-#instaCalendar big,
-#instaCalendar cite,
-#instaCalendar code,
-#instaCalendar del,
-#instaCalendar dfn,
-#instaCalendar em,
-#instaCalendar img,
-#instaCalendar ins,
-#instaCalendar kbd,
-#instaCalendar q,
-#instaCalendar s,
-#instaCalendar samp,
-#instaCalendar small,
-#instaCalendar strike,
-#instaCalendar strong,
-#instaCalendar sub,
-#instaCalendar sup,
-#instaCalendar tt,
-#instaCalendar var,
-#instaCalendar b,
-#instaCalendar u,
-#instaCalendar i,
-#instaCalendar center,
-#instaCalendar dl,
-#instaCalendar dt,
-#instaCalendar dd,
-#instaCalendar ol,
-#instaCalendar ul,
-#instaCalendar li,
-#instaCalendar fieldset,
-#instaCalendar form,
-#instaCalendar label,
-#instaCalendar legend,
-#instaCalendar .ic-table,
-#instaCalendar caption,
-#instaCalendar .ic-tbody,
-#instaCalendar .ic-tfoot,
-#instaCalendar .ic-thead,
-#instaCalendar .ic-tr,
-#instaCalendar .ic-th,
-#instaCalendar .ic-td,
-#instaCalendar article,
-#instaCalendar aside,
-#instaCalendar canvas,
-#instaCalendar details,
-#instaCalendar embed,
-#instaCalendar figure,
-#instaCalendar figcaption,
-#instaCalendar footer,
-#instaCalendar header,
-#instaCalendar hgroup,
-#instaCalendar menu,
-#instaCalendar nav,
-#instaCalendar output,
-#instaCalendar ruby,
-#instaCalendar section,
-#instaCalendar summary,
-#instaCalendar time,
-#instaCalendar mark,
-#instaCalendar audio,
-#instaCalendar video {
+.instaCalendar div,
+.instaCalendar span,
+.instaCalendar applet,
+.instaCalendar object,
+.instaCalendar iframe,
+.instaCalendar h1,
+.instaCalendar h2,
+.instaCalendar h3,
+.instaCalendar h4,
+.instaCalendar h5,
+.instaCalendar h6,
+.instaCalendar p,
+.instaCalendar blockquote,
+.instaCalendar pre,
+.instaCalendar a,
+.instaCalendar abbr,
+.instaCalendar acronym,
+.instaCalendar address,
+.instaCalendar big,
+.instaCalendar cite,
+.instaCalendar code,
+.instaCalendar del,
+.instaCalendar dfn,
+.instaCalendar em,
+.instaCalendar img,
+.instaCalendar ins,
+.instaCalendar kbd,
+.instaCalendar q,
+.instaCalendar s,
+.instaCalendar samp,
+.instaCalendar small,
+.instaCalendar strike,
+.instaCalendar strong,
+.instaCalendar sub,
+.instaCalendar sup,
+.instaCalendar tt,
+.instaCalendar var,
+.instaCalendar b,
+.instaCalendar u,
+.instaCalendar i,
+.instaCalendar center,
+.instaCalendar dl,
+.instaCalendar dt,
+.instaCalendar dd,
+.instaCalendar ol,
+.instaCalendar ul,
+.instaCalendar li,
+.instaCalendar fieldset,
+.instaCalendar form,
+.instaCalendar label,
+.instaCalendar legend,
+.instaCalendar .ic-table,
+.instaCalendar caption,
+.instaCalendar .ic-tbody,
+.instaCalendar .ic-tfoot,
+.instaCalendar .ic-thead,
+.instaCalendar .ic-tr,
+.instaCalendar .ic-th,
+.instaCalendar .ic-td,
+.instaCalendar article,
+.instaCalendar aside,
+.instaCalendar canvas,
+.instaCalendar details,
+.instaCalendar embed,
+.instaCalendar figure,
+.instaCalendar figcaption,
+.instaCalendar footer,
+.instaCalendar header,
+.instaCalendar hgroup,
+.instaCalendar menu,
+.instaCalendar nav,
+.instaCalendar output,
+.instaCalendar ruby,
+.instaCalendar section,
+.instaCalendar summary,
+.instaCalendar time,
+.instaCalendar mark,
+.instaCalendar audio,
+.instaCalendar video {
     margin: 0;
     padding: 0;
     border: 0;
@@ -91,39 +91,39 @@
 }
 
 /* HTML5 display-role reset for older browsers */
-#instaCalendar article,
-#instaCalendar aside,
-#instaCalendar details,
-#instaCalendar figcaption,
-#instaCalendar figure,
-#instaCalendar footer,
-#instaCalendar header,
-#instaCalendar hgroup,
-#instaCalendar menu,
-#instaCalendar nav,
-#instaCalendar section {
+.instaCalendar article,
+.instaCalendar aside,
+.instaCalendar details,
+.instaCalendar figcaption,
+.instaCalendar figure,
+.instaCalendar footer,
+.instaCalendar header,
+.instaCalendar hgroup,
+.instaCalendar menu,
+.instaCalendar nav,
+.instaCalendar section {
     display: block;
 }
 
-#instaCalendar ol,
-#instaCalendar ul {
+.instaCalendar ol,
+.instaCalendar ul {
     list-style: none;
 }
 
-#instaCalendar blockquote,
-#instaCalendar q {
+.instaCalendar blockquote,
+.instaCalendar q {
     quotes: none;
 }
 
-#instaCalendar blockquote:before,
-#instaCalendar blockquote:after,
-#instaCalendar q:before,
-#instaCalendar q:after {
+.instaCalendar blockquote:before,
+.instaCalendar blockquote:after,
+.instaCalendar q:before,
+.instaCalendar q:after {
     content: '';
     content: none;
 }
 
-#instaCalendar .ic-table {
+.instaCalendar .ic-table {
     border-collapse: collapse;
     border-spacing: 0;
 }
@@ -138,7 +138,7 @@
     }
 }
 
-#instaCalendar {
+.instaCalendar {
     background-color: #fff;
     background-color: var(--primaryColor);
     color: #f8f8f8;
@@ -147,64 +147,79 @@
     min-height: 400px;
 }
 
-#instaCalendar .ic-ell,
-#instaCalendar a {
+.instaCalendar .ic-errors {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    background: #000c;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    z-index: 999;
+    color: red;
+    padding: 25% 25px;
+    font-size: 16px;
+}
+
+.instaCalendar .ic-ell,
+.instaCalendar a {
     color: var(--primaryTextColor);
     border-color: transparent;
 }
 
-#instaCalendar .ic-ell:hover,
-#instaCalendar .ic-ell:hover .ic-ell,
-#instaCalendar .active .ic-ell,
-#instaCalendar .choosed .ic-ell,
-#instaCalendar a:hover {
+.instaCalendar .ic-ell:hover,
+.instaCalendar .ic-ell:hover .ic-ell,
+.instaCalendar .active .ic-ell,
+.instaCalendar .choosed .ic-ell,
+.instaCalendar a:hover {
     color: var(--secondaryTextColor);
     border-color: var(--secondaryTextColor);
 }
 
-#instaCalendar .insta_table {
+.instaCalendar .insta_table {
     display: table;
 }
 
-#instaCalendar .insta_table-tr {
+.instaCalendar .insta_table-tr {
     display: table-row;
 }
 
-#instaCalendar .insta_table-td {
+.instaCalendar .insta_table-td {
     display: table-cell;
 }
 
-#instaCalendar .ic-calendar {
+.instaCalendar .ic-calendar {
     max-width: 900px;
     margin: auto;
 }
 
-#instaCalendar .ic-calendar .ic-filters {
+.instaCalendar .ic-calendar .ic-filters {
     position: relative;
 }
 
-#instaCalendar .ic-calendar .ic-halls {
+.instaCalendar .ic-calendar .ic-halls {
     padding-right: 150px;
 }
 
-#instaCalendar .ic-calendar .ic-view {
+.instaCalendar .ic-calendar .ic-view {
     position: absolute;
     top: 0px;
     right: 0px;
 }
 
-#instaCalendar .ic-calendar .ic-filters ul {
+.instaCalendar .ic-calendar .ic-filters ul {
     display: block;
     width: 100%;
 }
 
-#instaCalendar .ic-calendar .ic-filters ul li {
+.instaCalendar .ic-calendar .ic-filters ul li {
     list-style: none;
     display: block;
     float: left;
 }
 
-#instaCalendar .ic-calendar .ic-filters ul li a.ic-filter-item {
+.instaCalendar .ic-calendar .ic-filters ul li a.ic-filter-item {
     padding: 2px 12px;
     display: block;
     border-bottom: 2px solid transparent;
@@ -213,7 +228,7 @@
     text-align: center;
 }
 
-#instaCalendar .ic-calendar .ic-filters ul li a.ic-filter-item span {
+.instaCalendar .ic-calendar .ic-filters ul li a.ic-filter-item span {
     display: block;
     min-height: 18px;
     text-align: center;
@@ -223,40 +238,40 @@
     border-top: 2px solid transparent;
 }
 
-#instaCalendar .ic-calendar .ic-filters ul li.active a.ic-filter-item,
-#instaCalendar .ic-calendar .ic-filters ul li.choosed a.ic-filter-item {
+.instaCalendar .ic-calendar .ic-filters ul li.active a.ic-filter-item,
+.instaCalendar .ic-calendar .ic-filters ul li.choosed a.ic-filter-item {
     font-weight: bold;
 }
 
-#instaCalendar .ic-calendar .ic-filters .ic-row_2 ul li a.ic-filter-item {
+.instaCalendar .ic-calendar .ic-filters .ic-row_2 ul li a.ic-filter-item {
     border: none;
 }
 
-#instaCalendar .ic-calendar .ic-filters .ic-row_2 ul li a.ic-filter-item:hover {
+.instaCalendar .ic-calendar .ic-filters .ic-row_2 ul li a.ic-filter-item:hover {
     border: none;
 }
 
-#instaCalendar .ic-calendar .ic-filters ul li a.ic-filter-item.active {
+.instaCalendar .ic-calendar .ic-filters ul li a.ic-filter-item.active {
 
 }
 
-#instaCalendar .ic-calendar .ic-filters ul li.active a.ic-filter-item div {
+.instaCalendar .ic-calendar .ic-filters ul li.active a.ic-filter-item div {
     border-color: #6c757d;
 }
 
-#instaCalendar .ic-row_2 {
+.instaCalendar .ic-row_2 {
     clear: both;
     padding-top: 10px;
 }
 
-#instaCalendar .ic-controls {
+.instaCalendar .ic-controls {
     margin-top: 40px;
     position: relative;
     clear: both;
     width: 100%;
 }
 
-#instaCalendar .ic-controls .ic-control {
+.instaCalendar .ic-controls .ic-control {
     position: absolute;
     text-align: center;
     font-size: 26px;
@@ -269,35 +284,36 @@
     z-index: 10;
 }
 
-#instaCalendar .ic-control.ic-control_right {
+.instaCalendar .ic-control.ic-control_right {
     right: 15px;
     left: initial;
 }
 
-#instaCalendar .ic-control span {
+.instaCalendar .ic-control span {
     color: #000;
     font-size: 32px;
     font-weight: bold;
     line-height: 20px;
 }
 
-#instaCalendar .ic-controls .ic-control a {
+.instaCalendar .ic-controls .ic-control a {
     display: block;
     text-decoration: none;
     width: 100%;
     height: 100%;
 }
 
-#instaCalendar .ic-controls .ic-title_month {
+.instaCalendar .ic-controls .ic-title_month {
     width: 100%;
     padding: 15px;
     position: relative;
     z-index: 9;
     font-size: var(--desktop_date_font);
     text-align: center;
+    text-transform: capitalize;
 }
 
-#instaCalendar .ic-controls .ic-title_month a {
+.instaCalendar .ic-controls .ic-title_month a {
     display: block;
     height: 30px;
     width: 150px;
@@ -306,58 +322,58 @@
 }
 
 
-#instaCalendar .ic-calendar .ic-for_events {
+.instaCalendar .ic-calendar .ic-for_events {
     width: 100%;
 }
 
-#instaCalendar .ic-calendar .ic-for_events .ic-th {
+.instaCalendar .ic-calendar .ic-for_events .ic-th {
     text-align: center;
     line-height: 48px;
     font-size: var(--desktop_days_of_week_font);
 }
 
-#instaCalendar .ic-calendar .ic-for_events .ic-table {
+.instaCalendar .ic-calendar .ic-for_events .ic-table {
     table-layout: fixed;
     width: 100%;
 }
 
-#instaCalendar .ic-calendar .ic-for_events .ic-table .ic-thead .ic-td {
+.instaCalendar .ic-calendar .ic-for_events .ic-table .ic-thead .ic-td {
     padding: 10px;
     text-align: center;
 }
 
-#instaCalendar .ic-calendar .ic-for_day {
+.instaCalendar .ic-calendar .ic-for_day {
     background-color: var(--secondaryColor);
     border: 2px solid var(--primaryColor);
 }
 
-#instaCalendar .ic-calendar .ic-for_day:hover,
-#instaCalendar .ic-calendar .ic-for_day.ic-day_today {
+.instaCalendar .ic-calendar .ic-for_day:hover,
+.instaCalendar .ic-calendar .ic-for_day.ic-day_today {
     background-color: var(--primaryColor);
 }
 
-#instaCalendar .ic-calendar .ic-day {
+.instaCalendar .ic-calendar .ic-day {
     padding: 2px;
     cursor: pointer;
     color: var(--primaryTextColor);
     border: 2px solid transparent;
 }
 
-#instaCalendar .ic-calendar .ic-for_day:hover .ic-day,
-#instaCalendar .ic-calendar .ic-for_day.ic-day_today .ic-day {
+.instaCalendar .ic-calendar .ic-for_day:hover .ic-day,
+.instaCalendar .ic-calendar .ic-for_day.ic-day_today .ic-day {
     border-color: var(--primaryTextColor);
 }
 
-#instaCalendar .ic-calendar .ic-day .ic-day_number {
+.instaCalendar .ic-calendar .ic-day .ic-day_number {
     font-size: var(--desktop_month_days_numbers_font);
     margin: 0px 0 8px 0px;
 }
 
-#instaCalendar .ic-calendar .ic-day .ic-more {
+.instaCalendar .ic-calendar .ic-day .ic-more {
     display: none;
 }
 
-#instaCalendar .ic-calendar .ic-event {
+.instaCalendar .ic-calendar .ic-event {
     font-size: 12px;
     line-height: 12px;
     margin-bottom: 3px;
@@ -365,43 +381,43 @@
     color: black;
 }
 
-#instaCalendar .ic-calendar .ic-event:last-child {
+.instaCalendar .ic-calendar .ic-event:last-child {
     margin-bottom: 0px;
 }
 
-#instaCalendar .ic-event .ic-duration {
+.instaCalendar .ic-event .ic-duration {
     font-size: var(--desktop_event_dur_seats_font);
     padding-top: 5px;
 }
 
-#instaCalendar .ic-event .ic-seats,
-#instaCalendar .ic-event .ic-activity {
+.instaCalendar .ic-event .ic-seats,
+.instaCalendar .ic-event .ic-activity {
     font-size: var(--desktop_event_dur_seats_font);
     padding: 3px 0 2px;
 }
 
-#instaCalendar .ic-event .ic-title {
+.instaCalendar .ic-event .ic-title {
     cursor: pointer;
     position: relative;
     font-weight: bold;
     font-size: var(--desktop_event_title_time_font);
 }
 
-#instaCalendar .ic-event .ic-begin_time {
+.instaCalendar .ic-event .ic-begin_time {
     font-size: var(--desktop_event_title_time_font);
 }
 
 /*	dropdown
 ********************/
-#instaCalendar .insta_dropdown {
+.instaCalendar .insta_dropdown {
     position: relative;
 }
 
-#instaCalendar .insta_dropdown-title {
+.instaCalendar .insta_dropdown-title {
 
 }
 
-#instaCalendar .insta_dropdown-window {
+.instaCalendar .insta_dropdown-window {
     position: absolute;
     background: var(--primaryColor);
     border: 1px solid var(--primaryTextColor);
@@ -413,10 +429,11 @@
     -moz-box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.3);
     box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.3);
     display: none;
+    z-index: 100;
 }
 
-#instaCalendar .insta_dropdown-window:after,
-#instaCalendar .insta_dropdown-window:before {
+.instaCalendar .insta_dropdown-window:after,
+.instaCalendar .insta_dropdown-window:before {
     bottom: 100%;
     left: 20px;
     border: solid transparent;
@@ -427,21 +444,21 @@
     pointer-events: none;
 }
 
-#instaCalendar .insta_dropdown-window:after {
+.instaCalendar .insta_dropdown-window:after {
     border-color: rgba(241, 241, 241, 0);
     border-bottom-color: #f1f1f1;
     border-width: 8px;
     margin-left: -8px;
 }
 
-#instaCalendar .insta_dropdown-window:before {
+.instaCalendar .insta_dropdown-window:before {
     border-color: rgba(204, 204, 204, 0);
     border-bottom-color: #ccc;
     border-width: 9px;
     margin-left: -9px;
 }
 
-#instaCalendar .insta_dropdown-content {
+.instaCalendar .insta_dropdown-content {
     max-height: 150px;
     overflow-y: auto;
 }
@@ -449,62 +466,64 @@
 
 /*	filter_1
 ********************/
-#instaCalendar .insta_filter_1 {
+.instaCalendar .insta_filter_1 {
 
 }
 
-#instaCalendar .insta_filter_1-item {
+.instaCalendar .insta_filter_1-item {
     border-bottom: 1px solid #ccc;
     padding: 3px 3px;
     font-size: var(--desktop_filter_list_font);
 }
 
-#instaCalendar .insta_filter_1-item:last-child {
+.instaCalendar .insta_filter_1-item:last-child {
     border: none !important;
 }
 
-#instaCalendar .insta_filter_1 .insta_table {
+.instaCalendar .insta_filter_1 .insta_table {
     width: 100%;
 }
 
-#instaCalendar .insta_filter_1 .insta_table-td {
+.instaCalendar .insta_filter_1 .insta_table-td {
     vertical-align: bottom;
     padding: 0px;
     margin: 0px;
     line-height: 18px;
 }
 
-#instaCalendar .insta_filter_1 .insta_table-td:first-child {
+.instaCalendar .insta_filter_1 .insta_table-td:first-child {
     width: 3px;
     background-color: red;
 }
 
-#instaCalendar .insta_filter_1 .insta_table-td:last-child {
+.instaCalendar .insta_filter_1 .insta_table-td:last-child {
     padding-left: 10px;
 }
 
-#instaCalendar .insta_filter_1 a:hover {
+.instaCalendar .insta_filter_1 a:hover {
     text-decoration: underline;
 }
 
-#instaCalendar .insta_filter_1 span {
+.instaCalendar .insta_filter_1 span {
     color: #999;
     font-size: 11px;
     margin-left: 5px;
 }
 
-#instaCalendar.ic-loading{
+.instaCalendar.ic-loading {
     pointer-events: none;
 }
-#instaCalendar.ic-loading .ic-loader{
+
+.instaCalendar.ic-loading .ic-loader {
     width: 100%;
     height: 100%;
     background: #0003;
-    z-index: 99;
+    z-index: 1;
     display: block;
     position: absolute;
 }
-#instaCalendar.ic-loading .ic-loader:after{
+
+.instaCalendar.ic-loading .ic-loader:after {
     content: ' ';
     border: 2px solid transparent;
     border-top: 2px solid var(--primaryTextColor);
@@ -521,6 +540,11 @@
 #instaModal form {
     margin: 0;
     padding: 0;
+}
+
+#instaModal h2 {
+    font-size: 18px !important;
+    margin: 0 0px 10px 0px;
 }
 
 #instaModal .ic-wrapper {
@@ -543,6 +567,9 @@
     padding: 10px 15px 10px 15px;
     overflow: hidden;
     border-radius: 5px;
+    font-size: 16px;
+    line-height: 28px;
+    font-weight: normal;
 }
 
 #instaModal .ic-modal-title {
@@ -568,8 +595,8 @@
 }
 
 #instaModal .ic-modal-content {
-    overflow-y: auto;
-    max-height: 230px;
+    /*overflow-y: auto;
+    max-height: 230px;*/
     margin-bottom: 10px;
     font-size: 13px;
     line-height: 16px;
@@ -596,11 +623,12 @@
     opacity: 0.9;
     margin: 10px 0;
 }
-#instaModal .ic-instructor:hover{
+
+#instaModal .ic-instructor:hover {
     opacity: 1;
 }
 
-#instaModal .ic-modal-content p{
+#instaModal .ic-modal-content p {
     font-size: 13px;
     color: var(--primaryTextColor);
     text-indent: 1.5em;
@@ -608,7 +636,16 @@
 
 #instaModal .ic-modal-content label {
     font-size: 16px;
-    margin-bottom: 20px;
+    font-weight: inherit;
+}
+
+#instaModal .ic-modal-content label span {
+    margin: 0px 0 10px 0;
+    display: inline-block;
+}
+
+#instaModal .ic-form-fields {
+    margin: 10px 0px 20px 0;
 }
 
 #instaModal .ic-modal-content input[type=text] {
@@ -622,9 +659,11 @@
     box-shadow: none;
     opacity: 0.7;
 }
-#instaModal .ic-modal-content input[type=text]::placeholder{
+
+#instaModal .ic-modal-content input[type=text]::placeholder {
     color: var(--primaryTextColor);
 }
+
 #instaModal .ic-modal-content input[type=text]:focus {
     opacity: 1;
 }
@@ -635,6 +674,7 @@
     margin: 0 0 20px 0;;
     border: none;
 }
+
 #instaModal .ic-modal-content table th,
 #instaModal .ic-modal-content table td {
     background: inherit;
@@ -686,27 +726,38 @@
 }
 
 #instaModal .ic-visit .ic-visit-cancel {
-    position: absolute;
+    position: absolute !important;
     top: 10px;
     right: 10px;
     cursor: pointer;
     opacity: 0.5;
+}
+#instaModal .ic-visit .ic-visit-cancel.ic-loader{
+    opacity: 0.2!important;
+}
+#instaModal .ic-visit .ic-visit-cancel.ic-loader:after{
+   display: none!important;
 }
 
 #instaModal .ic-visit .ic-visit-cancel:hover {
     opacity: 1;
 }
 
-#instaModal .ic-modal-button{
+#instaModal .ic-modal-button {
     position: relative;
     opacity: 0.9;
     cursor: pointer;
 }
-#instaModal .ic-modal-button:hover{
+
+#instaModal .ic-modal-button:hover {
     opacity: 1;
 }
 
-#instaModal .ic-modal-button a{
+#instaModal .ic-modal-button.ic-submit {
+    margin-top: 10px;
+}
+
+#instaModal .ic-modal-button a {
     color: var(--primaryTextColor);
     border-radius: 3px;
     padding: 8px 12px;
@@ -717,7 +768,9 @@
     border: 1px solid var(--primaryTextColor);
 }
 
-#instaModal .ic-modal-button input[type=submit]{
+#instaModal .ic-modal-button input[type=submit],
+#instaModal .ic-modal-button input[type=button]
+{
     border: none;
     background-color: var(--secondaryTextColor) !important;
     color: var(--secondaryColor);
@@ -727,6 +780,15 @@
     min-height: 42px;
     box-shadow: none;
     text-shadow: none;
+}
+
+#instaModal .ic-modal-button input[type=submit]:disabled {
+    opacity: 0.2;
+    pointer-events: none;
+}
+
+#instaModal .ic-modal-button.ic-submit {
+    margin-top: 10px;
 }
 
 #instaModal .ic-modal-mess {
@@ -743,7 +805,7 @@
 }
 
 #instaModal .ic-payment, #instaModal .ic-card {
-    padding: 12px 10px;
+    padding: 7px 10px;
     border: 1px solid var(--secondaryTextColor);
     border-radius: 5px;
     margin-bottom: 10px;
@@ -753,15 +815,17 @@
     font-size: 14px;
     background-color: var(--secondaryTextColor);
     color: var(--secondaryColor);
+    line-height: 24px;
 }
 
-#instaModal .ic-payment:hover, #instaModal .ic-card:hover{
+#instaModal .ic-payment:hover, #instaModal .ic-card:hover {
     opacity: 1;
 }
 
 #instaModal .ic-card-title {
     font-size: 14px;
     font-weight: bold;
+    padding: 0 48px 0 0px;
 }
 
 #instaModal .ic-card-price {
@@ -771,7 +835,7 @@
     top: 12px;
 }
 
-#instaModal .ic-modal-user-profile, #instaModal .ic-user-cards{
+#instaModal .ic-modal-user-profile, #instaModal .ic-user-cards {
     margin-bottom: 15px;
 }
 
@@ -786,27 +850,35 @@
     background-color: var(--secondaryTextColor);
     color: var(--secondaryColor);
 }
+
 #instaModal .ic-user-card:hover {
     opacity: 1;
 }
+
 #instaModal .ic-user-card .ic-modal-button {
-    background: var(--primaryColor);
-    color: var(--primaryTextColor);
+    background: var(--primaryColor) !important;
+    color: var(--primaryTextColor) !important;
     padding: 8px 15px;
     text-align: center;
     border-radius: 4px;
     margin-top: 15px;
+    display: block;
+    width: 100%;
 }
-#instaModal .ic-user-card .ic-modal-button.ic-loader::after {
-    border-top-color: var(--secondaryTextColor);
+
+#instaModal .ic-user-card .ic-modal-button.ic-loader {
+   opacity: 0.5;
 }
-#instaModal .ic-user-card .ic-modal-row{
+
+#instaModal .ic-user-card .ic-modal-row {
     font-size: 13px;
     padding: 2px 0;
 }
+
 #instaModal .ic-user-card .ic-modal-row .ic-modal-row-title {
-    width: 70%;
+    width: 55%;
 }
+
 #instaModal .ic-user-card .ic-modal-row span {
     float: right;
 }
@@ -825,7 +897,8 @@
     margin: 0px 0px 10px 0px;
     display: inline-block;
 }
-#instaModal .ic-payment-offer:hover{
+
+#instaModal .ic-payment-offer:hover {
     opacity: 1;
     color: var(--primaryTextColor);
 }
@@ -833,23 +906,39 @@
 #instaModal .ic-card.inactive {
     opacity: 0.4;
 }
+
 #instaModal .ic-card.inactive:hover {
     opacity: 0.9;
 }
 
-#instaModal.ic-loading{
+#instaModal.ic-loading .ic-modal {
     pointer-events: none;
 }
-#instaModal .ic-loader{
+
+#instaModal.ic-loading .ic-loader {
     position: relative;
 }
-#instaModal .ic-loader>* {
+
+#instaModal.ic-loading .ic-loader > * {
     opacity: 0.2 !important;
 }
-#instaModal .ic-loader:after{
+
+#instaModal.ic-loading .ic-loader:after {
     content: ' ';
     border: 2px solid transparent;
     border-top: 2px solid var(--secondaryColor);
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    animation: spin 1s linear infinite;
+    top: calc(50% - 15px);
+    left: calc(50% - 15px);
+    position: absolute;
+}
+#instaModal.ic-loading .ic-modal-content.ic-loader:after {
+    content: ' ';
+    border: 2px solid transparent;
+    border-top: 2px solid var(--secondaryTextColor);
     border-radius: 50%;
     width: 30px;
     height: 30px;
@@ -866,12 +955,31 @@
     position: relative;
 }
 
+#instaModal label.ic-modal-checkbox {
+    text-align: left;
+}
+
+#instaModal label.ic-modal-checkbox input {
+    display: inline-block;
+    vertical-align: baseline;
+}
+
+#instaModal .ic-modal-buttons label.ic-modal-checkbox a {
+    display: inline-block;
+    vertical-align: text-bottom;
+    padding: 0px 0px 0px 10px;
+    margin: 0;
+    text-decoration: underline !important;
+}
+
 #instaModal .ic-modal-field-error {
     color: red;
     font-size: 12px;
-    position: absolute;
-    bottom: -18px;
-    left: 0;
+    margin: 0px 0px 5px 5px;
+}
+
+#instaModal label .ic-modal-field-error {
+    margin: -10px 0px 5px 5px;
 }
 
 #instaModal .ic-message-error {
@@ -897,7 +1005,8 @@
     display: block;
     opacity: 0.9;
 }
-#instaModal .ic-modal-buttons a:hover{
+
+#instaModal .ic-modal-buttons a:hover {
     opacity: 1;
 }
 
@@ -948,62 +1057,62 @@
 }
 
 
-#instaCalendar .ic-mobile {
+.instaCalendar .ic-mobile {
     display: none;
 }
 
-#instaCalendar .ic-desktop {
+.instaCalendar .ic-desktop {
     display: revert;
 }
 
-#instaCalendar .ic-table-week .ic-thead .ic-desktop {
+.instaCalendar .ic-table-week .ic-thead .ic-desktop {
     text-align: center;
     font-size: var(--desktop_days_of_week_font);
 }
 
 
-#instaCalendar .ic-table {
+.instaCalendar .ic-table {
     display: table;
 }
 
-#instaCalendar .ic-tr {
+.instaCalendar .ic-tr {
     display: table-row;
 }
 
-#instaCalendar .ic-thead {
+.instaCalendar .ic-thead {
     display: table-header-group;
 }
 
-#instaCalendar .ic-tbody {
+.instaCalendar .ic-tbody {
     display: table-row-group;
 }
 
-#instaCalendar .ic-tfoot {
+.instaCalendar .ic-tfoot {
     display: table-footer-group;
 }
 
-#instaCalendar .ic-col {
+.instaCalendar .ic-col {
     display: table-column;
 }
 
-#instaCalendar .ic-colgroup {
+.instaCalendar .ic-colgroup {
     display: table-column-group;
 }
 
-#instaCalendar .ic-td,
-#instaCalendar .ic-th {
+.instaCalendar .ic-td,
+.instaCalendar .ic-th {
     display: table-cell
 }
 
-#instaCalendar .ic-caption {
+.instaCalendar .ic-caption {
     display: table-caption
 }
 
-#instaCalendar .ic-table-week>.ic-thead>.ic-td {
+.instaCalendar .ic-table-week > .ic-thead > .ic-td {
     text-align: center;
 }
 
-#instaCalendar .ic-table-week>.ic-events>.ic-tr:nth-child(2n)>.ic-td {
+.instaCalendar .ic-table-week > .ic-events > .ic-tr:nth-child(2n) > .ic-td {
     vertical-align: top;
     background: var(--secondaryColor);
     padding: 2px;
@@ -1012,57 +1121,58 @@
     border-width: 0 2px 0px 0px;
     height: 60px;
 }
-#instaCalendar .ic-table-week>.ic-events>.ic-tr:nth-child(2n)>.ic-td:first-child {
+
+.instaCalendar .ic-table-week > .ic-events > .ic-tr:nth-child(2n) > .ic-td:first-child {
     border-width: 0 2px 0px 2px;
 }
 
-#instaCalendar .ic-table-week>.ic-events>.ic-tr:nth-child(2n-1)>.ic-td {
+.instaCalendar .ic-table-week > .ic-events > .ic-tr:nth-child(2n-1) > .ic-td {
     text-align: left;
     padding: 10px 0px 5px 15px;
     font-size: var(--desktop_week_hours_font);
 }
 
-#instaCalendar .ic-table-week>.ic-events>.ic-tr.no-events>.ic-td {
+.instaCalendar .ic-table-week > .ic-events > .ic-tr.no-events > .ic-td {
     display: table-cell;
     padding: 10px;
     text-align: center;
 }
 
 @media (max-width: 768px) {
-    #instaCalendar .ic-mobile {
+    .instaCalendar .ic-mobile {
         display: revert;
     }
 
-    #instaCalendar .ic-desktop {
+    .instaCalendar .ic-desktop {
         display: none;
     }
 
-    #instaCalendar .ic-calendar .ic-halls {
+    .instaCalendar .ic-calendar .ic-halls {
         padding-right: 0px;
     }
 
-    #instaCalendar .ic-controls {
+    .instaCalendar .ic-controls {
         background: #000;
         color: #fff;
     }
 
-    #instaCalendar .ic-controls .ic-control {
+    .instaCalendar .ic-controls .ic-control {
         opacity: 1;
     }
 
-    #instaCalendar .ic-control span {
+    .instaCalendar .ic-control span {
         color: #fff;
     }
 
-    #instaCalendar .ic-controls .ic-title_month {
+    .instaCalendar .ic-controls .ic-title_month {
         color: #fff;
     }
 
-    #instaCalendar .ic-table-week .ic-thead {
+    .instaCalendar .ic-table-week .ic-thead {
         background: #000;
     }
 
-    #instaCalendar .ic-table-week .ic-thead .ic-mobile {
+    .instaCalendar .ic-table-week .ic-thead .ic-mobile {
         background: #1B1A1F;
         margin: 10px 0px 10px 10px;
         padding: 10px;
@@ -1071,58 +1181,58 @@
         color: #fff;
     }
 
-    #instaCalendar .ic-table-week .ic-thead .ic-today .ic-mobile {
+    .instaCalendar .ic-table-week .ic-thead .ic-today .ic-mobile {
         font-weight: bold;
     }
 
-    #instaCalendar .ic-table-week .ic-thead .ic-td:last-child .ic-mobile {
+    .instaCalendar .ic-table-week .ic-thead .ic-td:last-child .ic-mobile {
         margin: 10px;
     }
 
-    #instaCalendar .ic-table-week .ic-thead .ic-td:first-child {
+    .instaCalendar .ic-table-week .ic-thead .ic-td:first-child {
         /*display: none;*/
     }
 
-    #instaCalendar .ic-table-week .ic-events .ic-td {
+    .instaCalendar .ic-table-week .ic-events .ic-td {
         display: none;
         border: none;
     }
 
-    #instaCalendar .ic-table-week .ic-events .ic-td.active {
+    .instaCalendar .ic-table-week .ic-events .ic-td.active {
         display: table-cell;
     }
 
-    #instaCalendar .ic-table-week .ic-events .ic-td.active.empty {
+    .instaCalendar .ic-table-week .ic-events .ic-td.active.empty {
         display: none;
     }
 
-    #instaCalendar .ic-table-week .ic-thead .ic-td.active .ic-mobile {
+    .instaCalendar .ic-table-week .ic-thead .ic-td.active .ic-mobile {
         color: #eae517;
     }
 
-    #instaCalendar .ic-table-week .ic-events .ic-event {
+    .instaCalendar .ic-table-week .ic-events .ic-event {
         padding: 10px;
         border-bottom: 3px solid #1b1b1d;
         background-color: #f1f1f1;
     }
 
-    #instaCalendar .insta_dropdown-content {
+    .instaCalendar .insta_dropdown-content {
         max-height: 250px;
     }
 
-    #instaCalendar .insta_filter_1-item {
+    .instaCalendar .insta_filter_1-item {
         padding: 10px 3px;
     }
 
-    #instaCalendar .ic-table-week .ic-thead .ic-mobile {
+    .instaCalendar .ic-table-week .ic-thead .ic-mobile {
         margin: 1px 0px 1px 1px;
     }
 
-    #instaCalendar .ic-table-week .ic-thead .ic-td:last-child .ic-mobile {
+    .instaCalendar .ic-table-week .ic-thead .ic-td:last-child .ic-mobile {
         margin: 1px;
     }
 
-    #instaCalendar .ic-table-week>.ic-events>.ic-tr:nth-child(2n-1)>.ic-td:first-child {
+    .instaCalendar .ic-table-week > .ic-events > .ic-tr:nth-child(2n-1) > .ic-td:first-child {
         display: block;
     }
 }

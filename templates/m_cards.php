@@ -5,12 +5,12 @@
 </div>
 <div class="ic-modal-content">
     <div class="ic-cards">
-    <# if(instasport.api.cards.length){ #>
+    <# if(data.club.cardTemplates.length){ #>
 
-        <# for(let cardGroup of instasport.api.cardGroups){ #>
+        <# for(let cardGroup of data.club.cardGroups){ #>
         <div class="ic-card-group">
             <div class="ic-card-group-title">{{cardGroup.title}}</div>
-            <# for(let card of instasport.api.cards){ #>
+            <# for(let card of data.club.cardTemplates){ #>
                 <# if(card.group.id != cardGroup.id)continue; #>
                 <div class="ic-card" data-card="{{card.id}}">
                     <div class="ic-card-title">{{card.title}}</div>
@@ -27,5 +27,9 @@
     </div>
 </div>
 <div class="ic-modal-buttons">
-    <a href="#" class="ic-back"><?php _e( "Вернуться назад", 'instasport' ) ?></a>
+    <# if(data.modal.data.event){ #>
+    <a href="#" class="" data-modal="event">
+		<?php _e( "Вернуться назад", 'instasport' ) ?>
+    </a>
+    <# } #>
 </div>

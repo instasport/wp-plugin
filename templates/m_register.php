@@ -23,13 +23,15 @@
             </label>
         </div>
         <label class="ic-form-field">
-			<?php _e( "Введите дату рождения", 'instasport' ) ?>
+            <span><?php _e( "Введите дату рождения", 'instasport' ) ?></span>
             <input type="text" name="birthday" value="{{data.user.birthday}}" class="ic-date"
                    placeholder="<?php _e( "__.__.____", 'instasport' ) ?>">
         </label>
     </div>
+
+
     <div class="ic-modal-buttons">
-        <label class="ic-modal-button ic-submit">
+        <label class="ic-modal-button ic-submit ic-loader">
             <input type="submit" value="<?php _e( 'Дальше', 'instasport' ) ?>">
         </label>
         <a href="#" class="ic-back"><?php _e( "Вернуться назад", 'instasport' ) ?></a>

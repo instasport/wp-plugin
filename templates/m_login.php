@@ -9,7 +9,7 @@
         </label>
     </div>
     <div class="ic-modal-buttons">
-        <label class="ic-modal-button ic-submit">
+        <label class="ic-modal-button ic-submit ic-loader">
             <input type="submit" value="<?php _e( 'Дальше', 'instasport' ) ?>">
         </label>
     </div>
