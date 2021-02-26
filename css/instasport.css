@@ -190,7 +190,6 @@
 }
 
 .instaCalendar .ic-calendar {
-    max-width: 900px;
     margin: auto;
 }
 
@@ -375,7 +374,6 @@
 
 .instaCalendar .ic-calendar .ic-event {
     font-size: 12px;
-    line-height: 12px;
     margin-bottom: 3px;
     padding: 2px;
     color: black;
@@ -567,8 +565,8 @@
     padding: 10px 15px 10px 15px;
     overflow: hidden;
     border-radius: 5px;
-    font-size: 16px;
-    line-height: 28px;
+    font-size: 14px;
+    line-height: 24px;
     font-weight: normal;
 }
 
@@ -666,6 +664,7 @@
 
 #instaModal .ic-modal-content input[type=text]:focus {
     opacity: 1;
+    outline: none;
 }
 
 #instaModal .ic-modal-content table {
@@ -955,13 +954,19 @@
     position: relative;
 }
 
+#instaModal label.ic-form-field {
+    margin: 0 0 15px 0;
+}
+
 #instaModal label.ic-modal-checkbox {
     text-align: left;
+    padding: 0 0 10px 0;
 }
 
 #instaModal label.ic-modal-checkbox input {
     display: inline-block;
-    vertical-align: baseline;
+    vertical-align: text-bottom;
+    position: initial;
 }
 
 #instaModal .ic-modal-buttons label.ic-modal-checkbox a {
@@ -970,6 +975,7 @@
     padding: 0px 0px 0px 10px;
     margin: 0;
     text-decoration: underline !important;
+    line-height: normal;
 }
 
 #instaModal .ic-modal-field-error {

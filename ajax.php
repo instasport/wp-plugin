@@ -212,7 +212,7 @@ class InstaCalendarAjax {
 		$id           = isset( $ARGS['id'] ) && $ARGS['id'] ? $ARGS['id'] : false;
 		$accessToken  = isset( $ARGS['accessToken'] ) && $ARGS['accessToken'] ? $ARGS['accessToken'] : false;
 		$refreshToken = isset( $ARGS['refreshToken'] ) && $ARGS['refreshToken'] ? $ARGS['refreshToken'] : false;
-		$response     = InstaCalendarAPI::query( '{ "query": "mutation { createProfile{ profile { id relation rulesAccepted account} } }"}', $accessToken, $refreshToken, $id );
+		$response     = InstaCalendarAPI::query( '{ "query": "mutation { createProfile(origin:3){ profile { id relation rulesAccepted account} } }"}', $accessToken, $refreshToken, $id );
 		$this->sendJson( $response, 'profile' );
 	}
 

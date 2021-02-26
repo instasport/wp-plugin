@@ -506,9 +506,19 @@ jQuery(document).ready(function ($) {
 
         // Высота
         let th = 40;
-        th += $instaModal.find('.ic-modal-title').height();
-        th += $instaModal.find('.ic-modal-user-panel').height();
-        th += $instaModal.find('.ic-modal-buttons').height();
+
+        if($instaModal.find('.ic-modal-title').length){
+            th += $instaModal.find('.ic-modal-title').height();
+        }
+
+        if($instaModal.find('.ic-modal-user-panel').length){
+            th += $instaModal.find('.ic-modal-user-panel').height();
+        }
+
+        if($instaModal.find('.ic-modal-buttons').length){
+            th += $instaModal.find('.ic-modal-buttons').height();
+        }
+
         th = document.documentElement.clientHeight - th;
         $content.css('max-height', th);
 
