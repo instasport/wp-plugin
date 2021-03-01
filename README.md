@@ -2,9 +2,10 @@
 
 1. Загрузитие .zip файл на сайт
 2. Активируйте плагин - InstasportCalendar
-3. В настройках плагина добавьте ключ
+3. В настройках плагина добавьте ключи
 
-slug: clubslug
+slug: club slug
+
 key: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
 Если клубов несколько, то добавьте еще slug и key
