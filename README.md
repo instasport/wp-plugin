@@ -5,16 +5,15 @@
 3. В настройках плагина добавьте ключ
 
 slug: clubslug
-    
 key: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
 Если клубов несколько, то добавьте еще slug и key
 
-4) На странице, где нужно разместить календарь добавьте код
+4. На странице, где нужно разместить календарь добавьте код
 
 Для первого клуба
 
-[instasport-calendar id=1]
+[instasport-calendar]
 
 Для второго клуба (если есть)
 
