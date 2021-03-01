@@ -11,21 +11,18 @@ class InstaCalendarAPI{
 
 
 		$headers = [
-		'Content-Type: application/json',
-		"Authorization: ". ( $accessToken ? "Token $accessToken" : "Key $key") . " $club",
+			'Content-Type' => 'application/json',
+			'Authorization' =>  ( $accessToken ? "Token $accessToken" : "Key $key") . " $club",
 		];
 
-		$ch = curl_init();
-		curl_setopt($ch, CURLOPT_URL, 'https://instasport.co/api/');
-		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-		curl_setopt($ch, CURLOPT_POSTFIELDS, $query);
-		curl_setopt($ch, CURLOPT_POST, 1);
-		curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-		$result = curl_exec($ch);
-		$code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+		$response = wp_remote_post( 'https://instasport.co/api/', [
+			'body' => $query,
+			'headers' => $headers,
+		] );
 
-		curl_close($ch);
-		$data = json_decode($result);
+		$data = json_decode($response['body']);
+
+		$code = $response['response']['code'];
 
 		if($code == 401){
 			$result = $data->errors[0]->result;
@@ -61,20 +58,16 @@ class InstaCalendarAPI{
 	private static function refreshToken($refreshToken){
 		$query = '{ "query": "mutation { tokenRefresh {token {accessToken refreshToken}}}" }';
 		$headers = [
-			'Content-Type: application/json',
-			"Authorization: Refresh $refreshToken",
+			'Content-Type' => 'application/json',
+			'Authorization' => "Refresh $refreshToken",
 		];
-		$ch = curl_init();
-		curl_setopt($ch, CURLOPT_URL, 'https://instasport.co/api/');
-		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-		curl_setopt($ch, CURLOPT_POSTFIELDS, $query);
-		curl_setopt($ch, CURLOPT_POST, 1);
-		curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-		$result = curl_exec($ch);
 
-		curl_close($ch);
+		$response = wp_remote_post( 'https://instasport.co/api/', [
+			'body' => $query,
+			'headers' => $headers,
+		] );
 
-		$data = json_decode($result);
+		$data = json_decode($response['body']);
 
 		if(isset($data->data->tokenRefresh)){
 			return $data->data->tokenRefresh->token;

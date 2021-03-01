@@ -37,48 +37,53 @@ class InstaCalendarShortcode {
 				], time(), true ); //todo time
 				wp_localize_script( 'instasport-calendar', 'instasport', $script_data );
 
-				echo ' <div id="instaModal" style="display: none"></div>';
-				echo '<script type="text/html" id="tmpl-instaCalendar">';
-				$this->get_template( 'calendar' );
-				echo '</script>';
-
-				echo '<script type="text/html" id="tmpl-instaModal">';
-				$this->get_template( 'modal' );
-				echo '</script>';
-
-				//
-				$modals = [
-					'login',
-					'register',
-					'sms',
-					'email',
-					'email_confirmed',
-					'email_wait',
-					'merge',
-					'profile',
-					'visits',
-					'event',
-					'event_pay_list',
-					'cards',
-					'card',
-					'card_pay',
-					'instructor',
-					'rules',
-					'offer',
-					'service_agreement',
-				];
-				foreach ( $modals as $modal ) {
-					echo '<script type="text/html" id="tmpl-instaModal-' . $modal . '">';
-					$this->get_template( 'm_' . $modal );
-					echo '</script>';
-				}
-
-				$this->get_styles();
+				add_action('get_footer', [$this, 'footer']);
 			}
 
 			return ob_get_clean();
 		} );
 	}
+
+	function footer(){
+		echo ' <div id="instaModal" style="display: none"></div>';
+		echo '<script type="text/html" id="tmpl-instaCalendar">';
+		$this->get_template( 'calendar' );
+		echo '</script>';
+
+		echo '<script type="text/html" id="tmpl-instaModal">';
+		$this->get_template( 'modal' );
+		echo '</script>';
+
+		//
+		$modals = [
+			'login',
+			'register',
+			'sms',
+			'email',
+			'email_confirmed',
+			'email_wait',
+			'merge',
+			'profile',
+			'visits',
+			'event',
+			'event_pay_list',
+			'cards',
+			'card',
+			'card_pay',
+			'instructor',
+			'rules',
+			'offer',
+			'service_agreement',
+		];
+		foreach ( $modals as $modal ) {
+			echo '<script type="text/html" id="tmpl-instaModal-' . $modal . '">';
+			$this->get_template( 'm_' . $modal );
+			echo '</script>';
+		}
+
+		$this->get_styles();
+    }
+
 
 	/**
 	 * Настраиваемые стили

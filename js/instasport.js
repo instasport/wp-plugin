@@ -821,6 +821,7 @@ jQuery(document).ready(function ($) {
                 modal(id, 'register');
             } else {
                 modal_errors({phone: response.data.errors[0].message});
+                 $instaModal.removeClass('ic-loading');
             }
         } else {
             club.user = {...club.user, ...response.data.user};
@@ -858,7 +859,7 @@ jQuery(document).ready(function ($) {
         let response = await api('phoneVerify', id, {phone: club.user.phone, code: club.user.sms});
         if (response.data.errors) {
             modal_errors({sms: response.data.errors[0].message});
-            $instaModal.addClass('ic-loading');
+            $instaModal.removeClass('ic-loading');
         } else {
             for (let id_ in instasport.clubs){
                 let club = instasport.clubs[id_];
