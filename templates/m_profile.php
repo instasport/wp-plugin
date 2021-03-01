@@ -47,14 +47,14 @@
             <# if(card.activated){ #>
             <div class="ic-modal-row">
                 <div class="ic-modal-row-title"><?php _e('Дата окончания', 'instasport') ?></div>
-                <span>{{moment(card.pausedDueDate).utc(0).format('dd, D MMMM YYYY')}}</span>
+                <span>{{moment(card.pausedDueDate).format('dd, D MMMM YYYY')}}</span>
             </div>
              <# } #>
 
             <# if(card.paused){ #>
             <div class="ic-modal-row">
                 <div class="ic-modal-row-title"><?php _e('Дата разморозки', 'instasport') ?></div>
-                <span>{{moment(card.dueDate).utc(0).format('dd, D MMMM YYYY')}}</span>
+                <span>{{moment(card.dueDate).format('dd, D MMMM YYYY')}}</span>
             </div>
             <# } #>
 

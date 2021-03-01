@@ -221,7 +221,7 @@ jQuery(document).ready(function ($) {
 
 
         for (let k in club.events) {
-            club.events[k].date = moment(club.events[k].date).utc(false);
+            club.events[k].date = moment(club.events[k].date);
         }
 
         updateCalendar(id);

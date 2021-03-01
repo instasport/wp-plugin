@@ -12,9 +12,9 @@
         <div class="ic-visit-title">{{visit.event.title}}</div>
         <div>
             <span><?php _e( "Дата", 'instasport' ) ?>:</span>
-            {{ moment(visit.event.date).utc(0).format('dd, D MMMM YYYY')}}
+            {{ moment(visit.event.date).format('dd, D MMMM YYYY')}}
         </div>
-        <div><span><?php _e( "Начало", 'instasport' ) ?>:</span> {{moment(visit.event.date).utc(0).format('HH:mm')}}</div>
+        <div><span><?php _e( "Начало", 'instasport' ) ?>:</span> {{moment(visit.event.date).format('HH:mm')}}</div>
         <div><span><?php _e( "Продолжительность", 'instasport' ) ?>:</span> {{visit.event.duration}}</div>
         <div><span><?php _e( "Зал", 'instasport' ) ?>:</span> {{visit.event.hall.title}}</div>
         <div>

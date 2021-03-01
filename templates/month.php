@@ -52,7 +52,7 @@
                             <div class="ic-table">
                                 <div class="ic-tr">
                                     <div class="ic-td">
-                                        <div class="ic-begin_time">{{moment(event.date).utc(0).format('HH:mm')}}</div>
+                                        <div class="ic-begin_time">{{moment(event.date).format('HH:mm')}}</div>
                                     </div>
                                     <div class="ic-td">
                                         <# // продолжительность тренировки

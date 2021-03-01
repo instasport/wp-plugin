@@ -42,7 +42,7 @@
             <# // День
             let date = data.club.args.startDate.clone().hour(H);
 
-            while (date <= endDate) {
+            while (date.isSameOrBefore(endDate, 'day')) {
 
             let dateStr = date.format('YYYY-MM-DD H');
             let hclass = [];
@@ -87,7 +87,7 @@
                 <div class="ic-table">
                     <div class="ic-tr">
                         <div class="ic-td">
-                            <div class="ic-begin_time">{{event.date.utc(false).format('HH:mm')}}</div>
+                            <div class="ic-begin_time">{{event.date.format('HH:mm')}}</div>
                         </div>
                         <div class="ic-td">
                             <# // продолжительность тренировки
