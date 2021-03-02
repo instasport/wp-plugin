@@ -26,7 +26,7 @@ jQuery(document).ready(function ($) {
         });
 
         // Загрузка данных
-        for (let id in instasport.clubs){
+        for (let id in instasport.clubs) {
             // Клуб
             let response = await api('init', id, {},);
             if (!response.success) {
@@ -243,22 +243,22 @@ jQuery(document).ready(function ($) {
         }
 
         if (token && (!data.accessToken || !data.refreshToken)) {
-                await instasport_exit(id, {});
-                return {data:{errors:['exit']}};
-         }
+            await instasport_exit(id, {});
+            return {data: {errors: ['exit']}};
+        }
 
         let response = false;
         do {
-            if (instasport.api_lock && token){
+            if (instasport.api_lock && token) {
                 await sleep(100);
                 continue;
-            }else if(!instasport.api_lock && token){
+            } else if (!instasport.api_lock && token) {
                 instasport.api_lock = true;
             }
 
             response = await axios.post(instasport.ajax_url + '?action=instasport_' + method, data);
 
-            if(token){
+            if (token) {
                 instasport.api_lock = false;
             }
 
@@ -273,8 +273,8 @@ jQuery(document).ready(function ($) {
             if (
                 data.accessToken != response.data.data.token.accessToken
                 || data.refreshToken != response.data.data.token.refreshToken) {
-               setCookie('instasport_accessToken', response.data.data.token.accessToken);
-               setCookie('instasport_refreshToken', response.data.data.token.refreshToken);
+                setCookie('instasport_accessToken', response.data.data.token.accessToken);
+                setCookie('instasport_refreshToken', response.data.data.token.refreshToken);
             }
 
             delete response.data.data.token;
@@ -351,6 +351,7 @@ jQuery(document).ready(function ($) {
         let filteredEvents = {};
         club.args.minH = 24;
         club.args.maxH = 0;
+        club.args.aH = [];
         for (let event of club.events) {
             let key = event.date.format('YYYY-MM-DD');
 
@@ -370,6 +371,11 @@ jQuery(document).ready(function ($) {
                 if (club.args.maxH < H) {
                     club.args.maxH = H;
                 }
+
+                if (!~club.args.aH.indexOf(H)) {
+                    club.args.aH.push(H);
+                }
+
             }
 
             // Тренировка
@@ -490,7 +496,7 @@ jQuery(document).ready(function ($) {
             $instaModal.addClass('ic-loading');
             $instaModal.find('.ic-modal-content').addClass('ic-loader');
             let next = instaUrl(id, 'profile');
-            let response = await api('clientEvent', id, {event_id:club.modal.data.event.id, next}, true);
+            let response = await api('clientEvent', id, {event_id: club.modal.data.event.id, next}, true);
             if (!response.success) {
                 modal_errors({modal: response.data.errors[0].message});
             } else {
@@ -507,15 +513,15 @@ jQuery(document).ready(function ($) {
         // Высота
         let th = 40;
 
-        if($instaModal.find('.ic-modal-title').length){
+        if ($instaModal.find('.ic-modal-title').length) {
             th += $instaModal.find('.ic-modal-title').height();
         }
 
-        if($instaModal.find('.ic-modal-user-panel').length){
+        if ($instaModal.find('.ic-modal-user-panel').length) {
             th += $instaModal.find('.ic-modal-user-panel').height();
         }
 
-        if($instaModal.find('.ic-modal-buttons').length){
+        if ($instaModal.find('.ic-modal-buttons').length) {
             th += $instaModal.find('.ic-modal-buttons').height();
         }
 
@@ -821,7 +827,7 @@ jQuery(document).ready(function ($) {
                 modal(id, 'register');
             } else {
                 modal_errors({phone: response.data.errors[0].message});
-                 $instaModal.removeClass('ic-loading');
+                $instaModal.removeClass('ic-loading');
             }
         } else {
             club.user = {...club.user, ...response.data.user};
@@ -861,7 +867,7 @@ jQuery(document).ready(function ($) {
             modal_errors({sms: response.data.errors[0].message});
             $instaModal.removeClass('ic-loading');
         } else {
-            for (let id_ in instasport.clubs){
+            for (let id_ in instasport.clubs) {
                 let club = instasport.clubs[id_];
                 club.modal.story = [];
                 await userInit(id_);
@@ -870,7 +876,8 @@ jQuery(document).ready(function ($) {
                     $instaModal.removeClass('ic-loading');
                     modal(id, 'event');
                 }
-            };
+            }
+            ;
         }
     }
 
@@ -931,7 +938,7 @@ jQuery(document).ready(function ($) {
      */
     async function instasport_email_wait(id) {
         $instaModal.addClass('ic-loading');
-        for (let id_ in instasport.clubs){
+        for (let id_ in instasport.clubs) {
             let club = instasport.clubs[id_];
             await userInit(id_);
             if (club.user.emailConfirmed) {
@@ -943,7 +950,8 @@ jQuery(document).ready(function ($) {
             if (id_ === id) {
                 $instaModal.removeClass('ic-loading');
             }
-        };
+        }
+        ;
     }
 
     /**
@@ -955,15 +963,16 @@ jQuery(document).ready(function ($) {
         deleteCookie('instasport_accessToken');
         deleteCookie('instasport_refreshToken');
 
-        for (let id in instasport.clubs){
+        for (let id in instasport.clubs) {
             let club = instasport.clubs[id];
-            if(!club.id)continue;
+            if (!club.id) continue;
             club.user = false;
             club.modal.step = false;
             club.modal.story = [];
             await userInit(id);
             await getEvents(id);
-        };
+        }
+        ;
 
         $instaModal.removeClass('ic-loading');
         $('.ic-wrapper').click();
@@ -994,7 +1003,6 @@ jQuery(document).ready(function ($) {
         club.modal.data.event.visit = false;
         instasport_delete_visit(id, d);
     }
-
 
 
     /**
@@ -1147,14 +1155,16 @@ jQuery(document).ready(function ($) {
      * Перерисовка при изменении разрешения екрана
      */
     $(window).on('resize', resize);
+
     function resize() {
         $(window).off('resize', resize);
         setTimeout(function () {
-            for (let id in instasport.clubs){
+            for (let id in instasport.clubs) {
                 if (instasport.is_mobile() && instasport.clubs[id].args.view != 'week') {
                     getEvents(id, {view: 'week'});
                 }
-            };
+            }
+            ;
             if ($instaModal.css('display') !== 'none') {
                 modal();
             }
@@ -1221,7 +1231,7 @@ jQuery(document).ready(function ($) {
             "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
         ));
         let v = matches ? decodeURIComponent(matches[1]) : undefined;
-       // let l = localStorage.getItem(name);
+        // let l = localStorage.getItem(name);
         return v;
     }
 
@@ -1256,7 +1266,7 @@ jQuery(document).ready(function ($) {
         setCookie(name, "", {
             'max-age': -1
         })
-       // localStorage.removeItem(name);
+        // localStorage.removeItem(name);
     }
 
     /**
@@ -1272,7 +1282,7 @@ jQuery(document).ready(function ($) {
         return url;
     }
 
-    instasport.is_mobile =  function () {
+    instasport.is_mobile = function () {
         return $('.instaCalendar').width() < 640;
     }
 

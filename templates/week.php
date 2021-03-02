@@ -28,6 +28,10 @@
         <# // Час
         let count = 0;
         for(let H = data.club.args.minH ; H <= data.club.args.maxH; H++){
+
+        // Отображение пустых строк
+        if (!instasport.settings.desktop.weekView.showEmptyRows && !~data.club.args.aH.indexOf(H))continue;
+
         #>
         <div class="ic-tr">
             <div class="ic-td">{{('0' + H).slice(-2)}}:00</div>
@@ -129,7 +133,7 @@
         <# date.add(1, 'days'); } #>
     </div>
     <# } #>
-    <# if(instasport.is_mobile() && !count){ #>
+    <# if(instasport.is_mobile() && !count && !data.club.args.aH.length){ #>
     <div class="ic-tr no-events">
         <div class="ic-td"><?php _e( 'Нет тренировок', 'instasport' ) ?></div>
     </div>

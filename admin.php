@@ -85,7 +85,7 @@ class InstaCalendarAdmin {
 		$this->add_settings_field( 'desktop_week_quantity_trainings', 'Количество тренировок которое показывается в одной клетке - Неделя', 'input', 'insta_calendar_desktop' );
 		$this->add_settings_field( 'desktop_month_more_text', 'Текст для кнопки смотреть больше (...) - Месяц', 'input', 'insta_calendar_desktop' );
 		$this->add_settings_field( 'desktop_week_more_text', 'Текст для кнопки смотреть больше (...) - Неделя', 'input', 'insta_calendar_desktop' );
-		$this->add_settings_field( 'desktop_week_hide_empty_rows', 'Строки без тренировок - Неделя', 'select', 'insta_calendar_desktop',
+		$this->add_settings_field( 'desktop_week_show_empty_rows', 'Строки без тренировок - Неделя', 'select', 'insta_calendar_desktop',
 			[ '1' => 'Показывать', '0' => 'Не показывать' ] );
 		$this->add_settings_field( 'desktop_filter_train_show', 'Фильтр по тренировкам', 'select', 'insta_calendar_desktop',
 			[ '1' => 'Показывать', '0' => 'Не показывать' ] );

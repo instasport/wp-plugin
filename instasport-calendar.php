@@ -45,7 +45,7 @@ function insta_get_options() {
 		'desktop_week_quantity_trainings'      => '2',
 		'desktop_month_more_text'              => ' ...',
 		'desktop_week_more_text'               => ' ...',
-		'desktop_week_hide_empty_rows'         => '1',
+		'desktop_week_show_empty_rows'         => '1',
 		'desktop_filter_train_show'            => '1',
 		'desktop_filter_couch_show'            => '1',
 		'desktop_filter_complexity_show'       => '1',
