@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: instasport\n"
-"POT-Creation-Date: 2021-02-02 12:22+0200\n"
-"PO-Revision-Date: 2021-02-05 16:56+0200\n"
+"POT-Creation-Date: 2021-03-19 19:20+0200\n"
+"PO-Revision-Date: 2021-03-19 19:20+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: uk_UA\n"
@@ -10,195 +10,59 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 2.4.2\n"
-"X-Poedit-Basepath: Общедоступные/instasport-calendar\n"
+"X-Poedit-Basepath: instasport-calendar\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: __;_e\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: shortcode.php:311
-msgid "Январь"
-msgstr "Січень"
-
-#: shortcode.php:312
-msgid "Февраль"
-msgstr "Лютий"
-
-#: shortcode.php:313
-msgid "Март"
-msgstr "Березень"
-
-#: shortcode.php:314
-msgid "Апрель"
-msgstr "Квітень"
-
-#: shortcode.php:315
-msgid "Май"
-msgstr "Травень"
-
-#: shortcode.php:316
-msgid "Июнь"
-msgstr "Червень"
-
-#: shortcode.php:317
-msgid "Июль"
-msgstr "Липень"
-
-#: shortcode.php:318
-msgid "Август"
-msgstr "Серпень"
-
-#: shortcode.php:319
-msgid "Сентябрь"
-msgstr "Вересень"
-
-#: shortcode.php:320
-msgid "Октябрь"
-msgstr "Жовтень"
-
-#: shortcode.php:321
-msgid "Ноябрь"
-msgstr "Листопад"
-
-#: shortcode.php:322
-msgid "Декабрь"
-msgstr "Грудень"
-
-#: shortcode.php:325
-msgid "Января"
-msgstr "Січня"
-
-#: shortcode.php:326
-msgid "Февраля"
-msgstr "Лютого"
-
-#: shortcode.php:327
-msgid "Марта"
-msgstr "Березня"
-
-#: shortcode.php:328
-msgid "Апреля"
-msgstr "Квітня"
-
-#: shortcode.php:329
-msgid "Мая"
-msgstr "Травня"
-
-#: shortcode.php:330
-msgid "Июня"
-msgstr "Червень"
-
-#: shortcode.php:331
-msgid "Июля"
-msgstr "Липня"
-
-#: shortcode.php:332
-msgid "Августа"
-msgstr "Серпня"
-
-#: shortcode.php:333
-msgid "Сентября"
-msgstr "Вересня"
-
-#: shortcode.php:334
-msgid "Октября"
-msgstr "Жовтня"
-
-#: shortcode.php:335
-msgid "Ноября"
-msgstr "Листопада"
-
-#: shortcode.php:336
-msgid "Декабря"
-msgstr "Грудня"
-
-#: shortcode.php:339
-msgid "Понедельник"
-msgstr "Понеділок"
-
 #: shortcode.php:340
-msgid "Вторник"
-msgstr "Вівторок"
-
-#: shortcode.php:341
-msgid "Среда"
-msgstr "Середа"
-
-#: shortcode.php:342
-msgid "Четверг"
-msgstr "Четвер"
-
-#: shortcode.php:343
-msgid "Пятница"
-msgstr "П'ятниця"
-
-#: shortcode.php:344
-msgid "Суббота"
-msgstr "Субота"
-
-#: shortcode.php:345
-msgid "Воскресенье"
-msgstr "Неділя"
-
-#: shortcode.php:348 templates/month.php:4
-msgid "Пн"
-msgstr "Пн"
-
-#: shortcode.php:349 templates/month.php:5
-msgid "Вт"
-msgstr "Вт"
-
-#: shortcode.php:350 templates/month.php:6
-msgid "Ср"
-msgstr "Ср"
-
-#: shortcode.php:351 templates/month.php:7
-msgid "Чт"
-msgstr "Чт"
-
-#: shortcode.php:352 templates/month.php:8
-msgid "Пт"
-msgstr "Пт"
-
-#: shortcode.php:353 templates/month.php:9
-msgid "Сб"
-msgstr "Сб"
-
-#: shortcode.php:354 templates/month.php:10
-msgid "Вс"
-msgstr "Нд"
-
-#: shortcode.php:358
 msgid "Поле должно быть заполнено"
 msgstr "Поле має бути заповнено"
 
-#: shortcode.php:359
+#: shortcode.php:341
 msgid "Код не совпадает с отправленным"
 msgstr "Код не співпадає з відправленим"
 
-#: shortcode.php:364
+#: shortcode.php:346
+#, fuzzy
+#| msgid "Осталось 1 место"
+msgid "Оставить заявку"
+msgstr "Залишилося 1 місце"
+
+#: shortcode.php:347
 msgid "Оплатить через Liqpay"
 msgstr "Оплатити через Liqpay"
 
-#: shortcode.php:365
+#: shortcode.php:348
 msgid "Абонемент"
 msgstr "Абонемент"
 
-#: shortcode.php:366
+#: shortcode.php:349
 msgid "Оплатить со счета"
 msgstr "Оплатити з рахунку"
 
-#: shortcode.php:367
+#: shortcode.php:350
 msgid "Забронировать"
 msgstr "Забронювати"
 
-#: shortcode.php:368
+#: shortcode.php:351
 msgid "Оплатить через Portmone"
 msgstr "Оплатити через Portmone"
 
-#: shortcode.php:369
+#: shortcode.php:352
 msgid "Оплатить через WayForPay"
 msgstr "Оплатити через WayForPay"
+
+#: templates/button_pilot.php:3
+#, fuzzy
+#| msgid "Запись на тренировку"
+msgid "Записаться на пробную тренировку"
+msgstr "Запис на тренування"
+
+#: templates/button_profile.php:5
+msgid "Войти"
+msgstr "Увійти"
 
 #: templates/filters.php:16
 msgid "Месяц"
@@ -212,7 +76,7 @@ msgstr "Тиждень"
 msgid "Тренировка"
 msgstr "Тренування"
 
-#: templates/filters.php:30
+#: templates/filters.php:30 templates/m_event.php:26
 msgid "Инструктор"
 msgstr "Iнструктор"
 
@@ -228,36 +92,9 @@ msgstr "Напрямок"
 msgid "Все"
 msgstr "Всі"
 
-#: templates/filters.php:75 templates/month.php:62 templates/week.php:96
+#: templates/filters.php:75 templates/month.php:62 templates/week.php:102
 msgid "мин."
 msgstr "хв."
-
-#: templates/m_booking.php:3 templates/m_event.php:4
-msgid "Запись на тренировку"
-msgstr "Запис на тренування"
-
-#: templates/m_booking.php:21 templates/m_booking.php:54
-#: templates/m_card_pay.php:21 templates/m_card_pay.php:49
-#, php-format
-msgid "Нажимая \"%s\" вы соглашаетесь с договором"
-msgstr "Натискаючи \"%s\" ви погоджуєтеся з договором"
-
-#: templates/m_booking.php:65 templates/m_profile.php:41
-msgid "Количество посещений"
-msgstr "Кількість відвідувань"
-
-#: templates/m_booking.php:69 templates/m_profile.php:50
-msgid "Дата окончания"
-msgstr "Дата закінчення"
-
-#: templates/m_booking.php:78 templates/m_card.php:35
-#: templates/m_card_pay.php:55 templates/m_cards.php:30
-#: templates/m_email_wait.php:16 templates/m_instructor.php:15
-#: templates/m_merge.php:12 templates/m_payment.php:16
-#: templates/m_profile.php:96 templates/m_register.php:35
-#: templates/m_sms.php:14 templates/m_visits.php:45
-msgid "Вернуться назад"
-msgstr "Повернутися назад"
 
 #: templates/m_card.php:15
 msgid "Количество тренировок"
@@ -271,7 +108,7 @@ msgstr "Термін дії"
 msgid "дней"
 msgstr "днів"
 
-#: templates/m_card.php:23 templates/m_event.php:37 templates/m_profile.php:37
+#: templates/m_card.php:23 templates/m_event.php:37 templates/m_profile.php:46
 msgid "Цена"
 msgstr "Вартість"
 
@@ -279,9 +116,24 @@ msgstr "Вартість"
 msgid "Купить"
 msgstr "Купити"
 
+#: templates/m_card.php:35 templates/m_card_pay.php:55 templates/m_cards.php:32
+#: templates/m_email_wait.php:16 templates/m_event_pay_list.php:10
+#: templates/m_instructor.php:15 templates/m_merge.php:12
+#: templates/m_offer.php:8 templates/m_profile.php:96
+#: templates/m_register.php:37 templates/m_service_agreement.php:8
+#: templates/m_sms.php:14 templates/m_visits.php:51
+msgid "Вернуться назад"
+msgstr "Повернутися назад"
+
 #: templates/m_card_pay.php:3
 msgid "Покупка абонемента"
 msgstr "Купівля абонементу"
+
+#: templates/m_card_pay.php:21 templates/m_card_pay.php:49
+#: templates/m_event_pay.php:21 templates/m_event_pay.php:57
+#, php-format
+msgid "Нажимая \"%s\" вы соглашаетесь с договором"
+msgstr "Натискаючи \"%s\" ви погоджуєтеся з договором"
 
 #: templates/m_cards.php:3 templates/modal.php:8
 msgid "Абонементы"
@@ -295,14 +147,14 @@ msgstr "Немає доступних абонементів!"
 msgid "Введите ваш E-mail"
 msgstr "Введіть ваш E-mail"
 
-#: templates/m_email.php:12 templates/m_email_confirmed.php:13
-#: templates/m_login.php:13 templates/m_register.php:33 templates/m_sms.php:12
-msgid "Дальше"
-msgstr "Далі"
-
-#: templates/m_email.php:13
+#: templates/m_email.php:11
 msgid "Пропустить"
 msgstr "Пропустити"
+
+#: templates/m_email.php:13 templates/m_login.php:13
+#: templates/m_register.php:35 templates/m_sms.php:12
+msgid "Дальше"
+msgstr "Далі"
 
 #: templates/m_email_confirmed.php:4
 msgid "E-mail подтвержден!"
@@ -320,12 +172,15 @@ msgstr "E-mail не підтверджений"
 msgid "Подтвержден!"
 msgstr "Підтверджен!"
 
+#: templates/m_event.php:4 templates/m_event_pay_list.php:3
+msgid "Запись на тренировку"
+msgstr "Запис на тренування"
 
-#: templates/m_event.php:33 templates/m_visits.php:16
+#: templates/m_event.php:33 templates/m_visits.php:19
 msgid "Зал"
 msgstr "Зал"
 
-#: templates/m_event.php:41 templates/m_visits.php:13
+#: templates/m_event.php:41 templates/m_visits.php:14
 msgid "Дата"
 msgstr "Дата"
 
@@ -333,13 +188,33 @@ msgstr "Дата"
 msgid "Время"
 msgstr "Час"
 
-#: templates/m_event.php:49 templates/m_visits.php:15
+#: templates/m_event.php:49 templates/m_visits.php:18
 msgid "Продолжительность"
 msgstr "Тривалість"
 
-#: templates/m_event.php:58
+#: templates/m_event.php:50
+msgid "минут"
+msgstr "хвилин"
+
+#: templates/m_event.php:60 templates/m_visits.php:38
+msgid "Вы уверены что хотите отменить"
+msgstr "Ви впевнені що хочете скасувати"
+
+#: templates/m_event.php:62 templates/m_visits.php:39
+msgid "Отменить"
+msgstr "Скасувати"
+
+#: templates/m_event.php:69 templates/m_pilot.php:24
 msgid "Записаться"
 msgstr "Записатися"
+
+#: templates/m_event_pay.php:70 templates/m_profile.php:50
+msgid "Количество посещений"
+msgstr "Кількість відвідувань"
+
+#: templates/m_event_pay.php:74 templates/m_profile.php:59
+msgid "Дата окончания"
+msgstr "Дата закінчення"
 
 #: templates/m_login.php:4
 msgid "Введите номер телефона"
@@ -353,73 +228,77 @@ msgstr "З цим e-mail пов'язана інша облікова запис"
 msgid "Объединить"
 msgstr "Об'єднати"
 
-#: templates/m_profile.php:3 templates/modal.php:16
-msgid "Профиль"
-msgstr "Профіль"
+#: templates/m_offer.php:2 templates/m_rules.php:12
+msgid "Условия договора клуба"
+msgstr "Умови договору клубу"
 
-#: templates/m_profile.php:12
+#: templates/m_pilot.php:3 templates/m_pilot_mess.php:3
+#, fuzzy
+#| msgid "Запись на тренировку"
+msgid "Запись на пробную тренировку"
+msgstr "Запис на тренування"
+
+#: templates/m_pilot.php:9 templates/m_register.php:9
+msgid "Имя"
+msgstr "Ім'я"
+
+#: templates/m_pilot.php:13 templates/m_register.php:13
+msgid "Фамилия"
+msgstr "Прізвище"
+
+#: templates/m_pilot_mess.php:11
+#, fuzzy
+#| msgid "Направление"
+msgid "Заявка отправлена"
+msgstr "Напрямок"
+
+#: templates/m_profile.php:21
 msgid "Электронная почта"
 msgstr "Електронна пошта"
 
-#: templates/m_profile.php:16
+#: templates/m_profile.php:25
 msgid "Телефон"
 msgstr "Телефон"
 
-#: templates/m_profile.php:20
+#: templates/m_profile.php:29
 msgid "Текущий баланс"
 msgstr "Поточний баланс"
 
-#: templates/m_profile.php:34
+#: templates/m_profile.php:43
 msgid "Не активирован"
 msgstr "Не активован"
 
-#: templates/m_profile.php:34
+#: templates/m_profile.php:43
 msgid "Заморожен"
 msgstr "Заморожен"
 
-#: templates/m_profile.php:45
+#: templates/m_profile.php:54
 msgid "Количество заморозок"
 msgstr "Кількість заморозок"
 
-#: templates/m_profile.php:57
+#: templates/m_profile.php:66
 msgid "Дата разморозки"
 msgstr "Дата розморожування"
 
-#: templates/m_profile.php:64
+#: templates/m_profile.php:72
 msgid "Активировать"
 msgstr "Активувати"
 
-#: templates/m_profile.php:70
+#: templates/m_profile.php:76
 msgid "Заморозить"
 msgstr "Заморозити"
 
-#: templates/m_profile.php:76
+#: templates/m_profile.php:80
 msgid "Разморозить"
 msgstr "Розморозити"
 
-#: templates/m_profile.php:84
+#: templates/m_profile.php:86
 msgid "У вас нет активных абонементов"
 msgstr "У вас немає активних абонементів"
-
-#: templates/m_profile.php:92
-msgid "Вы действительно хотите выйти ?"
-msgstr "Ви дійсно хочете вийти?"
-
-#: templates/m_profile.php:94
-msgid "Выйти"
-msgstr "Вийти"
 
 #: templates/m_register.php:4
 msgid "Регистрация в системе"
 msgstr "Реєстрація в системі"
-
-#: templates/m_register.php:9
-msgid "Имя"
-msgstr "Ім'я"
-
-#: templates/m_register.php:13
-msgid "Фамилия"
-msgstr "Прізвище"
 
 #: templates/m_register.php:18
 msgid "Мужчина"
@@ -437,87 +316,229 @@ msgstr "Введіть дату народження"
 msgid "__.__.____"
 msgstr "__.__.____"
 
+#: templates/m_rules.php:2
+msgid "Правила клуба"
+msgstr ""
+
+#: templates/m_rules.php:16 templates/m_service_agreement.php:2
+msgid "Условия конфиденциальности Instasport"
+msgstr "Умови конфіденційності Instasport"
+
+#: templates/m_rules.php:20
+msgid "Принять"
+msgstr "Прийняти"
+
 #: templates/m_sms.php:3
 msgid "Введите код из SMS"
 msgstr "Введіть код з SMS"
 
-#: templates/m_visits.php:3 templates/modal.php:12
+#: templates/m_visits.php:3
 msgid "Мои тренировки"
 msgstr "Мої тренування"
 
-#: templates/m_visits.php:14
+#: templates/m_visits.php:17
 msgid "Начало"
 msgstr "Початок"
 
-#: templates/m_visits.php:19
+#: templates/m_visits.php:22
 msgid "не оплачено"
 msgstr "не оплачено"
 
-#: templates/m_visits.php:20
+#: templates/m_visits.php:23
 msgid "подарок"
 msgstr "подарунок"
 
-#: templates/m_visits.php:21
+#: templates/m_visits.php:24
 msgid "оплачено за наличные"
 msgstr "оплачено за готівку"
 
-#: templates/m_visits.php:22
+#: templates/m_visits.php:25
 msgid "оплачено онлайн через Liqpay"
 msgstr "оплачено онлайн через Liqpay"
 
-#: templates/m_visits.php:23
+#: templates/m_visits.php:26
 msgid "оплачено с абонемента"
 msgstr "оплачено з абонемента"
 
-#: templates/m_visits.php:24
+#: templates/m_visits.php:27
 msgid "оплачено со внутреннего счета"
 msgstr "оплачено з внутрішнього рахунку"
 
-#: templates/m_visits.php:25
+#: templates/m_visits.php:28
 msgid "посещение забронировано"
 msgstr "відвідування заброньовано"
 
-#: templates/m_visits.php:26
+#: templates/m_visits.php:29
 msgid "оплачено по безналу (терминал в клубе)"
 msgstr "оплачено по безналу (термінал в клубі)"
 
-#: templates/m_visits.php:27
+#: templates/m_visits.php:30
 msgid "оплачено онлайн через Portmone"
 msgstr "оплачено онлайн через Portmone"
 
-#: templates/m_visits.php:28
+#: templates/m_visits.php:31
 msgid "оплачено онлайн через WayForPay"
 msgstr "оплачено онлайн через WayForPay"
 
-#: templates/m_visits.php:34
-msgid "Вы уверены что хотите отменить"
-msgstr "Ви впевнені що хочете скасувати"
-
-#: templates/m_visits.php:35
-msgid "Отменить"
-msgstr "Скасувати"
-
-#: templates/m_visits.php:41
+#: templates/m_visits.php:45
 msgid "У вас нет запланированных посещений"
 msgstr "У вас немає запланованих відвідувань"
 
-#: templates/month.php:80 templates/week.php:114
+#: templates/modal.php:12
+#, fuzzy
+#| msgid "Тренировка"
+msgid "Тренировки"
+msgstr "Тренування"
+
+#: templates/modal.php:16
+msgid "Профиль"
+msgstr "Профіль"
+
+#: templates/modal.php:18
+msgid "Вы действительно хотите выйти ?"
+msgstr "Ви дійсно хочете вийти?"
+
+#: templates/modal.php:20
+msgid "Выйти"
+msgstr "Вийти"
+
+#: templates/month.php:4
+msgid "Пн"
+msgstr "Пн"
+
+#: templates/month.php:5
+msgid "Вт"
+msgstr "Вт"
+
+#: templates/month.php:6
+msgid "Ср"
+msgstr "Ср"
+
+#: templates/month.php:7
+msgid "Чт"
+msgstr "Чт"
+
+#: templates/month.php:8
+msgid "Пт"
+msgstr "Пт"
+
+#: templates/month.php:9
+msgid "Сб"
+msgstr "Сб"
+
+#: templates/month.php:10
+msgid "Вс"
+msgstr "Нд"
+
+#: templates/month.php:80 templates/week.php:120
 msgid "Вы уже записаны"
 msgstr "Ви вже записані"
 
-#: templates/month.php:82 templates/week.php:116
+#: templates/month.php:82 templates/week.php:122
 msgid "Мест нет"
 msgstr "Місць немає"
 
-#: templates/month.php:84 templates/week.php:118
+#: templates/month.php:84 templates/week.php:124
 msgid "Осталось 1 место"
 msgstr "Залишилося 1 місце"
 
-#: templates/month.php:86 templates/week.php:120
+#: templates/month.php:86 templates/week.php:126
 msgid "Осталось 2 места"
 msgstr "Залишилося 2 місця"
 
-#: templates/week.php:132
+#: templates/week.php:138
 msgid "Нет тренировок"
 msgstr "Немає тренувань"
 
+#~ msgid "Январь"
+#~ msgstr "Січень"
+
+#~ msgid "Февраль"
+#~ msgstr "Лютий"
+
+#~ msgid "Март"
+#~ msgstr "Березень"
+
+#~ msgid "Апрель"
+#~ msgstr "Квітень"
+
+#~ msgid "Май"
+#~ msgstr "Травень"
+
+#~ msgid "Июнь"
+#~ msgstr "Червень"
+
+#~ msgid "Июль"
+#~ msgstr "Липень"
+
+#~ msgid "Август"
+#~ msgstr "Серпень"
+
+#~ msgid "Сентябрь"
+#~ msgstr "Вересень"
+
+#~ msgid "Октябрь"
+#~ msgstr "Жовтень"
+
+#~ msgid "Ноябрь"
+#~ msgstr "Листопад"
+
+#~ msgid "Декабрь"
+#~ msgstr "Грудень"
+
+#~ msgid "Января"
+#~ msgstr "Січня"
+
+#~ msgid "Февраля"
+#~ msgstr "Лютого"
+
+#~ msgid "Марта"
+#~ msgstr "Березня"
+
+#~ msgid "Апреля"
+#~ msgstr "Квітня"
+
+#~ msgid "Мая"
+#~ msgstr "Травня"
+
+#~ msgid "Июня"
+#~ msgstr "Червень"
+
+#~ msgid "Июля"
+#~ msgstr "Липня"
+
+#~ msgid "Августа"
+#~ msgstr "Серпня"
+
+#~ msgid "Сентября"
+#~ msgstr "Вересня"
+
+#~ msgid "Октября"
+#~ msgstr "Жовтня"
+
+#~ msgid "Ноября"
+#~ msgstr "Листопада"
+
+#~ msgid "Декабря"
+#~ msgstr "Грудня"
+
+#~ msgid "Понедельник"
+#~ msgstr "Понеділок"
+
+#~ msgid "Вторник"
+#~ msgstr "Вівторок"
+
+#~ msgid "Среда"
+#~ msgstr "Середа"
+
+#~ msgid "Четверг"
+#~ msgstr "Четвер"
+
+#~ msgid "Пятница"
+#~ msgstr "П'ятниця"
+
+#~ msgid "Суббота"
+#~ msgstr "Субота"
+
+#~ msgid "Воскресенье"
+#~ msgstr "Неділя"

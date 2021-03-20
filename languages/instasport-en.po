@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: instasport\n"
-"POT-Creation-Date: 2021-02-02 12:22+0200\n"
-"PO-Revision-Date: 2021-02-02 12:27+0200\n"
+"POT-Creation-Date: 2021-03-19 19:16+0200\n"
+"PO-Revision-Date: 2021-03-19 19:17+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: en\n"
@@ -10,513 +10,571 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 2.4.2\n"
-"X-Poedit-Basepath: Общедоступные/instasport-calendar\n"
+"X-Poedit-Basepath: .\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: __;_e\n"
 "X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPath-1: .\n"
 
-#: shortcode.php:311
-msgid "Январь"
-msgstr "January"
-
-#: shortcode.php:312
-msgid "Февраль"
-msgstr "February"
-
-#: shortcode.php:313
-msgid "Март"
-msgstr "March"
-
-#: shortcode.php:314
-msgid "Апрель"
-msgstr "April"
-
-#: shortcode.php:315
-msgid "Май"
-msgstr "May"
-
-#: shortcode.php:316
-msgid "Июнь"
-msgstr "June"
-
-#: shortcode.php:317
-msgid "Июль"
-msgstr "July"
-
-#: shortcode.php:318
-msgid "Август"
-msgstr "August"
-
-#: shortcode.php:319
-msgid "Сентябрь"
-msgstr "September"
-
-#: shortcode.php:320
-msgid "Октябрь"
-msgstr "October"
-
-#: shortcode.php:321
-msgid "Ноябрь"
-msgstr "November"
-
-#: shortcode.php:322
-msgid "Декабрь"
-msgstr "December"
-
-#: shortcode.php:325
-msgid "Января"
-msgstr "January"
-
-#: shortcode.php:326
-msgid "Февраля"
-msgstr "February"
-
-#: shortcode.php:327
-msgid "Марта"
-msgstr "March"
-
-#: shortcode.php:328
-msgid "Апреля"
-msgstr "April"
-
-#: shortcode.php:329
-msgid "Мая"
-msgstr "May"
-
-#: shortcode.php:330
-msgid "Июня"
-msgstr "June"
-
-#: shortcode.php:331
-msgid "Июля"
-msgstr "July"
-
-#: shortcode.php:332
-msgid "Августа"
-msgstr "August"
-
-#: shortcode.php:333
-msgid "Сентября"
-msgstr "September"
-
-#: shortcode.php:334
-msgid "Октября"
-msgstr "October"
-
-#: shortcode.php:335
-msgid "Ноября"
-msgstr "November"
-
-#: shortcode.php:336
-msgid "Декабря"
-msgstr "December"
-
-#: shortcode.php:339
-msgid "Понедельник"
-msgstr "Monday"
-
-#: shortcode.php:340
-msgid "Вторник"
-msgstr "Tuesday"
-
-#: shortcode.php:341
-msgid "Среда"
-msgstr "Wednesday"
-
-#: shortcode.php:342
-msgid "Четверг"
-msgstr "Thursday"
-
-#: shortcode.php:343
-msgid "Пятница"
-msgstr "Friday"
-
-#: shortcode.php:344
-msgid "Суббота"
-msgstr "Saturday"
-
-#: shortcode.php:345
-msgid "Воскресенье"
-msgstr "Sunday"
-
-#: shortcode.php:348 templates/month.php:4
-msgid "Пн"
-msgstr "Mon"
-
-#: shortcode.php:349 templates/month.php:5
-msgid "Вт"
-msgstr "Tue"
-
-#: shortcode.php:350 templates/month.php:6
-msgid "Ср"
-msgstr "Wed"
-
-#: shortcode.php:351 templates/month.php:7
-msgid "Чт"
-msgstr "Thu"
-
-#: shortcode.php:352 templates/month.php:8
-msgid "Пт"
-msgstr "Fri"
-
-#: shortcode.php:353 templates/month.php:9
-msgid "Сб"
-msgstr "Sat"
-
-#: shortcode.php:354 templates/month.php:10
-msgid "Вс"
-msgstr "Sun"
-
-#: shortcode.php:358
+#: instasport-calendar/shortcode.php:340
 msgid "Поле должно быть заполнено"
 msgstr "The field must be filled"
 
-#: shortcode.php:359
+#: instasport-calendar/shortcode.php:341
 msgid "Код не совпадает с отправленным"
 msgstr "The code does not match the one sent"
 
-#: shortcode.php:364
+#: instasport-calendar/shortcode.php:346
+#, fuzzy
+#| msgid "Осталось 1 место"
+msgid "Оставить заявку"
+msgstr "1 seat left"
+
+#: instasport-calendar/shortcode.php:347
 msgid "Оплатить через Liqpay"
 msgstr "Pay via Liqpay"
 
-#: shortcode.php:365
+#: instasport-calendar/shortcode.php:348
 msgid "Абонемент"
 msgstr "Card"
 
-#: shortcode.php:366
+#: instasport-calendar/shortcode.php:349
 msgid "Оплатить со счета"
 msgstr "Pay from account"
 
-#: shortcode.php:367
+#: instasport-calendar/shortcode.php:350
 msgid "Забронировать"
 msgstr "Book"
 
-#: shortcode.php:368
+#: instasport-calendar/shortcode.php:351
 msgid "Оплатить через Portmone"
 msgstr "Pay via Portmone"
 
-#: shortcode.php:369
+#: instasport-calendar/shortcode.php:352
 msgid "Оплатить через WayForPay"
 msgstr "Pay via WayForPay"
 
-#: templates/filters.php:16
+#: instasport-calendar/templates/button_pilot.php:3
+#, fuzzy
+#| msgid "Запись на тренировку"
+msgid "Записаться на пробную тренировку"
+msgstr "Enroll for training"
+
+#: instasport-calendar/templates/button_profile.php:5
+msgid "Войти"
+msgstr "Login"
+
+#: instasport-calendar/templates/filters.php:16
 msgid "Месяц"
 msgstr "Month"
 
-#: templates/filters.php:19
+#: instasport-calendar/templates/filters.php:19
 msgid "Неделя"
 msgstr "Week"
 
-#: templates/filters.php:29
+#: instasport-calendar/templates/filters.php:29
 msgid "Тренировка"
 msgstr "Training"
 
-#: templates/filters.php:30
+#: instasport-calendar/templates/filters.php:30
+#: instasport-calendar/templates/m_event.php:26
 msgid "Инструктор"
 msgstr "Instructor"
 
-#: templates/filters.php:31
+#: instasport-calendar/templates/filters.php:31
 msgid "Сложность"
 msgstr "Complexity"
 
-#: templates/filters.php:32
+#: instasport-calendar/templates/filters.php:32
 msgid "Направление"
 msgstr "Activity"
 
-#: templates/filters.php:56
+#: instasport-calendar/templates/filters.php:56
 msgid "Все"
 msgstr "All"
 
-#: templates/filters.php:75 templates/month.php:62 templates/week.php:96
+#: instasport-calendar/templates/filters.php:75
+#: instasport-calendar/templates/month.php:62
+#: instasport-calendar/templates/week.php:102
 msgid "мин."
 msgstr "min."
 
-#: templates/m_booking.php:3 templates/m_event.php:4
-msgid "Запись на тренировку"
-msgstr "Enroll for training"
+#: instasport-calendar/templates/m_card.php:15
+msgid "Количество тренировок"
+msgstr "Number of visits"
 
-#: templates/m_booking.php:21 templates/m_booking.php:54
-#: templates/m_card_pay.php:21 templates/m_card_pay.php:49
+#: instasport-calendar/templates/m_card.php:19
+msgid "Срок действия"
+msgstr "Validity period"
+
+#: instasport-calendar/templates/m_card.php:20
+msgid "дней"
+msgstr "days"
+
+#: instasport-calendar/templates/m_card.php:23
+#: instasport-calendar/templates/m_event.php:37
+#: instasport-calendar/templates/m_profile.php:46
+msgid "Цена"
+msgstr "Price"
+
+#: instasport-calendar/templates/m_card.php:32
+msgid "Купить"
+msgstr "Buy"
+
+#: instasport-calendar/templates/m_card.php:35
+#: instasport-calendar/templates/m_card_pay.php:55
+#: instasport-calendar/templates/m_cards.php:32
+#: instasport-calendar/templates/m_email_wait.php:16
+#: instasport-calendar/templates/m_event_pay_list.php:10
+#: instasport-calendar/templates/m_instructor.php:15
+#: instasport-calendar/templates/m_merge.php:12
+#: instasport-calendar/templates/m_offer.php:8
+#: instasport-calendar/templates/m_profile.php:96
+#: instasport-calendar/templates/m_register.php:37
+#: instasport-calendar/templates/m_service_agreement.php:8
+#: instasport-calendar/templates/m_sms.php:14
+#: instasport-calendar/templates/m_visits.php:51
+msgid "Вернуться назад"
+msgstr "Back"
+
+#: instasport-calendar/templates/m_card_pay.php:3
+msgid "Покупка абонемента"
+msgstr "Buying a card"
+
+#: instasport-calendar/templates/m_card_pay.php:21
+#: instasport-calendar/templates/m_card_pay.php:49
+#: instasport-calendar/templates/m_event_pay.php:21
+#: instasport-calendar/templates/m_event_pay.php:57
 #, php-format
 msgid "Нажимая \"%s\" вы соглашаетесь с договором"
 msgstr "By pressing \"%s\" you agree to the contract"
 
-#: templates/m_booking.php:65 templates/m_profile.php:41
-msgid "Количество посещений"
-msgstr "Number of visits"
-
-#: templates/m_booking.php:69 templates/m_profile.php:50
-msgid "Дата окончания"
-msgstr "Due date"
-
-#: templates/m_booking.php:78 templates/m_card.php:35
-#: templates/m_card_pay.php:55 templates/m_cards.php:30
-#: templates/m_email_wait.php:16 templates/m_instructor.php:15
-#: templates/m_merge.php:12 templates/m_payment.php:16
-#: templates/m_profile.php:96 templates/m_register.php:35
-#: templates/m_sms.php:14 templates/m_visits.php:45
-msgid "Вернуться назад"
-msgstr "Back"
-
-#: templates/m_card.php:15
-msgid "Количество тренировок"
-msgstr "Number of visits"
-
-#: templates/m_card.php:19
-msgid "Срок действия"
-msgstr "Validity period"
-
-#: templates/m_card.php:20
-msgid "дней"
-msgstr "days"
-
-#: templates/m_card.php:23 templates/m_event.php:37 templates/m_profile.php:37
-msgid "Цена"
-msgstr "Price"
-
-#: templates/m_card.php:32
-msgid "Купить"
-msgstr "Buy"
-
-#: templates/m_card_pay.php:3
-msgid "Покупка абонемента"
-msgstr "Buying a card"
-
-#: templates/m_cards.php:3 templates/modal.php:8
+#: instasport-calendar/templates/m_cards.php:3
+#: instasport-calendar/templates/modal.php:8
 msgid "Абонементы"
 msgstr "Cards"
 
-#: templates/m_cards.php:25
+#: instasport-calendar/templates/m_cards.php:25
 msgid "Нет доступных абонементов!"
 msgstr "No cards available!"
 
-#: templates/m_email.php:3
+#: instasport-calendar/templates/m_email.php:3
 msgid "Введите ваш E-mail"
 msgstr "Enter E-mail"
 
-#: templates/m_email.php:12 templates/m_email_confirmed.php:13
-#: templates/m_login.php:13 templates/m_register.php:33 templates/m_sms.php:12
-msgid "Дальше"
-msgstr "Next"
-
-#: templates/m_email.php:13
+#: instasport-calendar/templates/m_email.php:11
 msgid "Пропустить"
 msgstr "Skip"
 
-#: templates/m_email_confirmed.php:4
+#: instasport-calendar/templates/m_email.php:13
+#: instasport-calendar/templates/m_login.php:13
+#: instasport-calendar/templates/m_register.php:35
+#: instasport-calendar/templates/m_sms.php:12
+msgid "Дальше"
+msgstr "Next"
+
+#: instasport-calendar/templates/m_email_confirmed.php:4
 msgid "E-mail подтвержден!"
 msgstr "E-mail confirmed"
 
-#: templates/m_email_wait.php:4
+#: instasport-calendar/templates/m_email_wait.php:4
 msgid "Подтвердите e-mail в письме на вашей почте"
 msgstr "Confirm the e-mail in the letter on your mail"
 
-#: templates/m_email_wait.php:9
+#: instasport-calendar/templates/m_email_wait.php:9
 msgid "E-mail не подтвержден"
 msgstr "E-mail not confirmed"
 
-#: templates/m_email_wait.php:14
+#: instasport-calendar/templates/m_email_wait.php:14
 msgid "Подтвержден!"
 msgstr "Confirmed!"
 
+#: instasport-calendar/templates/m_event.php:4
+#: instasport-calendar/templates/m_event_pay_list.php:3
+msgid "Запись на тренировку"
+msgstr "Enroll for training"
 
-#: templates/m_event.php:33 templates/m_visits.php:16
+#: instasport-calendar/templates/m_event.php:33
+#: instasport-calendar/templates/m_visits.php:19
 msgid "Зал"
 msgstr "Hall"
 
-#: templates/m_event.php:41 templates/m_visits.php:13
+#: instasport-calendar/templates/m_event.php:41
+#: instasport-calendar/templates/m_visits.php:14
 msgid "Дата"
 msgstr "Date"
 
-#: templates/m_event.php:45
+#: instasport-calendar/templates/m_event.php:45
 msgid "Время"
 msgstr "Time"
 
-#: templates/m_event.php:49 templates/m_visits.php:15
+#: instasport-calendar/templates/m_event.php:49
+#: instasport-calendar/templates/m_visits.php:18
 msgid "Продолжительность"
 msgstr "Duration"
 
-#: templates/m_event.php:58
-msgid "Записаться"
-msgstr "Enroll"
+#: instasport-calendar/templates/m_event.php:50
+msgid "минут"
+msgstr "minutes"
 
-#: templates/m_login.php:4
-msgid "Введите номер телефона"
-msgstr "Enter phone number"
-
-#: templates/m_merge.php:4
-msgid "С этим e-mail связанная другая учетная запись"
-msgstr "This e-mail connected to another account"
-
-#: templates/m_merge.php:10
-msgid "Объединить"
-msgstr "Merge"
-
-#: templates/m_profile.php:3 templates/modal.php:16
-msgid "Профиль"
-msgstr "Profile"
-
-#: templates/m_profile.php:12
-msgid "Электронная почта"
-msgstr "E-mail"
-
-#: templates/m_profile.php:16
-msgid "Телефон"
-msgstr "Phone"
-
-#: templates/m_profile.php:20
-msgid "Текущий баланс"
-msgstr "Account"
-
-#: templates/m_profile.php:34
-msgid "Не активирован"
-msgstr "Not activated"
-
-#: templates/m_profile.php:34
-msgid "Заморожен"
-msgstr "Frozen"
-
-#: templates/m_profile.php:45
-msgid "Количество заморозок"
-msgstr "Number of pauses"
-
-#: templates/m_profile.php:57
-msgid "Дата разморозки"
-msgstr "Unfroze date"
-
-#: templates/m_profile.php:64
-msgid "Активировать"
-msgstr "Activate"
-
-#: templates/m_profile.php:70
-msgid "Заморозить"
-msgstr "Freeze"
-
-#: templates/m_profile.php:76
-msgid "Разморозить"
-msgstr "Unfreeze"
-
-#: templates/m_profile.php:84
-msgid "У вас нет активных абонементов"
-msgstr "You have no active cards"
-
-#: templates/m_profile.php:92
-msgid "Вы действительно хотите выйти ?"
-msgstr "Are you sure you want to quit ?"
-
-#: templates/m_profile.php:94
-msgid "Выйти"
-msgstr "Quit"
-
-#: templates/m_register.php:4
-msgid "Регистрация в системе"
-msgstr "Registration"
-
-#: templates/m_register.php:9
-msgid "Имя"
-msgstr "Name"
-
-#: templates/m_register.php:13
-msgid "Фамилия"
-msgstr "Last Name"
-
-#: templates/m_register.php:18
-msgid "Мужчина"
-msgstr "Male"
-
-#: templates/m_register.php:22
-msgid "Женщина"
-msgstr "Female"
-
-#: templates/m_register.php:26
-msgid "Введите дату рождения"
-msgstr "Date of Birth"
-
-#: templates/m_register.php:28
-msgid "__.__.____"
-msgstr "__.__.____"
-
-#: templates/m_sms.php:3
-msgid "Введите код из SMS"
-msgstr "Entero code from SMS"
-
-#: templates/m_visits.php:3 templates/modal.php:12
-msgid "Мои тренировки"
-msgstr "My trainings"
-
-#: templates/m_visits.php:14
-msgid "Начало"
-msgstr "Beginning"
-
-#: templates/m_visits.php:19
-msgid "не оплачено"
-msgstr "not paid"
-
-#: templates/m_visits.php:20
-msgid "подарок"
-msgstr "gift"
-
-#: templates/m_visits.php:21
-msgid "оплачено за наличные"
-msgstr "paid by cash"
-
-#: templates/m_visits.php:22
-msgid "оплачено онлайн через Liqpay"
-msgstr "pai via Liqpay"
-
-#: templates/m_visits.php:23
-msgid "оплачено с абонемента"
-msgstr "paid from card"
-
-#: templates/m_visits.php:24
-msgid "оплачено со внутреннего счета"
-msgstr "paid from account"
-
-#: templates/m_visits.php:25
-msgid "посещение забронировано"
-msgstr "training booked"
-
-#: templates/m_visits.php:26
-msgid "оплачено по безналу (терминал в клубе)"
-msgstr "paid through terminal"
-
-#: templates/m_visits.php:27
-msgid "оплачено онлайн через Portmone"
-msgstr "paid via Portmone"
-
-#: templates/m_visits.php:28
-msgid "оплачено онлайн через WayForPay"
-msgstr "paid via WayForPay"
-
-#: templates/m_visits.php:34
+#: instasport-calendar/templates/m_event.php:60
+#: instasport-calendar/templates/m_visits.php:38
 msgid "Вы уверены что хотите отменить"
 msgstr "Are you sure you want to cancel"
 
-#: templates/m_visits.php:35
+#: instasport-calendar/templates/m_event.php:62
+#: instasport-calendar/templates/m_visits.php:39
 msgid "Отменить"
 msgstr "Cancel"
 
-#: templates/m_visits.php:41
+#: instasport-calendar/templates/m_event.php:69
+#: instasport-calendar/templates/m_pilot.php:24
+msgid "Записаться"
+msgstr "Enroll"
+
+#: instasport-calendar/templates/m_event_pay.php:70
+#: instasport-calendar/templates/m_profile.php:50
+msgid "Количество посещений"
+msgstr "Number of visits"
+
+#: instasport-calendar/templates/m_event_pay.php:74
+#: instasport-calendar/templates/m_profile.php:59
+msgid "Дата окончания"
+msgstr "Due date"
+
+#: instasport-calendar/templates/m_login.php:4
+msgid "Введите номер телефона"
+msgstr "Enter phone number"
+
+#: instasport-calendar/templates/m_merge.php:4
+msgid "С этим e-mail связанная другая учетная запись"
+msgstr "This e-mail connected to another account"
+
+#: instasport-calendar/templates/m_merge.php:10
+msgid "Объединить"
+msgstr "Merge"
+
+#: instasport-calendar/templates/m_offer.php:2
+#: instasport-calendar/templates/m_rules.php:12
+msgid "Условия договора клуба"
+msgstr "Our agreement"
+
+#: instasport-calendar/templates/m_pilot.php:3
+#: instasport-calendar/templates/m_pilot_mess.php:3
+#, fuzzy
+#| msgid "Запись на тренировку"
+msgid "Запись на пробную тренировку"
+msgstr "Enroll for training"
+
+#: instasport-calendar/templates/m_pilot.php:9
+#: instasport-calendar/templates/m_register.php:9
+msgid "Имя"
+msgstr "Name"
+
+#: instasport-calendar/templates/m_pilot.php:13
+#: instasport-calendar/templates/m_register.php:13
+msgid "Фамилия"
+msgstr "Last Name"
+
+#: instasport-calendar/templates/m_pilot_mess.php:11
+#, fuzzy
+#| msgid "Направление"
+msgid "Заявка отправлена"
+msgstr "Activity"
+
+#: instasport-calendar/templates/m_profile.php:21
+msgid "Электронная почта"
+msgstr "E-mail"
+
+#: instasport-calendar/templates/m_profile.php:25
+msgid "Телефон"
+msgstr "Phone"
+
+#: instasport-calendar/templates/m_profile.php:29
+msgid "Текущий баланс"
+msgstr "Account"
+
+#: instasport-calendar/templates/m_profile.php:43
+msgid "Не активирован"
+msgstr "Not activated"
+
+#: instasport-calendar/templates/m_profile.php:43
+msgid "Заморожен"
+msgstr "Frozen"
+
+#: instasport-calendar/templates/m_profile.php:54
+msgid "Количество заморозок"
+msgstr "Number of pauses"
+
+#: instasport-calendar/templates/m_profile.php:66
+msgid "Дата разморозки"
+msgstr "Unfroze date"
+
+#: instasport-calendar/templates/m_profile.php:72
+msgid "Активировать"
+msgstr "Activate"
+
+#: instasport-calendar/templates/m_profile.php:76
+msgid "Заморозить"
+msgstr "Freeze"
+
+#: instasport-calendar/templates/m_profile.php:80
+msgid "Разморозить"
+msgstr "Unfreeze"
+
+#: instasport-calendar/templates/m_profile.php:86
+msgid "У вас нет активных абонементов"
+msgstr "You have no active cards"
+
+#: instasport-calendar/templates/m_register.php:4
+msgid "Регистрация в системе"
+msgstr "Registration"
+
+#: instasport-calendar/templates/m_register.php:18
+msgid "Мужчина"
+msgstr "Male"
+
+#: instasport-calendar/templates/m_register.php:22
+msgid "Женщина"
+msgstr "Female"
+
+#: instasport-calendar/templates/m_register.php:26
+msgid "Введите дату рождения"
+msgstr "Date of Birth"
+
+#: instasport-calendar/templates/m_register.php:28
+msgid "__.__.____"
+msgstr "__.__.____"
+
+#: instasport-calendar/templates/m_rules.php:2
+msgid "Правила клуба"
+msgstr ""
+
+#: instasport-calendar/templates/m_rules.php:16
+#: instasport-calendar/templates/m_service_agreement.php:2
+msgid "Условия конфиденциальности Instasport"
+msgstr "Instasport Confidential Policy"
+
+#: instasport-calendar/templates/m_rules.php:20
+msgid "Принять"
+msgstr "Accept"
+
+#: instasport-calendar/templates/m_sms.php:3
+msgid "Введите код из SMS"
+msgstr "Entero code from SMS"
+
+#: instasport-calendar/templates/m_visits.php:3
+msgid "Мои тренировки"
+msgstr "My trainings"
+
+#: instasport-calendar/templates/m_visits.php:17
+msgid "Начало"
+msgstr "Beginning"
+
+#: instasport-calendar/templates/m_visits.php:22
+msgid "не оплачено"
+msgstr "not paid"
+
+#: instasport-calendar/templates/m_visits.php:23
+msgid "подарок"
+msgstr "gift"
+
+#: instasport-calendar/templates/m_visits.php:24
+msgid "оплачено за наличные"
+msgstr "paid by cash"
+
+#: instasport-calendar/templates/m_visits.php:25
+msgid "оплачено онлайн через Liqpay"
+msgstr "paid via Liqpay"
+
+#: instasport-calendar/templates/m_visits.php:26
+msgid "оплачено с абонемента"
+msgstr "paid from card"
+
+#: instasport-calendar/templates/m_visits.php:27
+msgid "оплачено со внутреннего счета"
+msgstr "paid from account"
+
+#: instasport-calendar/templates/m_visits.php:28
+msgid "посещение забронировано"
+msgstr "training booked"
+
+#: instasport-calendar/templates/m_visits.php:29
+msgid "оплачено по безналу (терминал в клубе)"
+msgstr "paid through terminal"
+
+#: instasport-calendar/templates/m_visits.php:30
+msgid "оплачено онлайн через Portmone"
+msgstr "paid via Portmone"
+
+#: instasport-calendar/templates/m_visits.php:31
+msgid "оплачено онлайн через WayForPay"
+msgstr "paid via WayForPay"
+
+#: instasport-calendar/templates/m_visits.php:45
 msgid "У вас нет запланированных посещений"
 msgstr "You have upcoming trainings"
 
-#: templates/month.php:80 templates/week.php:114
+#: instasport-calendar/templates/modal.php:12
+#, fuzzy
+#| msgid "Тренировка"
+msgid "Тренировки"
+msgstr "Training"
+
+#: instasport-calendar/templates/modal.php:16
+msgid "Профиль"
+msgstr "Profile"
+
+#: instasport-calendar/templates/modal.php:18
+msgid "Вы действительно хотите выйти ?"
+msgstr "Are you sure you want to quit ?"
+
+#: instasport-calendar/templates/modal.php:20
+msgid "Выйти"
+msgstr "Quit"
+
+#: instasport-calendar/templates/month.php:4
+msgid "Пн"
+msgstr "Mon"
+
+#: instasport-calendar/templates/month.php:5
+msgid "Вт"
+msgstr "Tue"
+
+#: instasport-calendar/templates/month.php:6
+msgid "Ср"
+msgstr "Wed"
+
+#: instasport-calendar/templates/month.php:7
+msgid "Чт"
+msgstr "Thu"
+
+#: instasport-calendar/templates/month.php:8
+msgid "Пт"
+msgstr "Fri"
+
+#: instasport-calendar/templates/month.php:9
+msgid "Сб"
+msgstr "Sat"
+
+#: instasport-calendar/templates/month.php:10
+msgid "Вс"
+msgstr "Sun"
+
+#: instasport-calendar/templates/month.php:80
+#: instasport-calendar/templates/week.php:120
 msgid "Вы уже записаны"
 msgstr "You are already enrolled"
 
-#: templates/month.php:82 templates/week.php:116
+#: instasport-calendar/templates/month.php:82
+#: instasport-calendar/templates/week.php:122
 msgid "Мест нет"
 msgstr "No seats"
 
-#: templates/month.php:84 templates/week.php:118
+#: instasport-calendar/templates/month.php:84
+#: instasport-calendar/templates/week.php:124
 msgid "Осталось 1 место"
 msgstr "1 seat left"
 
-#: templates/month.php:86 templates/week.php:120
+#: instasport-calendar/templates/month.php:86
+#: instasport-calendar/templates/week.php:126
 msgid "Осталось 2 места"
 msgstr "2 seats left"
 
-#: templates/week.php:132
+#: instasport-calendar/templates/week.php:138
 msgid "Нет тренировок"
 msgstr "No trainings"
+
+#~ msgid "Январь"
+#~ msgstr "January"
+
+#~ msgid "Февраль"
+#~ msgstr "February"
+
+#~ msgid "Март"
+#~ msgstr "March"
+
+#~ msgid "Апрель"
+#~ msgstr "April"
+
+#~ msgid "Май"
+#~ msgstr "May"
+
+#~ msgid "Июнь"
+#~ msgstr "June"
+
+#~ msgid "Июль"
+#~ msgstr "July"
+
+#~ msgid "Август"
+#~ msgstr "August"
+
+#~ msgid "Сентябрь"
+#~ msgstr "September"
+
+#~ msgid "Октябрь"
+#~ msgstr "October"
+
+#~ msgid "Ноябрь"
+#~ msgstr "November"
+
+#~ msgid "Декабрь"
+#~ msgstr "December"
+
+#~ msgid "Января"
+#~ msgstr "January"
+
+#~ msgid "Февраля"
+#~ msgstr "February"
+
+#~ msgid "Марта"
+#~ msgstr "March"
+
+#~ msgid "Апреля"
+#~ msgstr "April"
+
+#~ msgid "Мая"
+#~ msgstr "May"
+
+#~ msgid "Июня"
+#~ msgstr "June"
+
+#~ msgid "Июля"
+#~ msgstr "July"
+
+#~ msgid "Августа"
+#~ msgstr "August"
+
+#~ msgid "Сентября"
+#~ msgstr "September"
+
+#~ msgid "Октября"
+#~ msgstr "October"
+
+#~ msgid "Ноября"
+#~ msgstr "November"
+
+#~ msgid "Декабря"
+#~ msgstr "December"
+
+#~ msgid "Понедельник"
+#~ msgstr "Monday"
+
+#~ msgid "Вторник"
+#~ msgstr "Tuesday"
+
+#~ msgid "Среда"
+#~ msgstr "Wednesday"
+
+#~ msgid "Четверг"
+#~ msgstr "Thursday"
+
+#~ msgid "Пятница"
+#~ msgstr "Friday"
+
+#~ msgid "Суббота"
+#~ msgstr "Saturday"
+
+#~ msgid "Воскресенье"
+#~ msgstr "Sunday"
