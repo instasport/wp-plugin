@@ -33,6 +33,8 @@ class InstaCalendarAjax {
 			'payVisitByCard', // Оплата тренировки абонементом
 
 			'deleteVisit', // Отмена тренировки
+
+			'createLead', // Cоздание заявки на связь с менеджером/пробную тренировку
 		];
 
 		foreach ( $actions as $val ) {
@@ -51,7 +53,7 @@ class InstaCalendarAjax {
 		$id   = isset( $ARGS['id'] ) && $ARGS['id'] ? $ARGS['id'] : false;
 
 		// Данные клуба
-		$club = InstaCalendarAPI::query( '{ "query": "{ club{id title  slug  halls{id title timeOpen timeClose}  activities{id title}  rules offer serviceAgreement} }"}', false, false, $id );
+		$club = InstaCalendarAPI::query( '{ "query": "{ club{id title  titleShort slug  halls{id title timeOpen timeClose}  activities{id title}  rules offer serviceAgreement primaryColor secondaryColor primaryTextColor secondaryTextColor} }"}', false, false, $id );
 		$data = $club->data->club;
 
 		// Шаблоны абонементов
@@ -168,7 +170,7 @@ class InstaCalendarAjax {
 		$id           = isset( $ARGS['id'] ) && $ARGS['id'] ? $ARGS['id'] : false;
 		$accessToken  = isset( $ARGS['accessToken'] ) && $ARGS['accessToken'] ? $ARGS['accessToken'] : false;
 		$refreshToken = isset( $ARGS['refreshToken'] ) && $ARGS['refreshToken'] ? $ARGS['refreshToken'] : false;
-		$response     = InstaCalendarAPI::query( '{ "query": "{ profile { id relation rulesAccepted account}}"}', $accessToken, $refreshToken, $id );
+		$response     = InstaCalendarAPI::query( '{ "query": "{ profile { id relation rulesAccepted leadAllowed account}}"}', $accessToken, $refreshToken, $id );
 
 		$this->sendJson( $response, 'profile' );
 	}
@@ -212,7 +214,7 @@ class InstaCalendarAjax {
 		$id           = isset( $ARGS['id'] ) && $ARGS['id'] ? $ARGS['id'] : false;
 		$accessToken  = isset( $ARGS['accessToken'] ) && $ARGS['accessToken'] ? $ARGS['accessToken'] : false;
 		$refreshToken = isset( $ARGS['refreshToken'] ) && $ARGS['refreshToken'] ? $ARGS['refreshToken'] : false;
-		$response     = InstaCalendarAPI::query( '{ "query": "mutation { createProfile(origin:3){ profile { id relation rulesAccepted account} } }"}', $accessToken, $refreshToken, $id );
+		$response     = InstaCalendarAPI::query( '{ "query": "mutation { createProfile(origin:3){ profile { id relation rulesAccepted leadAllowed account} } }"}', $accessToken, $refreshToken, $id );
 		$this->sendJson( $response, 'profile' );
 	}
 
@@ -422,6 +424,19 @@ class InstaCalendarAjax {
 		$refreshToken = isset( $ARGS['refreshToken'] ) && $ARGS['refreshToken'] ? $ARGS['refreshToken'] : false;
 		$response     = InstaCalendarAPI::query( '{ "query": "mutation { deleteVisit(visit: ' . $visit_id . '){ ok }}"}', $accessToken, $refreshToken, $id );
 		$this->sendJson( $response, 'deleteVisit' );
+	}
+
+
+	/**
+	 * Cоздание заявки на связь с менеджером/пробную тренировку
+	 */
+	function createLead_callback() {
+		$ARGS     = json_decode( file_get_contents( 'php://input' ), true );
+		$id       = isset( $ARGS['id'] ) && $ARGS['id'] ? $ARGS['id'] : false;
+		$accessToken  = isset( $ARGS['accessToken'] ) && $ARGS['accessToken'] ? $ARGS['accessToken'] : false;
+		$refreshToken = isset( $ARGS['refreshToken'] ) && $ARGS['refreshToken'] ? $ARGS['refreshToken'] : false;
+		$response = InstaCalendarAPI::query( '{ "query": "mutation { createLead(origin:3){ profile{id}}}"}', $accessToken, $refreshToken, $id );
+		$this->sendJson( $response, 'createLead' );
 	}
 
 

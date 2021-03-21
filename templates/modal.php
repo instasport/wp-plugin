@@ -9,11 +9,15 @@
                 </div>
                 <div class="ic-modal-user-button {{data.modal.step == 'visits' ? 'current' : ''}}" data-step="visits">
                     <span class="dashicons dashicons-calendar-alt"></span>
-                    <span><?php _e( 'Мои тренировки', 'instasport' ) ?></span>
+                    <span><?php _e( 'Тренировки', 'instasport' ) ?></span>
                 </div>
                 <div class="ic-modal-user-button {{data.modal.step == 'profile' ? 'current' : ''}}" data-step="profile">
                     <span class="dashicons dashicons-admin-users"></span>
                     <span><?php _e( 'Профиль', 'instasport' ) ?></span>
+                </div>
+                <div class="ic-modal-user-button" data-alert="<?php _e('Вы действительно хотите выйти ?', 'instasport')?>" data-func="exit">
+                    <span class="dashicons dashicons-migrate"></span>
+                    <span><?php _e( 'Выйти', 'instasport' ) ?></span>
                 </div>
             </div>
             <# } #>

@@ -444,14 +444,14 @@
 
 .instaCalendar .insta_dropdown-window:after {
     border-color: rgba(241, 241, 241, 0);
-    border-bottom-color: #f1f1f1;
+    border-bottom-color: var(--primaryColor);
     border-width: 8px;
     margin-left: -8px;
 }
 
 .instaCalendar .insta_dropdown-window:before {
-    border-color: rgba(204, 204, 204, 0);
-    border-bottom-color: #ccc;
+    background: transparent;
+    border-bottom-color: var(--primaryTextColor);
     border-width: 9px;
     margin-left: -9px;
 }
@@ -552,7 +552,7 @@
     width: 100%;
     height: 100%;
     background: #00000099;
-    z-index: 99;
+    z-index: 999999;
 }
 
 #instaModal .ic-modal {
@@ -573,9 +573,10 @@
 #instaModal .ic-modal-title {
     font-size: 18px;
     margin: 2px 0px 15px 0px;
+    min-height: 30px;
 }
 
-#instaModal .ic-modal-title span {
+#instaModal .ic-modal-title span.dashicons-no-alt {
     position: absolute;
     right: 0px;
     top: 0px;
@@ -588,7 +589,54 @@
     cursor: pointer;
 }
 
+#instaModal .ic-modal-title .ic-select.ic-profile {
+    display: inline-block;
+    position: absolute;
+    width: 176px;
+    border: 1px solid var(--primaryTextColor) !important;
+    color: var(--primaryTextColor);
+    border-radius: 3px;
+    padding: 2px 10px;
+    box-shadow: none;
+    text-shadow: none;
+    font-size: 14px;
+    cursor: pointer;
+    background: var(--secondaryColor);
+    z-index: 1;
+}
+#instaModal .ic-modal-title .ic-select.ic-profile span{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+
+#instaModal .ic-modal-title .ic-select .dashicons-arrow-up-alt2,
+#instaModal .ic-modal-title .ic-select.open .dashicons-arrow-down-alt2
+{
+    display: none;
+}
+
+#instaModal .ic-modal-title .ic-select.open .dashicons-arrow-up-alt2,
+#instaModal .ic-modal-title .ic-select.open .ic-select-item,
+#instaModal .ic-modal-title .ic-select .ic-select-item.active
+{
+    display: block;
+}
+
 #instaModal .ic-modal-title span:hover {
+    opacity: 1;
+}
+#instaModal .ic-modal-title .ic-select .ic-select-items {
+    width: 100%;
+    color: var(--primaryTextColor);
+}
+#instaModal .ic-modal-title .ic-select .ic-select-item {
+    display: none;
+    padding: 2px 0px;
+    opacity: 0.6;
+}
+#instaModal .ic-modal-title .ic-select .ic-select-item:hover,
+#instaModal .ic-modal-title .ic-select .ic-select-item.active {
     opacity: 1;
 }
 
@@ -1027,7 +1075,7 @@
     display: inline-block;
     text-align: center;
     padding: 5px;
-    width: 45%;
+    width: 24%;
     cursor: pointer;
     opacity: 0.7;
 }
@@ -1040,11 +1088,11 @@
 #instaModal .ic-modal-user-panel .ic-modal-user-button:hover {
     opacity: 1;
 }
-
+/*
 #instaModal .ic-modal-user-panel .ic-modal-user-button:first-child,
 #instaModal .ic-modal-user-panel .ic-modal-user-button:last-child {
     width: 25%;
-}
+}*/
 
 #instaModal .ic-modal-user-panel .dashicons {
     font-size: 26px;
@@ -1143,6 +1191,25 @@
     display: table-cell;
     padding: 10px;
     text-align: center;
+}
+
+.instasport-button{
+    border: none;
+    background-color: var(--secondaryTextColor) !important;
+    color: var(--secondaryColor);
+    border-radius: 3px;
+    padding: 7px 12px;
+    width: 100%;
+    box-shadow: none;
+    text-shadow: none;
+    text-align: center;
+    font-size: 14px;
+    opacity: 0.8;
+    cursor: pointer;
+    margin: 10px 0;
+}
+.instasport-button:hover{
+    opacity: 1;
 }
 
 @media (max-width: 768px) {

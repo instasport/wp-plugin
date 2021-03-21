@@ -1,6 +1,15 @@
 <!-- Профиль пользователя -->
 <div class="ic-modal-title">
-	<?php _e( "Профиль", 'instasport' ) ?>
+	<div class="ic-select ic-profile">
+        <div class="ic-select-items">
+            <# for(let id in instasport.clubs){ #>
+            <div class="ic-select-item {{ data.club.id == instasport.clubs[id].id ? 'active' : '' }}"
+                 data-id="{{id}}">{{instasport.clubs[id].titleShort}}
+            </div>
+            <# } #>
+        </div>
+        <span class="dashicons dashicons-arrow-down-alt2"></span>
+    </div>
 	<span class="dashicons dashicons-no-alt"></span>
 </div>
 <div class="ic-modal-content">
@@ -22,10 +31,11 @@
 		</div>
 	</div>
     <div class="ic-user-cards">
+
+        <# if(data.user.cards.length){ // Абонементы #>
         <div class="ic-modal-title">
             Мои абонементы
         </div>
-        <# if(data.user.cards.length){ // Абонементы #>
         <# for(let card of data.user.cards){ #>
         <div class="ic-user-card {{ card.activated ? 'activated' : 'inactive' }}" data-card="{{card.id}}">
             <div class="ic-card-title">{{card.template.group.title}} / {{card.template.title}}</div>
@@ -70,7 +80,6 @@
                     <input type="button"  class="ic-modal-button" data-type="unfreeze" data-card="{{card.id}}" name="card-{{card.id}}" value="<?php _e('Разморозить', 'instasport') ?>">
             <# } #>
 
-
         </div>
         <# } #>
         <# } else{#>
@@ -82,12 +91,7 @@
 
 </div>
 <div class="ic-modal-buttons">
-    <div class="ic-modal-button" data-alert="<?php _e('Вы действительно хотите выйти ?', 'instasport')?>" data-func="exit">
-        <span class="dashicons dashicons-migrate"></span>
-        <span><?php _e( 'Выйти', 'instasport' ) ?></span>
-    </div>
-
-    <# if(data.modal.data.event){ #>
+       <# if(data.modal.data.event){ #>
     <a href="#" class="" data-modal="event">
         <?php _e( "Вернуться назад", 'instasport' ) ?>
     </a>

@@ -4,85 +4,145 @@ class InstaCalendarShortcode {
 
 	public function __construct() {
 
+		/**
+		 * Шорткод календаря
+		 */
 		add_shortcode( 'instasport-calendar', function ( $atts, $tag ) {
 			$id = isset( $atts['id'] ) ? $atts['id'] : 0;
 			ob_start();
 			echo ' <div id="instaCalendar' . $id . '" class="instaCalendar ic-loading" data-id="' . $id . '"><div class="ic-loader"></div></div>';
-
-
-			// Подключаем скрипты и шаблоны
-			if ( ! wp_style_is( 'instasport-calendar' ) ) {
-				$script_data = [
-					'ajax_url' => admin_url( 'admin-ajax.php' ),
-					'settings' => $this->get_settings(),
-					'locale'   => get_locale(),
-					'lang'     => $this->get_translations(),
-				];
-
-				$gmt_offset                     = get_option( 'gmt_offset' );
-				$sign                           = ( $gmt_offset < 0 ) ? '-' : '+';
-				$script_data['settings']['gmt'] = $sign . $gmt_offset;
-
-
-				wp_enqueue_style( 'dashicons' );
-				wp_enqueue_style( "instasport-calendar", plugins_url( "css/instasport.css", __FILE__ ), [], time() ); //todo time
-				wp_enqueue_script( "axios", plugins_url( "js/axios.min.js", __FILE__ ), [], '0.21.1', true );
-				wp_enqueue_script( "moment", plugins_url( "js/moment.js", __FILE__ ), [], '2.29.12', true );
-				wp_enqueue_script( "moment-locales", plugins_url( "js/locales.js", __FILE__ ), [ 'moment' ], '2.29.12', true );
-				wp_enqueue_script( "instasport-calendar", plugins_url( "js/instasport.js", __FILE__ ), [
-					'jquery',
-					'wp-util',
-					'axios',
-					'moment',
-				], time(), true ); //todo time
-				wp_localize_script( 'instasport-calendar', 'instasport', $script_data );
-
-				add_action('get_footer', [$this, 'footer']);
-			}
+			$this->init();
 
 			return ob_get_clean();
 		} );
+
+
+		/**
+		 * Шорткод кнопки Профиль
+		 */
+		add_shortcode( 'instasport-button-profile', function ( $atts, $tag ) {
+			$id = isset( $atts['id'] ) ? $atts['id'] : 0;
+			ob_start();
+			echo '<div class="instasportProfileButton instasport-profile-' . $id . '" data-id="' . $id . '"></div>';
+			$this->init();
+
+			return ob_get_clean();
+		} );
+
+		/**
+		 * Шорткод кнопки Пробная тренировка
+		 */
+		add_shortcode( 'instasport-button-pilot', function ( $atts, $tag ) {
+			$id = isset( $atts['id'] ) ? $atts['id'] : 0;
+			ob_start();
+			echo '<div class="instasportPilotButton instasport-pilot-' . $id . '" data-id="' . $id . '"></div>';
+			$this->init();
+
+			return ob_get_clean();
+		} );
+
 	}
 
-	function footer(){
-		echo ' <div id="instaModal" style="display: none"></div>';
-		echo '<script type="text/html" id="tmpl-instaCalendar">';
-		$this->get_template( 'calendar' );
-		echo '</script>';
+	/**
+	 * Подключаем скрипты и шаблоны
+	 */
+	function init() {
+		if ( ! wp_style_is( 'instasport-calendar' ) ) {
+		    $options = insta_get_options();
+			$script_data = [
+				'ajax_url' => admin_url( 'admin-ajax.php' ),
+				'settings' => $this->get_settings(),
+				'locale'   => get_locale(),
+				'lang'     => $this->get_translations(),
+				'clubs'    => [],
+			];
 
-		echo '<script type="text/html" id="tmpl-instaModal">';
-		$this->get_template( 'modal' );
-		echo '</script>';
+			if(isset($options['club']) && $options['club']){
+			    $script_data['clubs'][] = ['slug'=>$options['club']];
+            }
 
-		//
-		$modals = [
-			'login',
-			'register',
-			'sms',
-			'email',
-			'email_confirmed',
-			'email_wait',
-			'merge',
-			'profile',
-			'visits',
-			'event',
-			'event_pay_list',
-			'cards',
-			'card',
-			'card_pay',
-			'instructor',
-			'rules',
-			'offer',
-			'service_agreement',
-		];
-		foreach ( $modals as $modal ) {
-			echo '<script type="text/html" id="tmpl-instaModal-' . $modal . '">';
-			$this->get_template( 'm_' . $modal );
-			echo '</script>';
+			$i = 2;
+			while(isset($options['club_'.$i]) && $options['club_'.$i]){
+				$script_data['clubs'][$i] = ['slug'=>$options['club_'.$i]];
+				$i++;
+			}
+
+
+			$gmt_offset                     = get_option( 'gmt_offset' );
+			$sign                           = ( $gmt_offset < 0 ) ? '-' : '+';
+			$script_data['settings']['gmt'] = $sign . $gmt_offset;
+
+			wp_enqueue_style( 'dashicons' );
+			wp_enqueue_style( "instasport-calendar", plugins_url( "css/instasport.css", __FILE__ ), [], time() ); //todo time
+			wp_enqueue_script( "axios", plugins_url( "js/axios.min.js", __FILE__ ), [], '0.21.1', true );
+			wp_enqueue_script( "moment", plugins_url( "js/moment.js", __FILE__ ), [], '2.29.12', true );
+			wp_enqueue_script( "moment-locales", plugins_url( "js/locales.js", __FILE__ ), [ 'moment' ], '2.29.12', true );
+			wp_enqueue_script( "instasport-calendar", plugins_url( "js/instasport.js", __FILE__ ), [
+				'jquery',
+				'wp-util',
+				'axios',
+				'moment',
+			], time(), true ); //todo time
+			wp_localize_script( 'instasport-calendar', 'instasport', $script_data );
+
+			// Вывод шаблонов в футере
+			add_action( 'get_footer', function () {
+				// Модальное окно
+				echo ' <div id="instaModal" style="display: none"></div>';
+
+				// Шаблон календаря
+				echo '<script type="text/html" id="tmpl-instaCalendar">';
+				$this->get_template( 'calendar' );
+				echo '</script>';
+
+				// Шаблон модального окна
+				echo '<script type="text/html" id="tmpl-instaModal">';
+				$this->get_template( 'modal' );
+				echo '</script>';
+
+				// Шаблон кнопки Профиль
+				echo '<script type="text/html" id="tmpl-instaButtonProfile">';
+				$this->get_template( 'button_profile' );
+				echo '</script>';
+
+				// Шаблон кнопки Пробная тренировка
+				echo '<script type="text/html" id="tmpl-instaButtonPilot">';
+				$this->get_template( 'button_pilot' );
+				echo '</script>';
+
+				//
+				$modals = [
+					'login',
+					'register',
+					'sms',
+					'email',
+					'email_confirmed',
+					'email_wait',
+					'merge',
+					'profile',
+					'visits',
+					'event',
+					'event_pay_list',
+					'cards',
+					'card',
+					'card_pay',
+					'instructor',
+					'rules',
+					'offer',
+					'service_agreement',
+					'pilot',
+					'pilot_mess',
+				];
+				foreach ( $modals as $modal ) {
+					echo '<script type="text/html" id="tmpl-instaModal-' . $modal . '">';
+					$this->get_template( 'm_' . $modal );
+					echo '</script>';
+				}
+
+				$this->get_styles();
+			} );
 		}
-
-		$this->get_styles();
-    }
+	}
 
 
 	/**
@@ -92,7 +152,11 @@ class InstaCalendarShortcode {
 		$options = insta_get_options();
 		?>
         <style type="text/css">
-            .instaCalendar, #instaModal {
+            .instaCalendar,
+            #instaModal,
+            .instasportProfileButton,
+            .instasportPilotButton {
+            <?if(!$options['use_api_colors']):?>
                 /*Основной фон*/
                 --primaryColor: <?php echo $options['primaryColor']?>;
                 /*Дополнительный фон*/
@@ -101,6 +165,9 @@ class InstaCalendarShortcode {
                 --primaryTextColor: <?php echo $options['primaryTextColor']?>;
                 /*Акцентированный цвет текста*/
                 --secondaryTextColor: <?php echo $options['secondaryTextColor']?>;
+            <?endif;?>
+
+
                 /*Шрифт залов, фильтров и типа календаря*/
                 --desktop_nav_filter_font: <?php echo $options['desktop_nav_filter_font']?>;
                 /*Шрифт названия и времени события*/
@@ -250,7 +317,6 @@ class InstaCalendarShortcode {
 				],
 			],
 			'mobile'  => [
-				//'useApiColors' => ! ! $options['mobile_use_api_colors'],
 				'filters'      => [
 					'train'      => ! ! $options['mobile_filter_train_show'],
 					'couch'      => ! ! $options['mobile_filter_couch_show'],

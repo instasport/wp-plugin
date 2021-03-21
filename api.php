@@ -18,6 +18,7 @@ class InstaCalendarAPI{
 		$response = wp_remote_post( 'https://instasport.co/api/', [
 			'body' => $query,
 			'headers' => $headers,
+			'timeout'     => 60,
 		] );
 
 		$data = json_decode($response['body']);
@@ -65,6 +66,7 @@ class InstaCalendarAPI{
 		$response = wp_remote_post( 'https://instasport.co/api/', [
 			'body' => $query,
 			'headers' => $headers,
+			'timeout'     => 60,
 		] );
 
 		$data = json_decode($response['body']);

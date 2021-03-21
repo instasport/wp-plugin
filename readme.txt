@@ -17,3 +17,5 @@ Upload the Instasport Calendar plugin to your blog, activate it, and then enter 
 == Changelog ==
 = v2.1.0 =
 * Initial release.
+= v2.1.1 =
+* Bugs fixed.
