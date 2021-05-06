@@ -69,6 +69,7 @@ jQuery(document).ready(function ($) {
                 club.args = {
                     view: instasport.settings.desktop.defaultView,
                     hall: response.data.halls[0].id,
+                    zone: 0,
                     date: moment().utc(false),
                     startDate: false,
                     endDate: false,
@@ -211,6 +212,7 @@ jQuery(document).ready(function ($) {
         // args
         let eventsArgs = {
             hall: args.hall ? args.hall : club.args.hall,
+            zone: args.zone !== undefined ? args.zone : club.args.zone,
         };
 
         // view
@@ -700,12 +702,21 @@ jQuery(document).ready(function ($) {
     });
 
     /**
-     * Зал
+     * Студия
      */
     $('.instaCalendar').on('click', '.ic-row_1 .ic-halls a', function (e) {
         e.preventDefault();
         let id = $(e.delegateTarget).data('id');
-        getEvents(id, {hall: $(this).data('val')});
+        getEvents(id, {hall: $(this).data('val'), zone:0});
+    });
+
+    /**
+     * Зона
+     */
+    $('.instaCalendar').on('click', '.ic-row_1 .ic-zones a', function (e) {
+        e.preventDefault();
+        let id = $(e.delegateTarget).data('id');
+        getEvents(id, {zone: $(this).data('val')});
     });
 
     /**

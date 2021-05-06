@@ -1,6 +1,8 @@
 <div class="ic-filters">
 	<!-- Период -->
 	<div class="ic-row_1">
+
+        <# if(data.club.halls.length > 1){ #>
 		<div class="ic-halls">
 			<ul>
 				<# for( let hall of data.club.halls){ #>
@@ -10,6 +12,24 @@
 				<# } #>
 			</ul>
 		</div>
+        <# } #>
+
+        <# let hall = data.club.halls.find( e => e.id == data.club.args.hall); #>
+        <# if(hall.zones.length > 1){ #>
+        <div class="ic-zones">
+            <ul>
+                <li class="{{ ! data.club.args.zone ? 'active' : '' }}">
+                    <a class="ic-ell ic-filter-item" data-val="0" href="#"><?php _e('Все зоны', 'instasport') ?></a>
+                </li>
+                <# for( let zone of hall.zones){ #>
+                <li class="{{ zone.id == data.club.args.zone ? 'active' : '' }}">
+                    <a class="ic-ell ic-filter-item" data-val="{{zone.id}}" href="#">{{ zone.title }}</a>
+                </li>
+                <# } #>
+            </ul>
+        </div>
+        <# } #>
+
 		<div class="ic-view ic-desktop">
 			<ul>
 				<li class="{{ 'month' == data.club.args.view ? 'active' : '' }}">
@@ -21,6 +41,7 @@
 			</ul>
 		</div>
 	</div>
+
 	<!-- Фильтр -->
 	<div class="ic-row_2">
 		<ul>

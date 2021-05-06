@@ -16,7 +16,7 @@
         </div>
         <div><span><?php _e( "Начало", 'instasport' ) ?>:</span> {{moment(visit.event.date).format('HH:mm')}}</div>
         <div><span><?php _e( "Продолжительность", 'instasport' ) ?>:</span> {{visit.event.duration}}</div>
-        <div><span><?php _e( "Зал", 'instasport' ) ?>:</span> {{visit.event.hall.title}}</div>
+        <div><span><?php _e( "Студия", 'instasport' ) ?>:</span> {{visit.event.hall.title}}</div>
         <div>
             <span>
             <#       if(visit.paid == '-1'){ #> <?php _e( 'не оплачено', 'instasport' ) ?>

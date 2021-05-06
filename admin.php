@@ -99,7 +99,7 @@ class InstaCalendarAdmin {
 		//Шрифты
 		add_settings_section( 'insta_calendar_desktop_fonts', 'Шрифты', '', 'insta_calendar' );
 
-		$this->add_settings_field( 'desktop_nav_filter_font', 'Шрифт залов, фильтров и типа календаря', 'input', 'insta_calendar_desktop_fonts' );
+		$this->add_settings_field( 'desktop_nav_filter_font', 'Шрифт студий, фильтров и типа календаря', 'input', 'insta_calendar_desktop_fonts' );
 		$this->add_settings_field( 'desktop_event_title_time_font', 'Шрифт названия и времени события', 'input', 'insta_calendar_desktop_fonts' );
 		$this->add_settings_field( 'desktop_event_dur_seats_font', 'Шрифт продолжительности и мест события', 'input', 'insta_calendar_desktop_fonts' );
 		$this->add_settings_field( 'desktop_date_font', 'Шрифт текущей даты', 'input', 'insta_calendar_desktop_fonts' );
@@ -126,7 +126,7 @@ class InstaCalendarAdmin {
 		//Шрифты
 		add_settings_section( 'insta_calendar_mobile_fonts', 'Шрифты', '', 'insta_calendar' );
 
-		$this->add_settings_field( 'mobile_nav_filter_font', 'Шрифт залов, фильтров', 'input', 'insta_calendar_mobile_fonts' );
+		$this->add_settings_field( 'mobile_nav_filter_font', 'Шрифт студий, фильтров', 'input', 'insta_calendar_mobile_fonts' );
 		$this->add_settings_field( 'mobile_event_title_time_font', 'Шрифт названия и времени события', 'input', 'insta_calendar_mobile_fonts' );
 		$this->add_settings_field( 'mobile_event_dur_seats_font', 'Шрифт продолжительности и мест события', 'input', 'insta_calendar_mobile_fonts' );
 		$this->add_settings_field( 'mobile_title_font', 'Шрифт тайтла', 'input', 'insta_calendar_mobile_fonts' );

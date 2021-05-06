@@ -197,8 +197,8 @@ msgstr "Enroll for training"
 
 #: instasport-calendar/templates/m_event.php:33
 #: instasport-calendar/templates/m_visits.php:19
-msgid "Зал"
-msgstr "Hall"
+msgid "Студия"
+msgstr "Studio"
 
 #: instasport-calendar/templates/m_event.php:41
 #: instasport-calendar/templates/m_visits.php:14
@@ -485,6 +485,10 @@ msgstr "2 seats left"
 #: instasport-calendar/templates/week.php:138
 msgid "Нет тренировок"
 msgstr "No trainings"
+
+#: instasport-calendar/templates/filters.php:22
+msgid "Все зоны"
+msgstr "All zones"
 
 #~ msgid "Январь"
 #~ msgstr "January"

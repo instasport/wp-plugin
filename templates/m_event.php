@@ -30,7 +30,7 @@
             <# } #>
 
             <div class="ic-modal-row">
-                <div class="ic-modal-row-title"><?php _e( 'Зал', 'instasport' ) ?></div>
+                <div class="ic-modal-row-title"><?php _e( 'Студия', 'instasport' ) ?></div>
                 {{data.modal.data.event.hall.title}}
             </div>
             <div class="ic-modal-row">

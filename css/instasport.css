@@ -214,17 +214,18 @@
 
 .instaCalendar .ic-calendar .ic-filters ul li {
     list-style: none;
-    display: block;
-    float: left;
+    display: inline-block;
 }
 
 .instaCalendar .ic-calendar .ic-filters ul li a.ic-filter-item {
-    padding: 2px 12px;
+    padding: 0px 2px;
+    margin: 2px 10px;
     display: block;
     border-bottom: 2px solid transparent;
     font-size: var(--desktop_nav_filter_font);
     text-transform: uppercase;
     text-align: center;
+    line-height: var(--desktop_nav_filter_font);
 }
 
 .instaCalendar .ic-calendar .ic-filters ul li a.ic-filter-item span {
@@ -257,10 +258,23 @@
 .instaCalendar .ic-calendar .ic-filters ul li.active a.ic-filter-item div {
     border-color: #6c757d;
 }
-
-.instaCalendar .ic-row_2 {
+.instaCalendar .ic-halls{
+    margin-bottom: 10px;
+}
+.instaCalendar .ic-zones {
+    margin-bottom: 20px;
+}
+.instaCalendar .ic-row_2,
+.instaCalendar .ic-zones{
     clear: both;
-    padding-top: 10px;
+}
+
+.instaCalendar .ic-calendar .ic-filters .ic-halls ul li.active a.ic-filter-item{
+    border-bottom: 2px solid;
+}
+
+.instaCalendar .ic-calendar .ic-filters .ic-zones ul li a.ic-filter-item{
+    font-size: calc(var(--desktop_nav_filter_font) - 2px);
 }
 
 .instaCalendar .ic-controls {
@@ -1308,5 +1322,8 @@
 
     .instaCalendar .ic-table-week > .ic-events > .ic-tr:nth-child(2n-1) > .ic-td:first-child {
         display: block;
+    }
+    .instaCalendar .ic-calendar .ic-filters .ic-zones ul li a.ic-filter-item{
+        font-size: calc(var(--mobile_nav_filter_font) - 2px)!important;
     }
 }

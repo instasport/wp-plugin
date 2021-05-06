@@ -177,8 +177,8 @@ msgid "Запись на тренировку"
 msgstr "Запис на тренування"
 
 #: templates/m_event.php:33 templates/m_visits.php:19
-msgid "Зал"
-msgstr "Зал"
+msgid "Студия"
+msgstr "Студія"
 
 #: templates/m_event.php:41 templates/m_visits.php:14
 msgid "Дата"
@@ -449,6 +449,10 @@ msgstr "Залишилося 2 місця"
 #: templates/week.php:138
 msgid "Нет тренировок"
 msgstr "Немає тренувань"
+
+#: instasport-calendar/templates/filters.php:22
+msgid "Все зоны"
+msgstr "Всі зони"
 
 #~ msgid "Январь"
 #~ msgstr "Січень"

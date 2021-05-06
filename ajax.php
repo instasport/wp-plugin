@@ -53,7 +53,7 @@ class InstaCalendarAjax {
 		$id   = isset( $ARGS['id'] ) && $ARGS['id'] ? $ARGS['id'] : false;
 
 		// Данные клуба
-		$club = InstaCalendarAPI::query( '{ "query": "{ club{id title  titleShort slug  halls{id title timeOpen timeClose}  activities{id title}  rules offer serviceAgreement primaryColor secondaryColor primaryTextColor secondaryTextColor} }"}', false, false, $id );
+		$club = InstaCalendarAPI::query( '{ "query": "{ club{id title  titleShort slug  halls{id title timeOpen timeClose zones{id title}}  activities{id title}  rules offer serviceAgreement primaryColor secondaryColor primaryTextColor secondaryTextColor} }"}', false, false, $id );
 		$data = $club->data->club;
 
 		// Шаблоны абонементов
@@ -77,6 +77,7 @@ class InstaCalendarAjax {
 		$ARGS         = json_decode( file_get_contents( 'php://input' ), true );
 		$id           = isset( $ARGS['id'] ) && $ARGS['id'] ? $ARGS['id'] : false;
 		$hall         = intval( isset( $ARGS['hall'] ) ? $ARGS['hall'] : 0 );
+		$zone         = intval( isset( $ARGS['zone'] ) ? $ARGS['zone'] : 0 );
 		$startDate    = date( 'Y-m-d', strtotime( isset( $ARGS['startDate'] ) ? $ARGS['startDate'] : 'first day of' ) );
 		$endDate      = date( 'Y-m-d', strtotime( isset( $ARGS['endDate'] ) ? $ARGS['endDate'] : 'last day of' ) );
 		$accessToken  = isset( $ARGS['accessToken'] ) && $ARGS['accessToken'] ? $ARGS['accessToken'] : false;
@@ -84,7 +85,15 @@ class InstaCalendarAjax {
 
 		$method = $accessToken && $refreshToken ? 'clientEvents' : 'events';
 
-		$query = '{ "query": "{ ' . $method . ' (hall:' . $hall . ' startDate:\"' . $startDate . '\" endDate:\"' . $endDate . '\")';
+		$query = '{ "query": "{ ' . $method . ' (';
+		$query .= 'hall:' . $hall . ' ';
+		$query .= 'startDate:\"' . $startDate . '\" ';
+		$query .= 'endDate:\"' . $endDate . '\"';
+		if($zone){
+		    $query .= 'zone:' . $zone . ' ';
+        }
+
+		$query .= ')';
 		$query .= '{ id date title ';
 		$query .= 'activity {slug title} ';
 		$query .= 'instructors {id firstName lastName instructorImage instructorDescription isInstructorVisible} ';
