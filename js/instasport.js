@@ -6,6 +6,7 @@ jQuery(document).ready(function ($) {
     let templateInstaModal = wp.template('instaModal');
     let templateInstaButtonProfile = wp.template('instaButtonProfile');
     let templateInstaButtonPilot = wp.template('instaButtonPilot');
+    let bodyOverflow = $('body').css('overflow');
 
     // Инициализация
     async function init() {
@@ -516,6 +517,7 @@ jQuery(document).ready(function ($) {
         // Открыть
         if (template && $instaModal.css('display') === 'none') {
             $instaModal.fadeIn(100);
+            bodyOverflow = $('body').css('overflow');
             $('body').css('overflow', 'hidden');
         }
         $instaModal.removeClass('ic-loading');
@@ -798,7 +800,7 @@ jQuery(document).ready(function ($) {
 
         if (e.currentTarget === e.target) {
             $instaModal.fadeOut(100);
-            $('body').css('overflow', '');
+            $('body').css('overflow', bodyOverflow);
             for (let id in instasport.clubs) {
                 if(instasport.clubs[id].modal){
                     instasport.clubs[id].modal.story = [];
