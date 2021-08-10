@@ -86,63 +86,70 @@ class InstaCalendarShortcode {
 			wp_localize_script( 'instasport-calendar', 'instasport', $script_data );
 
 			// Вывод шаблонов в футере
-			add_action( 'get_footer', function () {
-				// Модальное окно
-				echo ' <div id="instaModal" style="display: none"></div>';
-
-				// Шаблон календаря
-				echo '<script type="text/html" id="tmpl-instaCalendar">';
-				$this->get_template( 'calendar' );
-				echo '</script>';
-
-				// Шаблон модального окна
-				echo '<script type="text/html" id="tmpl-instaModal">';
-				$this->get_template( 'modal' );
-				echo '</script>';
-
-				// Шаблон кнопки Профиль
-				echo '<script type="text/html" id="tmpl-instaButtonProfile">';
-				$this->get_template( 'button_profile' );
-				echo '</script>';
-
-				// Шаблон кнопки Пробная тренировка
-				echo '<script type="text/html" id="tmpl-instaButtonPilot">';
-				$this->get_template( 'button_pilot' );
-				echo '</script>';
-
-				//
-				$modals = [
-					'login',
-					'register',
-					'sms',
-					'email',
-					'email_confirmed',
-					'email_wait',
-					'merge',
-					'profile',
-					'visits',
-					'event',
-					'event_pay_list',
-					'cards',
-					'card',
-					'card_pay',
-					'instructor',
-					'rules',
-					'offer',
-					'service_agreement',
-					'pilot',
-					'pilot_mess',
-				];
-				foreach ( $modals as $modal ) {
-					echo '<script type="text/html" id="tmpl-instaModal-' . $modal . '">';
-					$this->get_template( 'm_' . $modal );
-					echo '</script>';
-				}
-
-				$this->get_styles();
-			} );
+            add_action('get_footer', [$this, 'js_templates']);
+            add_action('wp_footer', [$this, 'js_templates']);
 		}
 	}
+
+    function js_templates()
+    {
+        remove_action('get_footer', [$this, 'js_templates']);
+        remove_action('wp_footer', [$this, 'js_templates']);
+
+        // Модальное окно
+        echo ' <div id="instaModal" style="display: none"></div>';
+
+        // Шаблон календаря
+        echo '<script type="text/html" id="tmpl-instaCalendar">';
+        $this->get_template('calendar');
+        echo '</script>';
+
+        // Шаблон модального окна
+        echo '<script type="text/html" id="tmpl-instaModal">';
+        $this->get_template('modal');
+        echo '</script>';
+
+        // Шаблон кнопки Профиль
+        echo '<script type="text/html" id="tmpl-instaButtonProfile">';
+        $this->get_template('button_profile');
+        echo '</script>';
+
+        // Шаблон кнопки Пробная тренировка
+        echo '<script type="text/html" id="tmpl-instaButtonPilot">';
+        $this->get_template('button_pilot');
+        echo '</script>';
+
+        //
+        $modals = [
+            'login',
+            'register',
+            'sms',
+            'email',
+            'email_confirmed',
+            'email_wait',
+            'merge',
+            'profile',
+            'visits',
+            'event',
+            'event_pay_list',
+            'cards',
+            'card',
+            'card_pay',
+            'instructor',
+            'rules',
+            'offer',
+            'service_agreement',
+            'pilot',
+            'pilot_mess',
+        ];
+        foreach ($modals as $modal) {
+            echo '<script type="text/html" id="tmpl-instaModal-' . $modal . '">';
+            $this->get_template('m_' . $modal);
+            echo '</script>';
+        }
+
+        $this->get_styles();
+    }
 
 
 	/**
