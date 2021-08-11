@@ -65,3 +65,5 @@ button_profile.php - Кнопка авторизации/профиля
 * Installation updated.
 = v2.1.3 =
 * Zone support added.
+= v2.1.4 =
+* Bugs fixed.
