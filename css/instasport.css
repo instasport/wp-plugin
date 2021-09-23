@@ -407,6 +407,9 @@
     font-size: var(--desktop_event_dur_seats_font);
     padding: 3px 0 2px;
 }
+.instaCalendar .ic-event .ic-activity.ic-activity-mobile {
+    display: none;
+}
 
 .instaCalendar .ic-event .ic-title {
     cursor: pointer;
@@ -1225,10 +1228,17 @@
 .instasport-button:hover{
     opacity: 1;
 }
-
+.instaCalendar .ic-event .ic-zone {
+    display: none;
+}
 @media (max-width: 768px) {
     .instaCalendar .ic-mobile {
         display: revert;
+    }
+
+    .instaCalendar .ic-event .ic-begin_time {
+        font-size: var(--mobile_event_title_time_font);
+        line-height: var(--mobile_event_title_time_font);
     }
 
     .instaCalendar .ic-desktop {
@@ -1286,6 +1296,24 @@
         border: none;
     }
 
+    .instaCalendar .ic-table-week .ic-event .ic-td {
+        display: inline-block;
+    }
+
+    .instaCalendar .ic-tr.ic-tr-time{
+        display: none;
+    }
+
+    .instaCalendar .ic-table-week > .ic-events > .ic-tr > .ic-td {
+        padding: 2px !important;
+    }
+    .instaCalendar .ic-table-week > .ic-events > .ic-tr:nth-child(2n) > .ic-td:first-child {
+        border-width: 0 3px 0px 2px;
+    }
+    .instaCalendar .ic-table-week > .ic-events > .ic-tr:nth-child(2n) > .ic-td {
+        border-width: 0px 2px 0px 2px;
+    }
+
     .instaCalendar .ic-table-week .ic-events .ic-td.active {
         display: table-cell;
     }
@@ -1299,9 +1327,39 @@
     }
 
     .instaCalendar .ic-table-week .ic-events .ic-event {
-        padding: 10px;
+        padding: 5px;
         border-bottom: 3px solid #1b1b1d;
         background-color: #f1f1f1;
+        position: relative;
+    }
+
+    .instaCalendar .ic-event .ic-activity.ic-mobile {
+        display: inline-block;
+    }
+    .instaCalendar .ic-event .ic-activity.ic-desktop {
+        display: none;
+    }
+
+    .instaCalendar .ic-table-week .ic-events .ic-event>.ic-table {
+        position: absolute;
+        bottom: 5px;
+    }
+    .instaCalendar .ic-table-week .ic-events .ic-event .ic-duration{
+        display: none;
+    }
+
+    .instaCalendar .ic-event .ic-detail{
+         padding: 0px;
+        margin-left: 40px;
+    }
+    .instaCalendar .ic-event .ic-zone {
+        display: inline-block;
+        margin-right: 10px;
+        font-size: var(--mobile_event_dur_seats_font);
+        line-height: var(--mobile_event_dur_seats_font);
+    }
+    .instaCalendar .ic-event .ic-seats {
+        display: inline-block;
     }
 
     .instaCalendar .insta_dropdown-content {

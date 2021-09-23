@@ -99,6 +99,7 @@ class InstaCalendarAjax {
 		$query .= 'instructors {id firstName lastName instructorImage instructorDescription isInstructorVisible} ';
 		$query .= 'description color textColor duration price seats ';
 		$query .= 'hall{title} ';
+		$query .= 'zone{id,title} ';
 		$query .= 'complexity{id title} ';
 
 		if ( $method == 'clientEvents' ) {

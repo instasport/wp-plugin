@@ -33,7 +33,7 @@
         if (!instasport.settings.desktop.weekView.showEmptyRows && !~data.club.args.aH.indexOf(H))continue;
 
         #>
-        <div class="ic-tr">
+        <div class="ic-tr ic-tr-time">
             <div class="ic-td">{{('0' + H).slice(-2)}}:00</div>
             <div class="ic-td"></div>
             <div class="ic-td"></div>
@@ -65,9 +65,9 @@
             }
             // Нет событий
             if( !data.events[dateStr] ){
-                hclass.push('empty');
+            hclass.push('empty');
             }else if(date.isSame(data.club.args.date, 'day')){
-                count++;
+            count++;
             }
             hclass = hclass.join(' ');
             #>
@@ -99,34 +99,48 @@
                             (instasport.is_mobile() && instasport.settings.mobile.showDuration)){
                             #>
                             <div class="ic-duration">
-                                {{event.duration}} <?php _e( 'мин.', 'instasport' ) ?>
+                                {{event.duration}} <?php _e('мин.', 'instasport') ?>
                             </div>
                             <# } #>
                         </div>
                     </div>
                 </div>
 
-                <div class="ic-activity">{{event.activity ? event.activity.title : ''}}</div>
+                <# if(event.activity){ #>
+                <div class="ic-activity ic-desktop">{{event.activity.title}}</div>
+                <# } #>
                 <div class="ic-title">
                     {{event.title}}
-                </div>
-                <# // свободные места
-                if(
-                (!instasport.is_mobile() && instasport.settings.desktop.weekView.showSeats) ||
-                (instasport.is_mobile() && instasport.settings.mobile.showSeats)
-                ){ #>
-                <div class="ic-seats">
-                    <# if(event.hasUser){ #>
-					<?php _e( 'Вы уже записаны', 'instasport' ) ?>
-                    <# }else if(event.seats === 0){ #>
-					<?php _e( 'Мест нет', 'instasport' ) ?>
-                    <# }else if(event.seats === 1){ #>
-					<?php _e( 'Осталось 1 место', 'instasport' ) ?>
-                    <# }else if(event.seats === 2){ #>
-					<?php _e( 'Осталось 2 места', 'instasport' ) ?>
+                    <# if(event.activity){ #>
+                    <div class="ic-activity ic-mobile">({{event.activity.title}})</div>
                     <# } #>
                 </div>
-                <# } #>
+
+                <div class="ic-detail">
+                    <# if(event.zone && !data.club.args.zone){ #>
+                    <div class="ic-zone">
+                        {{event.zone.title}}
+                    </div>
+                    <# } #>
+
+                    <# // свободные места
+                    if(
+                    (!instasport.is_mobile() && instasport.settings.desktop.weekView.showSeats) ||
+                    (instasport.is_mobile() && instasport.settings.mobile.showSeats)
+                    ){ #>
+                    <div class="ic-seats">
+                        <# if(event.hasUser){ #>
+                        <?php _e('Вы уже записаны', 'instasport') ?>
+                        <# }else if(event.seats === 0){ #>
+                        <?php _e('Мест нет', 'instasport') ?>
+                        <# }else if(event.seats === 1){ #>
+                        <?php _e('Осталось 1 место', 'instasport') ?>
+                        <# }else if(event.seats === 2){ #>
+                        <?php _e('Осталось 2 места', 'instasport') ?>
+                        <# } #>
+                    </div>
+                    <# } #>
+                </div>
             </div>
             <# }} #>
         </div>
@@ -135,7 +149,7 @@
     <# } #>
     <# if(instasport.is_mobile() && !count && !data.club.args.aH.length){ #>
     <div class="ic-tr no-events">
-        <div class="ic-td"><?php _e( 'Нет тренировок', 'instasport' ) ?></div>
+        <div class="ic-td"><?php _e('Нет тренировок', 'instasport') ?></div>
     </div>
     <# } #>
 </div>
