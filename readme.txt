@@ -67,3 +67,6 @@ button_profile.php - Кнопка авторизации/профиля
 * Zone support added.
 = v2.1.4 =
 * Bugs fixed.
+= v2.1.5 =
+* Mobile schedule redesigned
+
