@@ -1463,7 +1463,7 @@ jQuery(document).ready(function ($) {
     }
 
     instasport.is_mobile = function () {
-        return $('.instaCalendar').width() < 640;
+            return $('.instaCalendar').width() < 640 || window.innerWidth < 768;
     }
 
     function sleep(ms) {
