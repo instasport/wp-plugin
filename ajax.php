@@ -53,7 +53,7 @@ class InstaCalendarAjax {
 		$id   = isset( $ARGS['id'] ) && $ARGS['id'] ? $ARGS['id'] : false;
 
 		// Данные клуба
-		$club = InstaCalendarAPI::query( '{ "query": "{ club{id title  titleShort slug  halls{id title timeOpen timeClose zones{id title}}  activities{id title}  rules offer serviceAgreement primaryColor secondaryColor primaryTextColor secondaryTextColor} }"}', false, false, $id );
+		$club = InstaCalendarAPI::query( '{ "query": "{ club{id title  titleShort slug  halls{id title timeOpen timeClose zones(zoneType: 2){id title}}  activities{id title}  rules offer serviceAgreement primaryColor secondaryColor primaryTextColor secondaryTextColor} }"}', false, false, $id );
 		$data = $club->data->club;
 
 		// Шаблоны абонементов

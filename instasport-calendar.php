@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Instasport Calendar
  * Description: Instasport Calendar plugin
- * Version: 2.1.6
+ * Version: 2.1.7
  * Author: Instasport
  * Author URI: https://info.instasport.co
  * License: GPLv2 or later versions
@@ -22,6 +22,7 @@ include_once __DIR__ . '/shortcode.php';
  * @return array|object|string
  */
 function insta_get_options() {
+    //delete_option('insta_calendar');exit;
 	$defaults = [
 		'club'                                 => '',
 		'key'                                  => '',
@@ -71,8 +72,8 @@ function insta_get_options() {
 		'mobile_title_font'                    => '14px',
 		'mobile_days_of_week_font'             => '14px',
 	];
-
-	return wp_parse_args( get_option( 'insta_calendar', [] ), $defaults );
+    $options = get_option( 'insta_calendar', false );
+    return wp_parse_args( $options, $defaults );
 }
 
 

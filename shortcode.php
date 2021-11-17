@@ -82,7 +82,7 @@ class InstaCalendarShortcode {
 				'wp-util',
 				'axios',
 				'moment',
-			], time(), true ); //todo time
+			], '2.1.7', true );
 			wp_localize_script( 'instasport-calendar', 'instasport', $script_data );
 
 			// Вывод шаблонов в футере
@@ -166,12 +166,18 @@ class InstaCalendarShortcode {
             <?if(!$options['use_api_colors']):?>
                 /*Основной фон*/
                 --primaryColor: <?php echo $options['primaryColor']?>;
+                --primaryColorRGB: <?php echo $this->hex2rgb($options['primaryColor']) ? : '0, 0, 0'?>;
                 /*Дополнительный фон*/
                 --secondaryColor: <?php echo $options['secondaryColor']?>;
+                --secondaryColorRGB: <?php echo $this->hex2rgb($options['secondaryColor']) ? : '0, 0, 0'?>;
                 /*Цвет текста*/
                 --primaryTextColor: <?php echo $options['primaryTextColor']?>;
+                --primaryTextColorRGB: <?php echo $this->hex2rgb($options['primaryTextColor']) ? : '0, 0, 0'?>;
                 /*Акцентированный цвет текста*/
                 --secondaryTextColor: <?php echo $options['secondaryTextColor']?>;
+                --secondaryTextColorRGB: <?php echo $this->hex2rgb($options['secondaryTextColor']) ? : '0, 0, 0'?>;
+
+
             <?endif;?>
 
 
@@ -290,7 +296,15 @@ class InstaCalendarShortcode {
         </style>
 		<?php
 	}
-
+    function hex2rgb($hex){
+        $val = [];
+        if(strlen($hex) == 7){
+            $val = sscanf($hex, "#%2s%2s%2s");
+        }elseif (strlen($hex) == 4){
+            $val = sscanf($hex, "#%1s%1s%1s");
+        }
+        return count($val) ? implode(', ', $val) : false;
+    }
 	/**
 	 * Настройки
 	 * @return array[]

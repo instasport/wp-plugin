@@ -11,7 +11,254 @@ class InstaCalendarAdmin {
 		} );
 		// Регистрация опций
 		add_action( 'admin_init', [ $this, 'plugin_options' ] );
+
+        add_action( 'customize_register', [ $this, 'customize_register' ] );
+
+        add_action( 'customize_update_instasport', [ $this, 'customize_update_instasport' ], 10, 2);
 	}
+
+    function customize_register(WP_Customize_Manager $wp_customize ) {
+        $wp_customize->add_panel( 'instasport_panel', array(
+            'priority'       => 1020,
+            'capability'     => 'edit_theme_options',
+            'theme_supports' => '',
+            'title'          => 'INSTASPORT',
+        ) );
+
+        /*
+         * Цвета
+         */
+        $wp_customize->add_section( 'instasport_colors_section', array(
+            'title'    => 'Цвета',
+            'priority' => 10,
+            'panel'    => 'instasport_panel',
+        ) );
+        $this->customize_add_field($wp_customize, 'use_api_colors', [
+            'section'  => 'instasport_colors_section',
+            'type'     => 'select',
+            'label' => 'Использование API',
+            'choices' => ['0' => 'Выкл', '1' => 'Вкл'],
+        ]);
+        $this->customize_add_field($wp_customize, 'primaryColor', [
+            'section'  => 'instasport_colors_section',
+            'label' => 'Основной фон',
+        ]);
+        $this->customize_add_field($wp_customize, 'secondaryColor', [
+            'section'  => 'instasport_colors_section',
+            'label' => 'Дополнительный фон',
+        ]);
+        $this->customize_add_field($wp_customize, 'primaryTextColor', [
+            'section'  => 'instasport_colors_section',
+            'label' => 'Цвет текста',
+        ]);
+        $this->customize_add_field($wp_customize, 'secondaryTextColor', [
+            'section'  => 'instasport_colors_section',
+            'label' => 'Акцентированный цвет текста',
+        ]);
+
+
+        /*
+         * Десктопная версия
+         */
+        $wp_customize->add_section( 'instasport_desktop_section', array(
+            'title'    => 'Десктопная версия',
+            'priority' => 20,
+            'panel'    => 'instasport_panel',
+        ) );
+        $this->customize_add_field($wp_customize, 'default_view_to_show', [
+            'section'  => 'instasport_desktop_section',
+            'type'     => 'select',
+            'label' => 'Вид календаря (изначально)',
+            'choices' => ['month' => 'Месяц', 'week' => 'Неделя'],
+        ]);
+        $this->customize_add_field($wp_customize, 'additional_info_month_duration', [
+            'section'  => 'instasport_desktop_section',
+            'type'     => 'select',
+            'label' => 'Дополнительная информация Месяц (продолжительность тренировки)',
+            'choices' => ['0' => 'Не показывать', '1' => 'Показывать'],
+        ]);
+        $this->customize_add_field($wp_customize, 'additional_info_month_seats', [
+            'section'  => 'instasport_desktop_section',
+            'type'     => 'select',
+            'label' => 'Дополнительная информация Месяц (свободные места)',
+            'choices' => ['0' => 'Не показывать', '1' => 'Показывать'],
+        ]);
+        $this->customize_add_field($wp_customize, 'additional_info_week_duration', [
+            'section'  => 'instasport_desktop_section',
+            'type'     => 'select',
+            'label' => 'Дополнительная информация Неделя (продолжительность тренировки)',
+            'choices' => ['0' => 'Не показывать', '1' => 'Показывать'],
+        ]);
+        $this->customize_add_field($wp_customize, 'additional_info_week_seats', [
+            'section'  => 'instasport_desktop_section',
+            'type'     => 'select',
+            'label' => 'Дополнительная информация Неделя (свободные места)',
+            'choices' => ['0' => 'Не показывать', '1' => 'Показывать'],
+        ]);
+        $this->customize_add_field($wp_customize, 'desktop_width', [
+            'section'  => 'instasport_desktop_section',
+            'label' => 'Максимальная ширина календаря (можно указывать в px или %)',
+        ]);
+        $this->customize_add_field($wp_customize, 'desktop_month_quantity_trainings', [
+            'section'  => 'instasport_desktop_section',
+            'label' => 'Количество тренировок которое показывается в одной клетке - Месяц',
+        ]);
+        $this->customize_add_field($wp_customize, 'desktop_week_quantity_trainings', [
+            'section'  => 'instasport_desktop_section',
+            'label' => 'Количество тренировок которое показывается в одной клетке - Неделя',
+        ]);
+        $this->customize_add_field($wp_customize, 'desktop_month_more_text', [
+            'section'  => 'instasport_desktop_section',
+            'label' => 'Текст для кнопки смотреть больше (...) - Месяц',
+        ]);
+        $this->customize_add_field($wp_customize, 'desktop_week_more_text', [
+            'section'  => 'instasport_desktop_section',
+            'label' => 'Текст для кнопки смотреть больше (...) - Неделя',
+        ]);
+        $this->customize_add_field($wp_customize, 'desktop_week_show_empty_rows', [
+            'section'  => 'instasport_desktop_section',
+            'type'     => 'select',
+            'label' => 'Строки без тренировок - Неделя',
+            'choices' => ['0' => 'Не показывать', '1' => 'Показывать'],
+        ]);
+        $this->customize_add_field($wp_customize, 'desktop_filter_train_show', [
+            'section'  => 'instasport_desktop_section',
+            'type'     => 'select',
+            'label' => 'Фильтр по тренировкам',
+            'choices' => ['0' => 'Не показывать', '1' => 'Показывать'],
+        ]);
+        $this->customize_add_field($wp_customize, 'desktop_filter_couch_show', [
+            'section'  => 'instasport_desktop_section',
+            'type'     => 'select',
+            'label' => 'Фильтр по инструкторам',
+            'choices' => ['0' => 'Не показывать', '1' => 'Показывать'],
+        ]);
+        $this->customize_add_field($wp_customize, 'desktop_filter_activity_show', [
+            'section'  => 'instasport_desktop_section',
+            'type'     => 'select',
+            'label' => 'Фильтр по направлениям',
+            'choices' => ['0' => 'Не показывать', '1' => 'Показывать'],
+        ]);
+        $this->customize_add_field($wp_customize, 'desktop_filter_complexity_show', [
+            'section'  => 'instasport_desktop_section',
+            'type'     => 'select',
+            'label' => 'Фильтр по сложности',
+            'choices' => ['0' => 'Не показывать', '1' => 'Показывать'],
+        ]);
+        $this->customize_add_field($wp_customize, 'desktop_nav_filter_font', [
+            'section'  => 'instasport_desktop_section',
+            'label' => 'Шрифт студий, фильтров и типа календаря',
+        ]);
+        $this->customize_add_field($wp_customize, 'desktop_event_title_time_font', [
+            'section'  => 'instasport_desktop_section',
+            'label' => 'Шрифт названия и времени события',
+        ]);
+        $this->customize_add_field($wp_customize, 'desktop_event_dur_seats_font', [
+            'section'  => 'instasport_desktop_section',
+            'label' => 'Шрифт продолжительности и мест события',
+        ]);
+
+        $this->customize_add_field($wp_customize, 'desktop_date_font', [
+            'section'  => 'instasport_desktop_section',
+            'label' => 'Шрифт текущей даты',
+        ]);
+        $this->customize_add_field($wp_customize, 'desktop_days_of_week_font', [
+            'section'  => 'instasport_desktop_section',
+            'label' => 'Шрифт названия дней недели',
+        ]);
+        $this->customize_add_field($wp_customize, 'desktop_month_days_numbers_font', [
+            'section'  => 'instasport_desktop_section',
+            'label' => 'Шрифт числа дня (месяц)',
+        ]);
+        $this->customize_add_field($wp_customize, 'desktop_week_hours_font', [
+            'section'  => 'Шрифт времени (неделя)',
+            'label' => 'Шрифт названия дней недели',
+        ]);
+        $this->customize_add_field($wp_customize, 'desktop_filter_list_font', [
+            'section'  => 'instasport_desktop_section',
+            'label' => 'Шрифт списка в фильтре',
+        ]);
+
+
+        /*
+         * Мобильная версия
+         */
+        $wp_customize->add_section( 'instasport_mobile_section', array(
+            'title'    => 'Мобильная версия',
+            'priority' => 20,
+            'panel'    => 'instasport_panel',
+        ) );
+        $this->customize_add_field($wp_customize, 'mobile_additional_info_week_duration', [
+            'section'  => 'instasport_mobile_section',
+            'type'     => 'select',
+            'label' => 'Дополнительная информация (продолжительность тренировки)',
+            'choices' => ['0' => 'Не показывать', '1' => 'Показывать'],
+        ]);
+        $this->customize_add_field($wp_customize, 'mobile_additional_info_week_seats', [
+            'section'  => 'instasport_mobile_section',
+            'type'     => 'select',
+            'label' => 'Дополнительная информация (свободные места)',
+            'choices' => ['0' => 'Не показывать', '1' => 'Показывать'],
+        ]);
+        $this->customize_add_field($wp_customize, 'mobile_filter_train_show', [
+            'section'  => 'instasport_mobile_section',
+            'type'     => 'select',
+            'label' => 'Фильтр по тренировкам',
+            'choices' => ['0' => 'Не показывать', '1' => 'Показывать'],
+        ]);
+        $this->customize_add_field($wp_customize, 'mobile_filter_couch_show', [
+            'section'  => 'instasport_mobile_section',
+            'type'     => 'select',
+            'label' => 'Фильтр по инструкторам',
+            'choices' => ['0' => 'Не показывать', '1' => 'Показывать'],
+        ]);
+        $this->customize_add_field($wp_customize, 'mobile_filter_activity_show', [
+            'section'  => 'instasport_mobile_section',
+            'type'     => 'select',
+            'label' => 'Фильтр по направлениям',
+            'choices' => ['0' => 'Не показывать', '1' => 'Показывать'],
+        ]);
+        $this->customize_add_field($wp_customize, 'mobile_filter_complexity_show', [
+            'section'  => 'instasport_mobile_section',
+            'type'     => 'select',
+            'label' => 'Фильтр по сложности',
+            'choices' => ['0' => 'Не показывать', '1' => 'Показывать'],
+        ]);
+        $this->customize_add_field($wp_customize, 'mobile_nav_filter_font', [
+            'section'  => 'instasport_mobile_section',
+            'label' => 'Шрифт студий, фильтров',
+        ]);
+        $this->customize_add_field($wp_customize, 'mobile_event_title_time_font', [
+            'section'  => 'instasport_mobile_section',
+            'label' => 'Шрифт названия и времени события',
+        ]);
+        $this->customize_add_field($wp_customize, 'mobile_event_dur_seats_font', [
+            'section'  => 'instasport_mobile_section',
+            'label' => 'Шрифт продолжительности и мест события',
+        ]);
+        $this->customize_add_field($wp_customize, 'mobile_title_font', [
+            'section'  => 'instasport_mobile_section',
+            'label' => 'Шрифт тайтла',
+        ]);
+        $this->customize_add_field($wp_customize, 'mobile_days_of_week_font', [
+            'section'  => 'instasport_mobile_section',
+            'label' => 'Шрифт названия дней недели',
+        ]);
+    }
+
+    function customize_add_field($wp_customize, $key, $data){
+        $wp_customize->add_setting( 'insta_calendar['.$key.']', array(
+            'type' => 'option',
+            'capability' => 'manage_options',
+            'transport' => 'refresh'
+        ) );
+        $args = [
+            'type'     => 'text',
+            'settings' => 'insta_calendar['.$key.']',
+        ];
+        $args = wp_parse_args($data, $args);
+        $wp_customize->add_control( 'instasport_colors_control_'.$key, $args);
+    }
 
 	/**
 	 * Страница настроек
@@ -41,7 +288,7 @@ class InstaCalendarAdmin {
 	 */
 	function plugin_options() {
 
-		register_setting( 'insta_calendar_options', 'insta_calendar' );
+		register_setting( 'insta_calendar_options', 'insta_calendar', [$this, 'sanitize_callback'] );
 
 		// Настройки API
 		$options = insta_get_options();
@@ -57,80 +304,6 @@ class InstaCalendarAdmin {
 			$this->add_settings_field( 'key_' . $i, 'Key ', 'input', 'insta_calendar_api_' . $i,'', 'calendar_api' );
 		    $i++;
 		}while(isset($options['club_'.($i-1)]) && $options['club_'.($i-1)]);
-
-		// Цвета
-		add_settings_section( 'insta_calendar_colors', 'Цвета', '', 'insta_calendar' );
-		$this->add_settings_field( 'use_api_colors', 'Использование API Цветов', 'select', 'insta_calendar_colors',
-			[ '0' => 'Выкл', '1' => 'Вкл' ] );
-		$this->add_settings_field( 'primaryColor', 'Основной фон', 'input', 'insta_calendar_colors' );
-		$this->add_settings_field( 'secondaryColor', 'Дополнительный фон', 'input', 'insta_calendar_colors' );
-		$this->add_settings_field( 'primaryTextColor', 'Цвет текста', 'input', 'insta_calendar_colors' );
-		$this->add_settings_field( 'secondaryTextColor', 'Акцентированный цвет текста', 'input', 'insta_calendar_colors' );
-
-
-		// Настройки Десктопной версии календаря
-		add_settings_section( 'insta_calendar_desktop', 'Настройки Десктопной версии календаря', '', 'insta_calendar' );
-		$this->add_settings_field( 'default_view_to_show', 'Вид календаря (изначально)', 'select', 'insta_calendar_desktop',
-			[ 'month' => 'Месяц', 'week' => 'Неделя' ] );
-		$this->add_settings_field( 'additional_info_month_duration', 'Дополнительная информация Месяц (продолжительность тренировки)', 'select', 'insta_calendar_desktop',
-			[ '1' => 'Показывать', '0' => 'Не показывать' ] );
-		$this->add_settings_field( 'additional_info_month_seats', 'Дополнительная информация Месяц (свободные места)', 'select', 'insta_calendar_desktop',
-			[ '1' => 'Показывать', '0' => 'Не показывать' ] );
-		$this->add_settings_field( 'additional_info_week_duration', 'Дополнительная информация Неделя (продолжительность тренировки)', 'select', 'insta_calendar_desktop',
-			[ '1' => 'Показывать', '0' => 'Не показывать' ] );
-		$this->add_settings_field( 'additional_info_week_seats', 'Дополнительная информация Неделя (свободные места)', 'select', 'insta_calendar_desktop',
-			[ '1' => 'Показывать', '0' => 'Не показывать' ] );
-		$this->add_settings_field( 'desktop_width', 'Максимальная ширина календаря (можно указывать в px или %)', 'input', 'insta_calendar_desktop' );
-		$this->add_settings_field( 'desktop_month_quantity_trainings', 'Количество тренировок которое показывается в одной клетке - Месяц', 'input', 'insta_calendar_desktop' );
-		$this->add_settings_field( 'desktop_week_quantity_trainings', 'Количество тренировок которое показывается в одной клетке - Неделя', 'input', 'insta_calendar_desktop' );
-		$this->add_settings_field( 'desktop_month_more_text', 'Текст для кнопки смотреть больше (...) - Месяц', 'input', 'insta_calendar_desktop' );
-		$this->add_settings_field( 'desktop_week_more_text', 'Текст для кнопки смотреть больше (...) - Неделя', 'input', 'insta_calendar_desktop' );
-		$this->add_settings_field( 'desktop_week_show_empty_rows', 'Строки без тренировок - Неделя', 'select', 'insta_calendar_desktop',
-			[ '1' => 'Показывать', '0' => 'Не показывать' ] );
-		$this->add_settings_field( 'desktop_filter_train_show', 'Фильтр по тренировкам', 'select', 'insta_calendar_desktop',
-			[ '1' => 'Показывать', '0' => 'Не показывать' ] );
-		$this->add_settings_field( 'desktop_filter_couch_show', 'Фильтр по инструкторам', 'select', 'insta_calendar_desktop',
-			[ '1' => 'Показывать', '0' => 'Не показывать' ] );
-		$this->add_settings_field( 'desktop_filter_activity_show', 'Фильтр по направлениям', 'select', 'insta_calendar_desktop',
-			[ '1' => 'Показывать', '0' => 'Не показывать' ] );
-		$this->add_settings_field( 'desktop_filter_complexity_show', 'Фильтр по сложности', 'select', 'insta_calendar_desktop',
-			[ '1' => 'Показывать', '0' => 'Не показывать' ] );
-
-		//Шрифты
-		add_settings_section( 'insta_calendar_desktop_fonts', 'Шрифты', '', 'insta_calendar' );
-
-		$this->add_settings_field( 'desktop_nav_filter_font', 'Шрифт студий, фильтров и типа календаря', 'input', 'insta_calendar_desktop_fonts' );
-		$this->add_settings_field( 'desktop_event_title_time_font', 'Шрифт названия и времени события', 'input', 'insta_calendar_desktop_fonts' );
-		$this->add_settings_field( 'desktop_event_dur_seats_font', 'Шрифт продолжительности и мест события', 'input', 'insta_calendar_desktop_fonts' );
-		$this->add_settings_field( 'desktop_date_font', 'Шрифт текущей даты', 'input', 'insta_calendar_desktop_fonts' );
-		$this->add_settings_field( 'desktop_days_of_week_font', 'Шрифт названия дней недели', 'input', 'insta_calendar_desktop_fonts' );
-		$this->add_settings_field( 'desktop_month_days_numbers_font', 'Шрифт числа дня (месяц)', 'input', 'insta_calendar_desktop_fonts' );
-		$this->add_settings_field( 'desktop_week_hours_font', 'Шрифт времени (неделя)', 'input', 'insta_calendar_desktop_fonts' );
-		$this->add_settings_field( 'desktop_filter_list_font', 'Шрифт списка в фильтре', 'input', 'insta_calendar_desktop_fonts' );
-
-		// Настройки Мобильной версии календаря
-		add_settings_section( 'insta_calendar_mobile', 'Настройки Мобильной версии календаря', '', 'insta_calendar' );
-		$this->add_settings_field( 'mobile_additional_info_week_duration', 'Дополнительная информация (продолжительность тренировки)', 'select', 'insta_calendar_mobile',
-			[ '1' => 'Показывать', '0' => 'Не показывать' ] );
-		$this->add_settings_field( 'mobile_additional_info_week_seats', 'Дополнительная информация (свободные места)', 'select', 'insta_calendar_mobile',
-			[ '1' => 'Показывать', '0' => 'Не показывать' ] );
-		$this->add_settings_field( 'mobile_filter_train_show', 'Фильтр по тренировкам', 'select', 'insta_calendar_mobile',
-			[ '1' => 'Показывать', '0' => 'Не показывать' ] );
-		$this->add_settings_field( 'mobile_filter_couch_show', 'Фильтр по инструкторам', 'select', 'insta_calendar_mobile',
-			[ '1' => 'Показывать', '0' => 'Не показывать' ] );
-		$this->add_settings_field( 'mobile_filter_activity_show', 'Фильтр по направлениям', 'select', 'insta_calendar_mobile',
-			[ '1' => 'Показывать', '0' => 'Не показывать' ] );
-		$this->add_settings_field( 'mobile_filter_complexity_show', 'Фильтр по сложности', 'select', 'insta_calendar_mobile',
-			[ '1' => 'Показывать', '0' => 'Не показывать' ] );
-
-		//Шрифты
-		add_settings_section( 'insta_calendar_mobile_fonts', 'Шрифты', '', 'insta_calendar' );
-
-		$this->add_settings_field( 'mobile_nav_filter_font', 'Шрифт студий, фильтров', 'input', 'insta_calendar_mobile_fonts' );
-		$this->add_settings_field( 'mobile_event_title_time_font', 'Шрифт названия и времени события', 'input', 'insta_calendar_mobile_fonts' );
-		$this->add_settings_field( 'mobile_event_dur_seats_font', 'Шрифт продолжительности и мест события', 'input', 'insta_calendar_mobile_fonts' );
-		$this->add_settings_field( 'mobile_title_font', 'Шрифт тайтла', 'input', 'insta_calendar_mobile_fonts' );
-		$this->add_settings_field( 'mobile_days_of_week_font', 'Шрифт названия дней недели', 'input', 'insta_calendar_mobile_fonts' );
 
 	}
 
@@ -173,6 +346,11 @@ class InstaCalendarAdmin {
 			echo '</select>';
 		}
 	}
+
+    function sanitize_callback($options){
+        $old_options = insta_get_options();
+        return wp_parse_args( $options, $old_options );
+    }
 }
 
 new InstaCalendarAdmin();

@@ -71,7 +71,7 @@
 								<div class="insta_filter_1-item">
 									<div class="insta_table">
 										<div class="insta_table-tr">
-											<div class="insta_table-td" style="background-color: #61dc35;"></div>
+											<div class="insta_table-td" style="background-color: {{data.club.secondaryTextColor}};"></div>
 											<div class="insta_table-td">
 												<a href="#" data-filter="{{key}}"
 												   data-val="0"><?php _e( 'Все', 'instasport' ) ?></a>
@@ -86,7 +86,7 @@
 									<div class="insta_table">
 										<div class="insta_table-tr">
 											<div class="insta_table-td"
-											     style="background-color: {{ item.color ? item.color : '#ccc' }};"></div>
+											     style="background-color: {{ item.color ? item.color : data.club.primaryTextColor }};"></div>
 											<div class="insta_table-td">
 												<a href="#" data-filter="{{key}}"
 												   data-val="{{k}}">{{item.title}}</a>

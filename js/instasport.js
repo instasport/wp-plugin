@@ -49,9 +49,13 @@ jQuery(document).ready(function ($) {
             if(id == 0 && instasport.settings.desktop.useApiColors){
                 let css = '';
                 css += '--primaryColor:' + club.primaryColor + ';';
+                css += '--primaryColorRGB:' + hexToRgb(club.primaryColor) + ';';
                 css += '--secondaryColor:' + club.secondaryColor + ';';
+                css += '--secondaryColorRGB:' + hexToRgb(club.secondaryColor) + ';';
                 css += '--primaryTextColor:' + club.primaryTextColor + ';';
+                css += '--primaryTextColorRGB:' + hexToRgb(club.primaryTextColor) + ';';
                 css += '--secondaryTextColor:' + club.secondaryTextColor + ';';
+                css += '--secondaryTextColorRGB:' + hexToRgb(club.secondaryTextColor) + ';';
                 $('body').append('<style>.instaCalendar,.instasportProfileButton,.instasportPilotButton,#instaModal{'+css+'}</style>');
             }
 
@@ -94,7 +98,6 @@ jQuery(document).ready(function ($) {
     }
 
     init();
-
 
     /**
      * Инициализация объекта user значениями по умолчанию
@@ -1470,6 +1473,12 @@ jQuery(document).ready(function ($) {
         return new Promise(
             resolve => setTimeout(resolve, ms)
         );
+    }
+
+    function hexToRgb(hex) {
+           return hex.replace(/^#?([a-f\d])([a-f\d])([a-f\d])$/i ,(m, r, g, b) => '#' + r + r + g + g + b + b)
+                .substring(1).match(/.{2}/g)
+                .map(x => parseInt(x, 16))
     }
 
 });
