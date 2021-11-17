@@ -71,4 +71,6 @@ button_profile.php - Кнопка авторизации/профиля
 * Mobile schedule redesigned
 = v2.1.6 =
 * Bugs fixed.
+= v2.1.7 =
+* Bugs fixed.
 
