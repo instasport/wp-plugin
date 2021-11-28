@@ -127,7 +127,7 @@ class InstaCalendarAdmin {
             'label' => 'Фильтр по тренировкам',
             'choices' => ['0' => 'Не показывать', '1' => 'Показывать'],
         ]);
-        $this->customize_add_field($wp_customize, 'desktop_filter_couch_show', [
+        $this->customize_add_field($wp_customize, 'desktop_filter_instructor_show', [
             'section'  => 'instasport_desktop_section',
             'type'     => 'select',
             'label' => 'Фильтр по инструкторам',
@@ -206,7 +206,7 @@ class InstaCalendarAdmin {
             'label' => 'Фильтр по тренировкам',
             'choices' => ['0' => 'Не показывать', '1' => 'Показывать'],
         ]);
-        $this->customize_add_field($wp_customize, 'mobile_filter_couch_show', [
+        $this->customize_add_field($wp_customize, 'mobile_filter_instructor_show', [
             'section'  => 'instasport_mobile_section',
             'type'     => 'select',
             'label' => 'Фильтр по инструкторам',

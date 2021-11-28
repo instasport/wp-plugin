@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Instasport Calendar
  * Description: Instasport Calendar plugin
- * Version: 2.1.7
+ * Version: 2.1.8
  * Author: Instasport
  * Author URI: https://info.instasport.co
  * License: GPLv2 or later versions
@@ -48,7 +48,7 @@ function insta_get_options() {
 		'desktop_week_more_text'               => ' ...',
 		'desktop_week_show_empty_rows'         => '1',
 		'desktop_filter_train_show'            => '1',
-		'desktop_filter_couch_show'            => '1',
+		'desktop_filter_instructor_show'       => '1',
 		'desktop_filter_complexity_show'       => '1',
 		'desktop_filter_activity_show'         => '1',
 		'desktop_nav_filter_font'              => '14px',
@@ -63,7 +63,7 @@ function insta_get_options() {
 		'mobile_additional_info_week_duration' => '1',
 		'mobile_additional_info_week_seats'    => '1',
 		'mobile_filter_train_show'             => '1',
-		'mobile_filter_couch_show'             => '1',
+		'mobile_filter_instructor_show'        => '1',
 		'mobile_filter_complexity_show'        => '1',
 		'mobile_filter_activity_show'          => '1',
 		'mobile_nav_filter_font'               => '14px',

@@ -222,8 +222,8 @@ class InstaCalendarShortcode {
             }
 
             <?php endif;?>
-            <?php if(!$options['desktop_filter_couch_show']):?>
-            .instaCalendar .ic-calendar .ic-filters .ic-filter-item-couch {
+            <?php if(!$options['desktop_filter_instructor_show']):?>
+            .instaCalendar .ic-calendar .ic-filters .ic-filter-item-instructor {
                 display: none !important;
             }
 
@@ -274,8 +274,8 @@ class InstaCalendarShortcode {
                 }
 
             <?php endif;?>
-            <?php if(!$options['mobile_filter_couch_show']):?>
-                .instaCalendar .ic-calendar .ic-filters .ic-filter-item-couch {
+            <?php if(!$options['mobile_filter_instructor_show']):?>
+                .instaCalendar .ic-calendar .ic-filters .ic-filter-item-instructor {
                     display: none !important;
                 }
 
@@ -319,7 +319,7 @@ class InstaCalendarShortcode {
 				'desktopWidth' => $options['desktop_width'],
 				'filters'      => [
 					'train'      => ! ! $options['desktop_filter_train_show'],
-					'couch'      => ! ! $options['desktop_filter_couch_show'],
+					'instructor' => ! ! $options['desktop_filter_instructor_show'],
 					'activity'   => ! ! $options['desktop_filter_activity_show'],
 					'complexity' => ! ! $options['desktop_filter_complexity_show'],
 				],
@@ -340,7 +340,7 @@ class InstaCalendarShortcode {
 			'mobile'  => [
 				'filters'      => [
 					'train'      => ! ! $options['mobile_filter_train_show'],
-					'couch'      => ! ! $options['mobile_filter_couch_show'],
+					'instructor'      => ! ! $options['mobile_filter_instructor_show'],
 					'activity'   => ! ! $options['mobile_filter_activity_show'],
 					'complexity' => ! ! $options['mobile_filter_complexity_show'],
 				],
