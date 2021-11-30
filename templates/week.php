@@ -9,7 +9,7 @@
                 #>
                 <# while (date <= endDate) { #>
                 <div class="ic-td {{ date.isSame(now, 'day') ? 'ic-today' : ''}} {{ date.isSame(data.club.args.date, 'day') ? 'active' : ''}}"
-                     data-day="{{date.format('D')}}"
+                     data-day="{{date.format('D')}}" data-month="{{date.format('M')}}" data-year="{{date.format('YYYY')}}"
                 >
                     <div class="ic-desktop">
                         {{ date.format('dddd') }}

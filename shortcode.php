@@ -82,7 +82,7 @@ class InstaCalendarShortcode {
 				'wp-util',
 				'axios',
 				'moment',
-			], '2.1.7', true );
+			], '2.1.9', true );
 			wp_localize_script( 'instasport-calendar', 'instasport', $script_data );
 
 			// Вывод шаблонов в футере

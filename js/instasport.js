@@ -659,6 +659,10 @@ jQuery(document).ready(function ($) {
 
         let w = club.args.date.format('W');
 
+        console.log(club.args.view, instasport.is_mobile());
+        console.log(next);
+
+
         // День (мобильная версия)
         if (instasport.is_mobile()) {
             if (next) {
@@ -676,11 +680,13 @@ jQuery(document).ready(function ($) {
 
         // Неделя
         else if (club.args.view == 'week') {
+            console.log(club.args.date.format('DD.MM.YYYY HH:MM'))
             if (next) {
-                club.args.date.day('monday').add(1, 'w');
+                club.args.date.day('monday').add(8, 'd');
             } else {
                 club.args.date.day('sunday').subtract(1, 'd');
             }
+            console.log(club.args.date.format('DD.MM.YYYY HH:MM'))
         }
 
         // Месяц
@@ -701,7 +707,11 @@ jQuery(document).ready(function ($) {
         if (instasport.is_mobile()) {
             let id = $(e.delegateTarget).data('id');
             let day = parseInt($(this).data('day'));
+            let month = parseInt($(this).data('month'));
+            let year = parseInt($(this).data('year'));
             instasport.clubs[id].args.date.date(day);
+            instasport.clubs[id].args.date.month(month-1);
+            instasport.clubs[id].args.date.year(year);
             updateCalendar(id);
         }
     });
@@ -1466,7 +1476,7 @@ jQuery(document).ready(function ($) {
     }
 
     instasport.is_mobile = function () {
-            return $('.instaCalendar').width() < 640 || window.innerWidth < 768;
+            return window.innerWidth <= 768;
     }
 
     function sleep(ms) {

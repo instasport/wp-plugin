@@ -75,4 +75,6 @@ button_profile.php - Кнопка авторизации/профиля
 * Bugs fixed.
 = v2.1.8 =
 * Bugs fixed.
+= v2.1.9 =
+* Bugs fixed.
 

@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Instasport Calendar
  * Description: Instasport Calendar plugin
- * Version: 2.1.8
+ * Version: 2.1.9
  * Author: Instasport
  * Author URI: https://info.instasport.co
  * License: GPLv2 or later versions
