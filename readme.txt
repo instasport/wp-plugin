@@ -3,7 +3,7 @@ Contributors: Instasport
 Tags:
 Requires at least: 4.8
 Tested up to: 5.6.1
-Stable tag:  2.1.0
+Stable tag:  2.1.10
 Requires PHP: 5.6.20
 License: GPLv2 or later
 License URI: https://gnu.org/licenses/gpl-2.0.html
@@ -77,4 +77,5 @@ button_profile.php - Кнопка авторизации/профиля
 * Bugs fixed.
 = v2.1.9 =
 * Bugs fixed.
-
+= v2.1.10 =
+* API url.

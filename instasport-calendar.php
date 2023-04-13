@@ -24,6 +24,7 @@ include_once __DIR__ . '/shortcode.php';
 function insta_get_options() {
     //delete_option('insta_calendar');exit;
 	$defaults = [
+		'api_url'                              => 'https://instasport.ua/admin/api',
 		'club'                                 => '',
 		'key'                                  => '',
 		'code'                                 => '',

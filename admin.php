@@ -293,13 +293,16 @@ class InstaCalendarAdmin {
 		// Настройки API
 		$options = insta_get_options();
 
-		add_settings_section( 'insta_calendar_api', 'API [instasport-calendar]', '', 'insta_calendar' );
+        add_settings_section( 'insta_calendar_api', 'API', '', 'insta_calendar' );
+        $this->add_settings_field( 'api_url', 'URL ', 'input', 'insta_calendar_api','', 'calendar_api');
+
+        add_settings_section( 'insta_calendar_api', '[instasport-calendar]', '', 'insta_calendar' );
 		$this->add_settings_field( 'club', 'Slug ', 'input', 'insta_calendar_api','', 'calendar_api');
 		$this->add_settings_field( 'key', 'Key ', 'input', 'insta_calendar_api','', 'calendar_api' );
 
         $i = 2;
 		do{
-			add_settings_section( 'insta_calendar_api_' . $i, 'API-' . $i . ' [instasport-calendar id=' . $i . ']', '', 'insta_calendar' );
+			add_settings_section( 'insta_calendar_api_' . $i, ' [instasport-calendar id=' . $i . ']', '', 'insta_calendar' );
 			$this->add_settings_field( 'club_' . $i, 'Slug ', 'input', 'insta_calendar_api_' . $i,'', 'calendar_api');
 			$this->add_settings_field( 'key_' . $i, 'Key ', 'input', 'insta_calendar_api_' . $i,'', 'calendar_api' );
 		    $i++;

@@ -15,7 +15,8 @@ class InstaCalendarAPI{
 			'Authorization' =>  ( $accessToken ? "Token $accessToken" : "Key $key") . " $club",
 		];
 
-		$response = wp_remote_post( 'https://instasport.co/api/', [
+		$options = insta_get_options();
+		$response = wp_remote_post( $options['api_url'], [
 			'body' => $query,
 			'headers' => $headers,
 			'timeout'     => 60,
@@ -63,7 +64,8 @@ class InstaCalendarAPI{
 			'Authorization' => "Refresh $refreshToken",
 		];
 
-		$response = wp_remote_post( 'https://instasport.co/api/', [
+		$options = insta_get_options();
+		$response = wp_remote_post( $options['api_url'], [
 			'body' => $query,
 			'headers' => $headers,
 			'timeout'     => 60,
